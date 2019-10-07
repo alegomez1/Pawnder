@@ -5,7 +5,7 @@ import Countries from './pages/Countries'
 import AddCountry from './pages/AddCountry'
 import Secret from './pages/Secret'
 import Login from './pages/Login'
-import Signup from './pages/Signup'
+import Signup from './Signup'
 import api from '../api'
 
 // Components
