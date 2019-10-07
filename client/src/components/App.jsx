@@ -28,7 +28,7 @@ export default class App extends Component {
     return (
         <div>
           <Navbar />
-          
+
         <Switch>
 
         </Switch>
@@ -43,10 +43,10 @@ export default class App extends Component {
 
 
 
-          {/* {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
+          /* {     {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
           {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
           {api.isLoggedIn() && (
             <Link to="/" onClick={e => this.handleLogoutClick(e)}>
               Logout
             </Link>
-          )} */}
+          )}      }*/
