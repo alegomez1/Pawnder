@@ -8,6 +8,7 @@ export default class Signup extends Component {
       username: '',
       name: '',
       password: '',
+      imageURL: '',
       message: null,
     }
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -25,6 +26,7 @@ export default class Signup extends Component {
       username: this.state.username,
       name: this.state.name,
       password: this.state.password,
+      imageURL : this.state.imageURL
     }
     api
       .signup(data)
@@ -53,6 +55,14 @@ export default class Signup extends Component {
             type="text"
             value={this.state.name}
             name="name"
+            onChange={this.handleInputChange}
+          />{' '}
+          <br />
+          ImageURL:{' '}
+          <input
+            type="text"
+            value={this.state.imageURL}
+            name="imageURL"
             onChange={this.handleInputChange}
           />{' '}
           <br />
