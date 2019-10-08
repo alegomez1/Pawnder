@@ -26,7 +26,7 @@ app.use(nocache())
 app.use(
   cors({
     origin: (origin, cb) => {
-      cb(null, origin && origin.startsWith('http://localhost:5000'))
+      cb(null, origin && origin.startsWith('http://localhost:3000'))
     },
     optionsSuccessStatus: 200,
     credentials: true,
@@ -55,6 +55,7 @@ require('./passport')(app)
 app.use('/api', require('./routes/index'))
 app.use('/api', require('./routes/auth'))
 app.use('/api/countries', require('./routes/countries'))
+app.use('/api/users', require('./routes/users'))
 
 // For any routes that starts with "/api", catch 404 and forward to error handler
 app.use('/api/*', (req, res, next) => {

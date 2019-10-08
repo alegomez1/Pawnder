@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 import { Route, Link, NavLink, Switch } from 'react-router-dom'
-import Home from './pages/Home'
-import Countries from './pages/Countries'
-import AddCountry from './pages/AddCountry'
-import Secret from './pages/Secret'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
 import api from '../api'
+import Navbar from './Navbar'
+import Home from './Home'
+import Signup from './Signup'
+import UserProfile from './UserProfile'
+import AddPet from './AddPet'
 
 // Components
-import Navbar from './Navbar'
-
 
 export default class App extends Component {
   constructor(props) {
@@ -19,34 +16,21 @@ export default class App extends Component {
       countries: [],
     }
   }
-
   handleLogoutClick(e) {
     api.logout()
   }
 
   render() {
     return (
-        <div>
-          <Navbar />
-
+      <div>
+        <Navbar />
         <Switch>
-
+          <Route exact path="/" component={Home} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/profile" component={UserProfile} />
+          <Route path="/addPet" component={AddPet}></Route>
         </Switch>
       </div>
     )
   }
 }
-
-
-
-
-
-
-
-          /* {     {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
-          {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
-          {api.isLoggedIn() && (
-            <Link to="/" onClick={e => this.handleLogoutClick(e)}>
-              Logout
-            </Link>
-          )}      }*/

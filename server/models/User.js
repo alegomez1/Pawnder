@@ -4,7 +4,12 @@ const Schema = mongoose.Schema
 const userSchema = new Schema(
   {
     username: String,
+    ownerName: String,
+    ownerImage: String,
+    ownerBio: String,
+    ownerAge: String,
     password: String,
+
   },
   {
     timestamps: {

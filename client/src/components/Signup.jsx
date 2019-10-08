@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
-import api from '../../api'
+import api from '../api'
 
 export default class Signup extends Component {
   constructor(props) {
     super(props)
     this.state = {
       username: '',
-      name: '',
+      ownerName: '',
       password: '',
+      ownerImage: '',
+      ownerBio: '',
+      ownerAge: '',
       message: null,
     }
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -23,13 +26,16 @@ export default class Signup extends Component {
     e.preventDefault()
     let data = {
       username: this.state.username,
-      name: this.state.name,
+      ownerName: this.state.ownerName,
       password: this.state.password,
+      ownerImage : this.state.ownerImage,
+      ownerBio : this.state.ownerBio,
+      ownerAge : this.state.ownerAge
     }
     api
       .signup(data)
       .then(result => {
-        console.log('SUCCESS!')
+        console.log('SUCCESS!=====>', result)
         this.props.history.push('/') // Redirect to the home page
       })
       .catch(err => this.setState({ message: err.toString() }))
@@ -51,8 +57,32 @@ export default class Signup extends Component {
           Name:{' '}
           <input
             type="text"
-            value={this.state.name}
-            name="name"
+            value={this.state.ownerName}
+            name="ownerName"
+            onChange={this.handleInputChange}
+          />{' '}
+          <br />
+          ImageURL:{' '}
+          <input
+            type="text"
+            value={this.state.ownerImage}
+            name="ownerImage"
+            onChange={this.handleInputChange}
+          />{' '}
+          <br />
+          About you:{' '}
+          <input
+            type="text"
+            value={this.state.ownerBio}
+            name="ownerBio"
+            onChange={this.handleInputChange}
+          />{' '}
+          <br />
+          Aage:{' '}
+          <input
+            type="text"
+            value={this.state.ownerAge}
+            name="ownerAge"
             onChange={this.handleInputChange}
           />{' '}
           <br />

@@ -27,7 +27,8 @@ let users = [
 
 User.deleteMany()
   .then(() => {
-    return User.create(users)
+    return 
+    (users)
   })
   .then(usersCreated => {
     console.log(`${usersCreated.length} users created with the following id:`)
