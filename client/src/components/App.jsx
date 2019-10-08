@@ -3,6 +3,7 @@ import { Route, Link, NavLink, Switch } from 'react-router-dom'
 
 import api from '../api'
 import Navbar from './Navbar'
+import Home from './Home'
 
 // Components
 
@@ -22,10 +23,7 @@ export default class App extends Component {
     return (
       <div>
       <Navbar />
-
-        <Switch>
-
-        </Switch>
+      <Home />
       </div>
     )
   }
