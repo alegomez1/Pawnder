@@ -34,11 +34,6 @@ class Navbar extends Component {
           </div>
         </nav>
 
-        <Switch>
-        <Route exact path="/" component={Home} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/profile" component={UserProfile} />
-        </Switch>
       </div>
     )
   }

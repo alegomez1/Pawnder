@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import { Route, Link, NavLink, Switch } from 'react-router-dom'
 import api from '../api'
+import AddPet from './AddPet'
+import Home from './Home'
 
 class UserProfile extends Component {
   state = {
@@ -45,13 +48,12 @@ class UserProfile extends Component {
           <p>Activities: </p>
         </div>
       )
-    }
-    else{
-      return(
-          <div>
-          <button onClick={this.addPet}>Add Pet</button>
-          <br/>
-          </div>
+    } else {
+      return (
+        <div>
+          <NavLink to="/addPet"><button>Add Pet</button></NavLink>
+          <br />
+        </div>
       )
     }
   }
