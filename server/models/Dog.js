@@ -11,5 +11,5 @@ const dogSchema = new Schema(
   }
 )
 
-const User = mongoose.model('Dog', dogSchema)
+const Dog = mongoose.model('Dog', dogSchema)
 module.exports = Dog

@@ -29,7 +29,7 @@ export default class AddPet extends Component {
       dogAge : this.state.dogAge
     }
     api
-      .signup(data)
+      .addDog(data)
       .then(result => {
         console.log('SUCCESS!=====>', result)
         this.props.history.push('/') // Redirect to the home page
