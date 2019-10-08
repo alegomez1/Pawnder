@@ -61,7 +61,6 @@ class UserProfile extends Component {
     return (
       <div>
         {this.checkHasPet()}
-
         <img src="" alt="owner image" />
         <h4>{this.state.ownerName}</h4>
         <p>Bio: {this.state.ownerBio}</p>
