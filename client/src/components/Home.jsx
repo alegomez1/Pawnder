@@ -4,7 +4,11 @@ import api from '../api'
 export default class Home extends Component {
 
   state={
-    user: ''
+    user: '',
+    userImage: '',
+    petName: '',
+    petImage: '',
+
   }
   async componentDidMount(){  
   let current = await api.getLocalStorageUser()
