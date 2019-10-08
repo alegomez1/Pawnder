@@ -17,9 +17,9 @@ class UserProfile extends Component {
     ownerBio: '',
     ownerAge: '',
     ownerActivities: '',
+
     // hasPet: this.props.location.petProps
   }
-
   // Getting info from API
   async componentDidMount() {
     let current = await api.getLocalStorageUser()
@@ -30,17 +30,20 @@ class UserProfile extends Component {
         ownerBio: current.ownerBio,
         ownerAge: current.ownerAge,
       })
-    }
 
-    Axios.get('/api/myDogs').then((data)=>{
-      console.log('ALL USER DOGS===>', data)
+   await Axios.get('http://localhost:5000/api/myDogs').then((dog)=>{
+     
+      console.log('ALL USER DOGS===>', dog.data[0].dogName)
+      this.setState({
+        dogName: 'ALEX'
+      })
+    
     })
-
+  }
     //Axios.get('/mypets')
     //set pets to state
     //show pets 
-    //if no pets, redirect or show button ? 
-
+    //if no pets, redirect or show button ?
 
   }
 
@@ -49,7 +52,7 @@ class UserProfile extends Component {
   }
 
   checkHasPet = () => {
-    if (this.props.hasPet) {
+    if (this.state.dogName != '') {
       return (
         <div>
           <h2>Profile page</h2>
@@ -74,7 +77,7 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
-        {this.checkHasPet()}
+            {this.checkHasPet()}
         <img src="" alt="owner image" />
         <h4>{this.state.ownerName}</h4>
         <p>Bio: {this.state.ownerBio}</p>
