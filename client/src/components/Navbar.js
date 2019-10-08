@@ -27,7 +27,7 @@ class Navbar extends Component {
                 Logout
               </Link>)}
               {api.isLoggedIn() && (
-              <Link to="/profile" onClick={e => this.handleLogoutClick(e)}>
+              <Link to="/profile">
                 Profile
               </Link>
             )}

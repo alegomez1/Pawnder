@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import api from '../api'
 
 class UserProfile extends Component {
 
@@ -12,6 +13,16 @@ class UserProfile extends Component {
     ownerName: '',
     ownerBio: '',
   }
+
+  // Getting info from API
+  async componentDidMount(){  
+    let current = await api.getLocalStorageUser()
+    if(current != null){
+      this.setState({
+        ownerName:current.username
+      })
+    }
+    }
   render () {
     return (
       <div>
@@ -23,7 +34,7 @@ class UserProfile extends Component {
         <p>Activities: </p>
 
         <img src = '' alt ='owner image'/>
-        <h4>Name</h4>
+        <h4>{this.state.ownerName}</h4>
         <p>Bio: </p>
         <p>Age: </p>
         <p>Activities: </p>
