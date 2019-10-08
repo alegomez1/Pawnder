@@ -19,8 +19,6 @@ export default class Home extends Component {
   }
   }
   render() {
-
-    
     return (
       <div className="Home">
         <h2>Welcome to Pawnder! {this.state.user}</h2>
