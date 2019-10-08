@@ -12,6 +12,8 @@ class UserProfile extends Component {
     ownerImage: '',
     ownerName: '',
     ownerBio: '',
+    ownerAge: '',
+    ownerActivities: '',
   }
 
   // Getting info from API
@@ -19,7 +21,10 @@ class UserProfile extends Component {
     let current = await api.getLocalStorageUser()
     if(current != null){
       this.setState({
-        ownerName:current.username
+        ownerImage: current.ownerImage,
+        ownerName:current.username,
+        ownerBio: current.ownerBio,
+        ownerAge: current.ownerAge
       })
     }
     }
@@ -35,8 +40,8 @@ class UserProfile extends Component {
 
         <img src = '' alt ='owner image'/>
         <h4>{this.state.ownerName}</h4>
-        <p>Bio: </p>
-        <p>Age: </p>
+        <p>Bio: {this.state.ownerBio}</p>
+        <p>Age: {this.state.ownerAge}</p>
         <p>Activities: </p>
       </div>
     )

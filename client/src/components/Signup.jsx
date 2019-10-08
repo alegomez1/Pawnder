@@ -6,9 +6,11 @@ export default class Signup extends Component {
     super(props)
     this.state = {
       username: '',
-      name: '',
+      ownerName: '',
       password: '',
-      imageURL: '',
+      ownerImage: '',
+      ownerBio: '',
+      ownerAge: '',
       message: null,
     }
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -24,9 +26,11 @@ export default class Signup extends Component {
     e.preventDefault()
     let data = {
       username: this.state.username,
-      name: this.state.name,
+      ownerName: this.state.ownerName,
       password: this.state.password,
-      imageURL : this.state.imageURL
+      ownerImage : this.state.ownerImage,
+      ownerBio : this.state.ownerBio,
+      ownerAge : this.state.ownerAge
     }
     api
       .signup(data)
@@ -53,16 +57,32 @@ export default class Signup extends Component {
           Name:{' '}
           <input
             type="text"
-            value={this.state.name}
-            name="name"
+            value={this.state.ownerName}
+            name="ownerName"
             onChange={this.handleInputChange}
           />{' '}
           <br />
           ImageURL:{' '}
           <input
             type="text"
-            value={this.state.imageURL}
-            name="imageURL"
+            value={this.state.ownerImage}
+            name="ownerImage"
+            onChange={this.handleInputChange}
+          />{' '}
+          <br />
+          About you:{' '}
+          <input
+            type="text"
+            value={this.state.ownerBio}
+            name="ownerBio"
+            onChange={this.handleInputChange}
+          />{' '}
+          <br />
+          Aage:{' '}
+          <input
+            type="text"
+            value={this.state.ownerAge}
+            name="ownerAge"
             onChange={this.handleInputChange}
           />{' '}
           <br />

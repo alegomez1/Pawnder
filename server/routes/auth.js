@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt')
 const bcryptSalt = 10
 
 router.post('/signup', (req, res, next) => {
-  const { username, password, name, imageURL} = req.body
+  const { username, password, ownerName, ownerImage, ownerBio, ownerAge} = req.body
   if (!username || !password) {
     res.status(400).json({ message: 'Indicate username and password' })
     return
@@ -21,7 +21,7 @@ router.post('/signup', (req, res, next) => {
       }
       const salt = bcrypt.genSaltSync(bcryptSalt)
       const hashPass = bcrypt.hashSync(password, salt)
-      const newUser = new User({ username, password: hashPass, name, imageURL })
+      const newUser = new User({ username, password: hashPass, ownerName, ownerImage, ownerBio, ownerAge })
       return newUser.save()
     })
     .then(userSaved => {
