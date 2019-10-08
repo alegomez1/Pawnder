@@ -78,7 +78,7 @@ export default class Signup extends Component {
             onChange={this.handleInputChange}
           />{' '}
           <br />
-          Aage:{' '}
+          Age:{' '}
           <input
             type="text"
             value={this.state.ownerAge}

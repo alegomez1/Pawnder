@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Route, Link, NavLink, Switch } from 'react-router-dom'
 import api from '../api'
 
 export default class AddPet extends Component {
@@ -20,19 +21,22 @@ export default class AddPet extends Component {
     })
   }
 
-  handleClick(e) {
+  handleSubmit = e => {
     e.preventDefault()
     let data = {
       dogName: this.state.dogName,
-      dogImage : this.state.dogImage,
-      dogBio : this.state.dogBio,
-      dogAge : this.state.dogAge
+      dogImage: this.state.dogImage,
+      dogBio: this.state.dogBio,
+      dogAge: this.state.dogAge,
     }
+    console.log('hi')
+
     api
       .addDog(data)
       .then(result => {
         console.log('SUCCESS!=====>', result)
-        this.props.history.push('/') // Redirect to the home page
+        this.props.toggleHasPet()
+        this.props.history.push('/profile') // Redirect to the home page
       })
       .catch(err => this.setState({ message: err.toString() }))
   }
@@ -40,8 +44,8 @@ export default class AddPet extends Component {
   render() {
     return (
       <div className="Signup">
-        <h2>Add Dog</h2>
-        <form>
+        <h2>Add Dog</h2> {this.state.message}
+        <form onSubmit={this.handleSubmit}>
           Dog's Name:{' '}
           <input
             type="text"
@@ -74,7 +78,16 @@ export default class AddPet extends Component {
             onChange={this.handleInputChange}
           />{' '}
           <br />
-          <button onClick={e => this.handleClick(e)}>Add Pet</button>
+          {/* <Link
+            to={{
+              pathname: '/profile',
+              petProps: {
+                hasPet: true,
+              },
+            }}
+          > */}
+          <input type="submit" value="Add Pet" />
+          {/* </Link> */}
         </form>
         {this.state.message && (
           <div className="info info-danger">{this.state.message}</div>

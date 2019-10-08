@@ -3,6 +3,7 @@ import { Route, Link, NavLink, Switch } from 'react-router-dom'
 import api from '../api'
 import AddPet from './AddPet'
 import Home from './Home'
+import Axios from 'axios'
 
 class UserProfile extends Component {
   state = {
@@ -16,7 +17,7 @@ class UserProfile extends Component {
     ownerBio: '',
     ownerAge: '',
     ownerActivities: '',
-    hasPet: false,
+    // hasPet: this.props.location.petProps
   }
 
   // Getting info from API
@@ -30,6 +31,17 @@ class UserProfile extends Component {
         ownerAge: current.ownerAge,
       })
     }
+
+    Axios.get('/api/myDogs').then((data)=>{
+      console.log('ALL USER DOGS===>', data)
+    })
+
+    //Axios.get('/mypets')
+    //set pets to state
+    //show pets 
+    //if no pets, redirect or show button ? 
+
+
   }
 
   addPet = () => {
@@ -37,7 +49,7 @@ class UserProfile extends Component {
   }
 
   checkHasPet = () => {
-    if (this.state.hasPet) {
+    if (this.props.hasPet) {
       return (
         <div>
           <h2>Profile page</h2>
@@ -51,7 +63,9 @@ class UserProfile extends Component {
     } else {
       return (
         <div>
-          <NavLink to="/addPet"><button>Add Pet</button></NavLink>
+          <NavLink to="/addPet">
+            <button>Add Pet</button>
+          </NavLink>
           <br />
         </div>
       )

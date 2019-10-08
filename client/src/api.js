@@ -44,17 +44,26 @@ export default {
       .catch(errHandler)
   },
 
-    // This method adds a dog to the user
-    addDog(dogInfo) {
-      return service
-        .post('/addPet', dogInfo)
-        .then(res => {
-          // If we have localStorage.getItem('dog') saved, the application will consider we are loggedin
-          localStorage.setItem('dog', JSON.stringify(res.data))
-          return res.data
-        })
-        .catch(errHandler)
-    },
+  // This method adds a dog to the user
+  addDog(dogInfo) {
+    console.log(dogInfo)
+    return service
+      .post('/addPet', dogInfo)
+      .then(res => {
+        console.log(res)
+        // If we have localStorage.getItem('dog') saved, the application will consider we are loggedin
+        localStorage.setItem('dog', JSON.stringify(res.data))
+        return res.data
+      })
+      .catch(errHandler)
+  },
+
+  getPets() {
+    return service
+      .get('/myDogs')
+      .then(res => res.data)
+      .catch(errHandler)
+  },
 
   login(username, password) {
     return service
