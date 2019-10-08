@@ -8,9 +8,11 @@ export default class Home extends Component {
   }
   async componentDidMount(){  
   let current = await api.getLocalStorageUser()
-  this.setState({
-    user:current.username
-  })
+  if(current != null){
+    this.setState({
+      user:current.username
+    })
+  }
   }
   render() {
 
