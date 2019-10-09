@@ -8,6 +8,7 @@ const dogSchema = new Schema(
     dogBio: String,
     dogActivities: String,
     dogAge: String,
+    ownerID: String
   }
 )
 

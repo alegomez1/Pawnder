@@ -56,7 +56,7 @@ router.post('/signup', (req, res, next) => {
 
 // Add Pet to account test
 router.post('/addPet', (req, res, next) => {
-  const { dogName, dogImage, dogBio, dogAge, dogActivities } = req.body
+  const { dogName, dogImage, dogBio, dogAge, dogActivities, ownerID } = req.body
   if (!dogImage || !dogImage) {
     res.status(400).json({ message: 'Add all required info' })
     return
@@ -66,7 +66,7 @@ router.post('/addPet', (req, res, next) => {
       res.status(409).json({ message: 'The username already exists' })
       return
     }
-    const newDog = new Dog({ dogName, dogImage, dogBio, dogAge, dogActivities })
+    const newDog = new Dog({ dogName, dogImage, dogBio, dogAge, dogActivities, ownerID })
     newDog.save((err, doc) => {
       res.json({ saved: doc })
     })
