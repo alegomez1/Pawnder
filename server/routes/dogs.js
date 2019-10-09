@@ -12,4 +12,12 @@ router.get('/', (req, res, next) => {
     .catch(err => next(err))
 })
 
+router.get('/:id', (req, res, next) => {
+  Dog.findById(req.params._id)
+    .then(dogs => {
+      res.json(dogs)
+    })
+    .catch(err => next(err))
+})
+
 module.exports = router
