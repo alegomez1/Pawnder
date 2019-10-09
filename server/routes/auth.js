@@ -2,13 +2,21 @@ const express = require('express')
 const passport = require('passport')
 const router = express.Router()
 const User = require('../models/User')
+const Dog = require('../models/Dog')
 
 // Bcrypt to encrypt passwords
 const bcrypt = require('bcrypt')
 const bcryptSalt = 10
 
 router.post('/signup', (req, res, next) => {
-  const { username, password, ownerName, ownerImage, ownerBio, ownerAge} = req.body
+  const {
+    username,
+    password,
+    ownerName,
+    ownerImage,
+    ownerBio,
+    ownerAge,
+  } = req.body
   if (!username || !password) {
     res.status(400).json({ message: 'Indicate username and password' })
     return
@@ -21,12 +29,17 @@ router.post('/signup', (req, res, next) => {
       }
       const salt = bcrypt.genSaltSync(bcryptSalt)
       const hashPass = bcrypt.hashSync(password, salt)
-      const newUser = new User({ username, password: hashPass, ownerName, ownerImage, ownerBio, ownerAge })
+      const newUser = new User({
+        username,
+        password: hashPass,
+        ownerName,
+        ownerImage,
+        ownerBio,
+        ownerAge,
+      })
       return newUser.save()
     })
     .then(userSaved => {
-
-      
       // LOG IN THIS USER
       // "req.logIn()" is a Passport method that calls "serializeUser()"
       // (that saves the USER ID in the session)
@@ -38,8 +51,27 @@ router.post('/signup', (req, res, next) => {
     })
     .catch(err => next(err))
 
+  console.log('SIGN UP POST========>')
+})
 
-    console.log('SIGN UP POST========>')
+// Add Pet to account test
+router.post('/addPet', (req, res, next) => {
+  const { dogName, dogImage, dogBio, dogAge, dogActivities } = req.body
+  if (!dogImage || !dogImage) {
+    res.status(400).json({ message: 'Add all required info' })
+    return
+  }
+  Dog.findOne({ dogName }).then(userDoc => {
+    if (userDoc !== null) {
+      res.status(409).json({ message: 'The username already exists' })
+      return
+    }
+    const newDog = new Dog({ dogName, dogImage, dogBio, dogAge, dogActivities })
+    newDog.save((err, doc) => {
+      res.json({ saved: doc })
+    })
+  })
+  console.log('NEW DOG CREATED========>')
 })
 
 router.post('/login', (req, res, next) => {

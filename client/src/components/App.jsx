@@ -13,11 +13,16 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      countries: [],
     }
   }
   handleLogoutClick(e) {
     api.logout()
+  }
+
+  toggleHasPet = () => {
+    this.setState({
+      hasPet: !this.state.hasPet,
+    })
   }
 
   render() {
@@ -27,8 +32,21 @@ export default class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/signup" component={Signup} />
-          <Route path="/profile" component={UserProfile} />
-          <Route path="/addPet" component={AddPet}></Route>
+          <Route
+            path="/profile"
+            component={props => (
+              <UserProfile {...props} hasPet={this.state.hasPet} />
+            )}
+          />
+          {/* <Route exact path="/addedPet">
+            
+          </Route> */}
+          <Route
+            path="/addPet"
+            component={props => (
+              <AddPet {...props} toggleHasPet={this.toggleHasPet} />
+            )}
+          ></Route>
         </Switch>
       </div>
     )
