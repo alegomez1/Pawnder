@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Route, Link, NavLink, Switch } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import api from '../api'
-import AddPet from './AddPet'
-import Home from './Home'
+// import AddPet from './AddPet'
+// import Home from './Home'
 import Axios from 'axios'
 
 class UserProfile extends Component {
@@ -17,8 +17,6 @@ class UserProfile extends Component {
     ownerBio: '',
     ownerAge: '',
     ownerActivities: '',
-
-    // hasPet: this.props.location.petProps
   }
   // Getting info from API
   async componentDidMount() {
@@ -30,21 +28,22 @@ class UserProfile extends Component {
         ownerBio: current.ownerBio,
         ownerAge: current.ownerAge,
       })
+   await Axios.get('http://localhost:5000/api/myDogs').then((result)=>{
+      console.log('DOG INFO===>', result.data[0])
+      let dog = result.data[0]
 
-   await Axios.get('http://localhost:5000/api/myDogs').then((dog)=>{
-     
-      console.log('ALL USER DOGS===>', dog.data[0].dogName)
-      this.setState({
-        dogName: 'ALEX'
-      })
-    
+      if(dog !== undefined){
+        this.setState({
+          dogImage: dog.dogImage,
+          dogName: dog.dogName,
+          dogBio: dog.dogBio,
+          dogAge: dog.dogAge,
+          dogActivities: dog.dogActivities
+  
+        })
+      }
     })
   }
-    //Axios.get('/mypets')
-    //set pets to state
-    //show pets 
-    //if no pets, redirect or show button ?
-
   }
 
   addPet = () => {
@@ -52,15 +51,16 @@ class UserProfile extends Component {
   }
 
   checkHasPet = () => {
-    if (this.state.dogName != '') {
+    if (this.state.dogName !== '') {
+
       return (
         <div>
-          <h2>Profile page</h2>
-          <img src="" alt="dog image" />
-          <h4>Name</h4>
-          <p>Bio: </p>
-          <p>Age: </p>
-          <p>Activities: </p>
+          <h2>Dog Profile Page</h2>
+          <img src={this.state.dogImage} alt="dogImage" />
+          <h4>Name: {this.state.dogName}</h4>
+          <p>Bio: {this.state.dogBio}</p>
+          <p>Age: {this.state.dogAge}</p>
+          <p>Activities: {this.state.dogActivities}</p>
         </div>
       )
     } else {
@@ -78,7 +78,7 @@ class UserProfile extends Component {
     return (
       <div>
             {this.checkHasPet()}
-        <img src="" alt="owner image" />
+        <img src="" alt="ownerImage" />
         <h4>{this.state.ownerName}</h4>
         <p>Bio: {this.state.ownerBio}</p>
         <p>Age: {this.state.ownerAge}</p>
