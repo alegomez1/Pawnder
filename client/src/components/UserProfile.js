@@ -39,17 +39,11 @@ class UserProfile extends Component {
           dogBio: dog.dogBio,
           dogAge: dog.dogAge,
           dogActivities: dog.dogActivities
-  
         })
       }
     })
   }
   }
-
-  addPet = () => {
-    console.log('ADD PET BUTTON PRESSED')
-  }
-
   checkHasPet = () => {
     if (this.state.dogName !== '') {
 
