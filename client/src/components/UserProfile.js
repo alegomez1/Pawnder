@@ -28,7 +28,7 @@ class UserProfile extends Component {
         ownerBio: current.ownerBio,
         ownerAge: current.ownerAge,
       })
-   await Axios.get('http://localhost:5000/api/myDogs').then((result)=>{
+   await Axios.get('http://localhost:5000/api/dog').then((result)=>{
       console.log('DOG INFO===>', result.data[0])
       let dog = result.data[0]
 
