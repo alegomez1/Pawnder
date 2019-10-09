@@ -60,7 +60,7 @@ export default {
 
   getPets() {
     return service
-      .get('/myDogs')
+      .get('/dog')
       .then(res => res.data)
       .catch(errHandler)
   },

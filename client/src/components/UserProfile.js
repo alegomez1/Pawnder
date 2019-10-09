@@ -21,6 +21,7 @@ class UserProfile extends Component {
   // Getting info from API
   async componentDidMount() {
     let current = await api.getLocalStorageUser()
+    console.log(current)
     if (current != null) {
       this.setState({
         ownerImage: current.ownerImage,
@@ -28,25 +29,24 @@ class UserProfile extends Component {
         ownerBio: current.ownerBio,
         ownerAge: current.ownerAge,
       })
-   await Axios.get('http://localhost:5000/api/myDogs').then((result)=>{
-      console.log('DOG INFO===>', result.data[0])
-      let dog = result.data[0]
+      await Axios.get('http://localhost:5000/api/myDogs').then(result => {
+        console.log('DOG INFO===>', result.data[0])
+        let dog = result.data[0]
 
-      if(dog !== undefined){
-        this.setState({
-          dogImage: dog.dogImage,
-          dogName: dog.dogName,
-          dogBio: dog.dogBio,
-          dogAge: dog.dogAge,
-          dogActivities: dog.dogActivities
-        })
-      }
-    })
-  }
+        if (dog !== undefined) {
+          this.setState({
+            dogImage: dog.dogImage,
+            dogName: dog.dogName,
+            dogBio: dog.dogBio,
+            dogAge: dog.dogAge,
+            dogActivities: dog.dogActivities,
+          })
+        }
+      })
+    }
   }
   checkHasPet = () => {
     if (this.state.dogName !== '') {
-
       return (
         <div>
           <h2>Dog Profile Page</h2>
@@ -71,7 +71,7 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
-            {this.checkHasPet()}
+        {this.checkHasPet()}
         <img src="" alt="ownerImage" />
         <h4>{this.state.ownerName}</h4>
         <p>Bio: {this.state.ownerBio}</p>
