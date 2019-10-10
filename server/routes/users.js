@@ -12,17 +12,17 @@ router.get('/', (req, res, next) => {
     .catch(err => next(err))
 })
 
-router.get('/:city', (req,res,next) => {
-  User.find({city: `${req.params.city}`})
-  .then(miamiUsers=>{
-    res.json(miamiUsers)
-  })
-  .catch(err=>next(err))
-})
+// router.get('/:city', (req,res,next) => {
+//   User.find({city: `${req.params.city}`})
+//   .then(miamiUsers=>{
+//     res.json(miamiUsers)
+//   })
+//   .catch(err=>next(err))
+// })
 
 router.get('/:id', (req, res, next) => {
   console.log('PARAMS===', req.params)
-  User.findById(req.params.id)
+  User.find({_id: `${req.params.id}`})
     .then(singleUser => {
       res.json(singleUser)
     })
