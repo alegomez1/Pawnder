@@ -5,7 +5,7 @@ const service = axios.create({
     process.env.NODE_ENV === 'production'
       ? '/api'
       : 'http://localhost:5000/api',
-  withCredentials: true,
+  withCredentials: false,
 })
 
 const errHandler = err => {

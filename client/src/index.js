@@ -6,8 +6,7 @@ import App from './components/App.jsx'
 import 'bootstrap/dist/css/bootstrap.css'
 import AddPet from './components/AddPet'
 import axios from 'axios'
-axios.defaults.withCredentials = 'true'
-
+axios.defaults.withCredentials = false
 // import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
