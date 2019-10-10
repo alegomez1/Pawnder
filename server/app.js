@@ -29,7 +29,7 @@ app.use(
       cb(null, origin && origin.startsWith('http://localhost:3000'))
     },
     optionsSuccessStatus: 200,
-    credentials: true,
+    credentials: false,
   })
 )
 app.use(logger('dev'))
@@ -56,7 +56,7 @@ app.use('/api', require('./routes/index'))
 app.use('/api', require('./routes/auth'))
 app.use('/api/countries', require('./routes/countries'))
 app.use('/api/users', require('./routes/users'))
-app.use('/api/myDogs', require('./routes/dogs'))
+app.use('/api/dog', require('./routes/dogs'))
 
 // For any routes that starts with "/api", catch 404 and forward to error handler
 app.use('/api/*', (req, res, next) => {
