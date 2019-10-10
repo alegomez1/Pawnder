@@ -3,7 +3,8 @@ import Axios from 'axios'
 
 class UniqueUser extends Component {
   componentDidMount() {
-    console.log('PROPS=====', this.props)
+    console.log('In unique user page')
+    // console.log('PROPS=====', this.props)
     let id = this.props.match.params.id
 
     Axios.get(`http://localhost:5000/api/users/${id}`)
