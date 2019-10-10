@@ -12,6 +12,7 @@ class UniqueUser extends Component {
 
     Axios.get(`http://localhost:5000/api/users/${id}`)
       .then(response => {
+        console.log(response)
         this.setState({
           user: response.data[0].ownerName
         })
