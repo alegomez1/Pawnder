@@ -22,7 +22,6 @@ class UserProfile extends Component {
   // Getting info from API
   async componentDidMount() {
     let current = await api.getLocalStorageUser()
-    console.log(current)
     if (current != null) {
       this.setState({
         ownerImage: current.ownerImage,
@@ -33,9 +32,7 @@ class UserProfile extends Component {
       })
 
       await Axios.get(`http://localhost:5000/api/dog/${current._id}`).then(result => {
-        console.log('DOG INFO===>', result.data)
         let dog = result.data
-
         if (dog !== null) {
           this.setState({
             dogImage: dog.dogImage,

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import Axios from 'axios'
 
 class Search extends Component {
@@ -11,9 +12,7 @@ class Search extends Component {
   search = () => {
     Axios.get(`http://localhost:5000/api/users/${this.state.search}`).then(
       results => {
-        console.log(results.data)
         let allUsers = results.data
-
         this.setState({
           numberOfResults: results.data.length,
           results: allUsers,
@@ -23,11 +22,13 @@ class Search extends Component {
   }
 
   displayUsers = () => {
-    console.log('In display users')
-    console.log('checking param names',)
     return this.state.results.map((eachUser,i) => {
-      console.log('each user:', eachUser)
-      return <li key={i}>{eachUser.ownerName}</li>
+      console.log(eachUser)
+      return(
+      <Link key={i} to={`/user/${eachUser._id}`}>
+      <div >
+      {eachUser.ownerName}
+      </div></Link>)
     })
   }
 
@@ -53,9 +54,6 @@ class Search extends Component {
           <h2>Number of results: {this.state.numberOfResults}</h2>
         </div>
         {this.displayUsers()}
-
-
-
       </div>
     )
   }
