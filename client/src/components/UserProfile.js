@@ -33,7 +33,7 @@ class UserProfile extends Component {
         console.log('DOG INFO===>', result.data)
         let dog = result.data
 
-        if (dog.length > 0) {
+        if (dog !== null) {
           this.setState({
             dogImage: dog.dogImage,
             dogName: dog.dogName,
