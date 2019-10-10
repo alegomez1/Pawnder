@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import Axios from 'axios'
 
 class Search extends Component {
   state={
@@ -7,9 +7,12 @@ class Search extends Component {
     search: 'Miami'
   }
 
-  // axios.get('')
-
   render () {
+
+    Axios.get(`http://localhost:5000/api/users/${this.state.search}`)
+    .then(result=>{
+      console.log(result)
+    })
 
     return (
       <div>
