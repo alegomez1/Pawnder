@@ -4,10 +4,19 @@ const User = require('../models/User')
 const router = express.Router()
 
 // Route to get all users
-router.get('/', (req, res, next) => {
-  User.find()
-    .then(users => {
-      res.json(users)
+// router.get('/', (req, res, next) => {
+//   User.find()
+//     .then(users => {
+//       res.json(users)
+//     })
+//     .catch(err => next(err))
+// })
+
+router.get('/:id', (req, res, next) => {
+  console.log('PARAMS===', req.params)
+  User.findById(req.params.id)
+    .then(singleUser => {
+      res.json(singleUser)
     })
     .catch(err => next(err))
 })

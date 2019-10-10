@@ -6,14 +6,15 @@ import Home from './Home'
 import Signup from './Signup'
 import UserProfile from './UserProfile'
 import AddPet from './AddPet'
+import UniqueUser from './UniqueUser'
+import Login from './Login'
 
 // Components
 
 export default class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-    }
+    this.state = {}
   }
   handleLogoutClick(e) {
     api.logout()
@@ -32,6 +33,7 @@ export default class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login} />
           <Route
             path="/profile"
             component={props => (
@@ -47,6 +49,12 @@ export default class App extends Component {
               <AddPet {...props} toggleHasPet={this.toggleHasPet} />
             )}
           ></Route>
+          <Route
+            path="/user/:id"
+            component={props => (
+              <UniqueUser {...props} />
+            )}
+          />
         </Switch>
       </div>
     )
