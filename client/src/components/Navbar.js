@@ -20,8 +20,10 @@ class Navbar extends Component {
         <NavLink to="/">Pawnder</NavLink>
 
           <div className="nav-links">
+          {/* Seen when user NOT logged in */}
             {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
             {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
+            {/* Seen when user IS logged in */}
             {api.isLoggedIn() && (
               <Link to="/" onClick={e => this.handleLogoutClick(e)}>
                 Logout
@@ -29,8 +31,11 @@ class Navbar extends Component {
               {api.isLoggedIn() && (
               <Link to="/profile">
                 Profile
-              </Link>
-            )}
+              </Link>)}
+            {api.isLoggedIn() && (
+              <Link to="/search">
+                Search
+              </Link>)}
           </div>
         </nav>
 

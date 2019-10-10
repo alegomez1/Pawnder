@@ -17,6 +17,7 @@ router.post('/signup', (req, res, next) => {
     ownerImage,
     ownerBio,
     ownerAge,
+    city
   } = req.body
   if (!username || !password) {
     res.status(400).json({ message: 'Indicate username and password' })
@@ -37,6 +38,7 @@ router.post('/signup', (req, res, next) => {
         ownerImage,
         ownerBio,
         ownerAge,
+        city
       })
       return newUser.save()
     })

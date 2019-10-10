@@ -8,6 +8,7 @@ const userSchema = new Schema(
     ownerImage: String,
     ownerBio: String,
     ownerAge: String,
+    city: String,
     password: String,
 
   },

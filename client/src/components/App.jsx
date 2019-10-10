@@ -8,6 +8,7 @@ import UserProfile from './UserProfile'
 import AddPet from './AddPet'
 import UniqueUser from './UniqueUser'
 import Login from './Login'
+import Search from './Search'
 
 // Components
 
@@ -34,6 +35,7 @@ export default class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
+          <Route path="/search" component={Search} />
           <Route
             path="/profile"
             component={props => (
