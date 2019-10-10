@@ -10,7 +10,6 @@ import UniqueUser from './UniqueUser'
 import Login from './Login'
 
 // Components
-
 export default class App extends Component {
   constructor(props) {
     super(props)
@@ -25,11 +24,11 @@ export default class App extends Component {
       hasPet: !this.state.hasPet,
     })
   }
-
   render() {
     return (
       <div>
         <Navbar />
+        {/* All routes */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/signup" component={Signup} />
@@ -40,9 +39,6 @@ export default class App extends Component {
               <UserProfile {...props} hasPet={this.state.hasPet} />
             )}
           />
-          {/* <Route exact path="/addedPet">
-            
-          </Route> */}
           <Route
             path="/addPet"
             component={props => (
@@ -57,7 +53,6 @@ export default class App extends Component {
           />
         </Switch>
       </div>
-
       //Test
     )
   }
