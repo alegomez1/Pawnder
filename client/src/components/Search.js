@@ -13,25 +13,23 @@ class Search extends Component {
       results => {
         console.log(results.data)
         let allUsers = results.data
-        allUsers.map((eachUser)=>{
-          console.log('each user:', eachUser)
-        })
+
         this.setState({
           numberOfResults: results.data.length,
-          results: allUsers
+          results: allUsers,
         })
-        console.log('CHECK RESULTS STATE', this.state.results)
       }
     )
   }
 
   displayUsers = () => {
-    console.log('display users function')
-    console.log(this.results)
+    console.log('In display users')
+    console.log('checking param names',)
+    return this.state.results.map((eachUser,i) => {
+      console.log('each user:', eachUser)
+      return <li key={i}>{eachUser.ownerName}</li>
+    })
   }
-  //  result.map((eachUser,i)=>{
-  //   return <div>{eachUser.data[i].ownerName}</div>
-  // })
 
   handleChange = e => {
     this.setState({
@@ -54,6 +52,10 @@ class Search extends Component {
         <div>
           <h2>Number of results: {this.state.numberOfResults}</h2>
         </div>
+        {this.displayUsers()}
+
+
+
       </div>
     )
   }
