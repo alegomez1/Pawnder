@@ -11,6 +11,7 @@ export default class Signup extends Component {
       ownerImage: '',
       ownerBio: '',
       ownerAge: '',
+      city: '',
       message: null,
     }
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -30,7 +31,8 @@ export default class Signup extends Component {
       password: this.state.password,
       ownerImage : this.state.ownerImage,
       ownerBio : this.state.ownerBio,
-      ownerAge : this.state.ownerAge
+      ownerAge : this.state.ownerAge,
+      city : this.state.city
     }
     api
       .signup(data)
@@ -75,6 +77,14 @@ export default class Signup extends Component {
             type="text"
             value={this.state.ownerBio}
             name="ownerBio"
+            onChange={this.handleInputChange}
+          />{' '}
+          <br />
+          City:{' '}
+          <input
+            type="text"
+            value={this.state.city}
+            name="city"
             onChange={this.handleInputChange}
           />{' '}
           <br />

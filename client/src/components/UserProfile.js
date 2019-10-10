@@ -17,6 +17,7 @@ class UserProfile extends Component {
     ownerBio: '',
     ownerAge: '',
     ownerActivities: '',
+    city: '',
   }
   // Getting info from API
   async componentDidMount() {
@@ -28,6 +29,7 @@ class UserProfile extends Component {
         ownerName: current.username,
         ownerBio: current.ownerBio,
         ownerAge: current.ownerAge,
+        city: current.city
       })
 
       await Axios.get(`http://localhost:5000/api/dog/${current._id}`).then(result => {
@@ -76,6 +78,7 @@ class UserProfile extends Component {
         <img src="" alt="ownerImage" />
         <h4>{this.state.ownerName}</h4>
         <p>Bio: {this.state.ownerBio}</p>
+        <p>City: {this.state.city}</p>
         <p>Age: {this.state.ownerAge}</p>
         <p>Activities: </p>
       </div>
