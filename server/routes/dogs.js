@@ -3,8 +3,9 @@ const Dog = require('../models/Dog')
 
 
 const router = express.Router()//Router to get dogs
-
-router.get('/', (req, res, next) => {
+//Gets all dogs
+router.get('/all', (req, res, next) => {
+  console.log('----------These are all the dogs')
   Dog.find()
     .then(dogs => {
       res.json(dogs)
@@ -13,9 +14,11 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-  Dog.findById(req.params._id)
-    .then(dogs => {
-      res.json(dogs)
+  console.log('FINDING A DOG')
+  console.log("USER INFO=======", req.user._id)
+  Dog.findOne({ownerID : `${req.params.id}`})
+    .then(singleDOG => {
+      res.json(singleDOG)
     })
     .catch(err => next(err))
 })
