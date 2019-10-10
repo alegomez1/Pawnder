@@ -29,11 +29,11 @@ class UserProfile extends Component {
         ownerBio: current.ownerBio,
         ownerAge: current.ownerAge,
       })
-      await Axios.get('http://localhost:5000/api/myDogs').then(result => {
-        console.log('DOG INFO===>', result.data[0])
-        let dog = result.data[0]
+      await Axios.get('http://localhost:5000/api/dog').then(result => {
+        console.log('DOG INFO===>', result.data)
+        let dog = result.data
 
-        if (dog !== undefined) {
+        if (dog.length > 0) {
           this.setState({
             dogImage: dog.dogImage,
             dogName: dog.dogName,
