@@ -2,20 +2,26 @@ import React, { Component } from 'react'
 import Axios from 'axios'
 
 class UniqueUser extends Component {
+  state={
+    user: ''
+  }
+
   componentDidMount() {
-    console.log('In unique user page')
-    // console.log('PROPS=====', this.props)
+
     let id = this.props.match.params.id
 
     Axios.get(`http://localhost:5000/api/users/${id}`)
       .then(response => {
-        console.log(response)
-        console.log(response.data._id)
+        this.setState({
+          user: response.data[0].ownerName
+        })
       })
       .catch(err => console.log(err))
   }
   render() {
-    return <div></div>
+    return <div>
+      <h1>Profile of {this.state.user}</h1>
+    </div>
   }
 }
 

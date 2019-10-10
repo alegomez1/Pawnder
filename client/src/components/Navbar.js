@@ -32,10 +32,10 @@ class Navbar extends Component {
               <Link to="/profile">
                 Profile
               </Link>)}
-            {api.isLoggedIn() && (
+
               <Link to="/search">
                 Search
-              </Link>)}
+              </Link>
           </div>
         </nav>
 
