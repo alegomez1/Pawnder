@@ -18,7 +18,7 @@ class UserProfile extends Component {
     ownerAge: '',
     ownerActivities: '',
     city: '',
-    ownerDog:{name: '', age:''}
+    dog:{name: '', age:''}
   }
   // Getting info from API
   async componentDidMount() {
@@ -36,17 +36,9 @@ class UserProfile extends Component {
         let dog = result.data
 
 
+
         if (dog !== null) {
-
-
-          this.setState(prevState =>{
-            let ownerDog= Object.assign({}, prevState.ownerDog)
-            ownerDog.name = dog.dogName;
-            ownerDog.age = dog.dogAgel
-            return{ownerDog}
-          })
-
-
+          console.log('dog result', dog)
           this.setState({
 
             dogImage: dog.dogImage,

@@ -3,7 +3,7 @@ const passport = require('passport')
 const router = express.Router()
 const User = require('../models/User')
 const Dog = require('../models/Dog')
-const {isLoggedIn} = require('../middlewares')
+const { isLoggedIn } = require('../middlewares')
 
 // Bcrypt to encrypt passwords
 const bcrypt = require('bcrypt')
@@ -39,7 +39,7 @@ router.post('/signup', (req, res, next) => {
         ownerBio,
         ownerAge,
         city,
-        dog: {name: '', age: ''}
+        dog: { name: '', age: '' },
       })
       return newUser.save()
     })
@@ -60,7 +60,7 @@ router.post('/signup', (req, res, next) => {
 
 // Add Pet to account test
 router.post('/addPet', isLoggedIn, (req, res, next) => {
-  const { dogName, dogImage, dogBio, dogAge, dogActivities, } = req.body
+  const { dogName, dogImage, dogBio, dogAge, dogActivities } = req.body
 
   console.log('REQ USER=======>', req.user)
   if (!dogImage || !dogImage) {
@@ -73,7 +73,14 @@ router.post('/addPet', isLoggedIn, (req, res, next) => {
       return
     }
     console.log('About to make a new dog')
-    const newDog = new Dog({ dogName, dogImage, dogBio, dogAge, dogActivities, ownerID: req.user._id })
+    const newDog = new Dog({
+      dogName,
+      dogImage,
+      dogBio,
+      dogAge,
+      dogActivities,
+      ownerID: req.user._id,
+    })
     newDog.save((err, doc) => {
       res.json({ saved: doc })
     })
@@ -141,6 +148,11 @@ router.post('/login-with-passport-local-strategy', (req, res, next) => {
 router.get('/logout', (req, res) => {
   req.logout()
   res.json({ message: 'You are out!' })
+})
+
+router.get('/getUser', (req, res, next) => {
+  console.log('DO I HAVE A USER', req.user)
+  res.json(req.user)
 })
 
 module.exports = router

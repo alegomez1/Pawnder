@@ -29,15 +29,16 @@ export default class Signup extends Component {
       username: this.state.username,
       ownerName: this.state.ownerName,
       password: this.state.password,
-      ownerImage : this.state.ownerImage,
-      ownerBio : this.state.ownerBio,
-      ownerAge : this.state.ownerAge,
-      city : this.state.city
+      ownerImage: this.state.ownerImage,
+      ownerBio: this.state.ownerBio,
+      ownerAge: this.state.ownerAge,
+      city: this.state.city,
     }
     api
       .signup(data)
       .then(result => {
         console.log('SUCCESS!=====>', result)
+        this.props.getUser()
         this.props.history.push('/') // Redirect to the home page
       })
       .catch(err => this.setState({ message: err.toString() }))
