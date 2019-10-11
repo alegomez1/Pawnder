@@ -88,7 +88,38 @@ body {
     font-size: 1.2em;
   }
 }
-
 a{
   padding-left: 20px;
+}
+// Signup Page
+.header-text{
+  text-align: center;
+}
+.signup{
+  display: grid;
+  justify-content: center;
+  border: 2px solid blue;
+}
+.form-div{
+  border: 2px solid black;
+  width: 300px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+}
+.form-input{
+  margin-top: 20px;
+  text-align: center;
+  width: 200px;
+  height: 35px;
+  border-radius: 10px;
+}
+.button-div{
+  padding-top: 20px;
+  border: 2px solid green;
+  display: flex;
+  justify-content: center;
+}
+.form-button{
+background-color: blue !important;
 }
