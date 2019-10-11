@@ -8,16 +8,35 @@ import UserProfile from './UserProfile'
 import AddPet from './AddPet'
 import UniqueUser from './UniqueUser'
 import Login from './Login'
+import Search from './Search'
+import Axios from 'axios'
 
 // Components
 
 export default class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      user: {},
+    }
   }
-  handleLogoutClick(e) {
-    api.logout()
+  handleLogoutClick = e => {
+    api.logout().then(res => {
+      console.log('lougout')
+      this.setState({ user: {} })
+    })
+  }
+
+  componentDidMount() {
+    this.getUser()
+  }
+
+  getUser = async () => {
+    let user = await Axios.get('http://localhost:5000/api/getUser').catch(err =>
+      console.error(err)
+    )
+    console.log(user)
+    this.setState({ user: user.data })
   }
 
   toggleHasPet = () => {
@@ -27,13 +46,29 @@ export default class App extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div>
-        <Navbar />
+        <Navbar
+          {...this.props}
+          handleLogoutClick={this.handleLogoutClick}
+          user={this.state.user}
+        />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
+          <Route
+            exact
+            path="/"
+            component={props => <Home {...props} user={this.state.user} />}
+          />
+          <Route
+            path="/signup"
+            component={props => <Signup {...props} getUser={this.getUser} />}
+          />
+          <Route
+            path="/login"
+            component={props => <Login {...props} getUser={this.getUser} />}
+          />
+          <Route path="/search" component={Search} />
           <Route
             path="/profile"
             component={props => (
@@ -51,9 +86,7 @@ export default class App extends Component {
           ></Route>
           <Route
             path="/user/:id"
-            component={props => (
-              <UniqueUser {...props} />
-            )}
+            component={props => <UniqueUser {...props} />}
           />
         </Switch>
       </div>
