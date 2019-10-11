@@ -23,7 +23,6 @@ class Search extends Component {
 
   displayUsers = () => {
     return this.state.results.map((eachUser,i) => {
-      console.log(eachUser)
       return(
       <Link key={i} to={`/user/${eachUser._id}`}>
       <div >

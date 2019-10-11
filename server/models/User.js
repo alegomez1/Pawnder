@@ -10,6 +10,7 @@ const userSchema = new Schema(
     ownerAge: String,
     city: String,
     password: String,
+    dog: Object
 
   },
   {

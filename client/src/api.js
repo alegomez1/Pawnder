@@ -80,8 +80,14 @@ export default {
   },
 
   logout() {
+    return service
+      .get('/logout')
+      .then(res => {
+        console.log(res)
+        return res.data
+      })
+      .catch(errHandler)
     localStorage.removeItem('user')
-    return service.get('/logout')
   },
 
   // This is an example on how to use this method in a different file

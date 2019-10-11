@@ -1,5 +1,6 @@
 const express = require('express')
 const User = require('../models/User')
+const Dog = require('../models/Dog')
 
 const router = express.Router()
 
@@ -20,13 +21,22 @@ router.get('/', (req, res, next) => {
 //   .catch(err=>next(err))
 // })
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   console.log('PARAMS===', req.params)
-  User.find({_id: `${req.params.id}`})
-    .then(singleUser => {
-      res.json(singleUser)
-    })
-    .catch(err => next(err))
+
+  let dog = await Dog.find({ ownerID: `${req.params.id}` }).catch(err =>
+    console.error(err)
+  )
+  let user = await User.find({ _id: `${req.params.id}` }).catch(err =>
+    console.error(err)
+  )
+
+  res.json({ dog, user })
+
+  //   .then(singleUser => {
+  //     res.json(singleUser)
+  //   })
+  //   .catch(err => next(err))
 })
 
 // Route to add a country
