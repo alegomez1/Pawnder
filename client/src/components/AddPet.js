@@ -43,38 +43,43 @@ export default class AddPet extends Component {
 
   render() {
     return (
-      <div className="Signup">
-        <h2>Add Dog</h2> {this.state.message}
+      <div className="signup">
+        <h2 className="header-text">Add Dog</h2> {this.state.message}
+        <div className="form-div">
         <form onSubmit={this.handleSubmit}>
-          Dog's Name:{' '}
-          <input
+          {/* Dog's Name:{' '} */}
+          <input className="form-input"
             type="text"
             value={this.state.dogName}
             name="dogName"
+            placeholder="Dog's name"
             onChange={this.handleInputChange}
           />{' '}
           <br />
-          ImageURL:{' '}
-          <input
+          {/* ImageURL:{' '} */}
+          <input className="form-input"
             type="text"
             value={this.state.dogImage}
             name="dogImage"
+            placeholder="Image URL"
             onChange={this.handleInputChange}
           />{' '}
           <br />
-          About your pet:{' '}
-          <input
+          {/* About your pet:{' '} */}
+          <input className="form-input"
             type="text"
             value={this.state.dogBio}
             name="dogBio"
+            placeholder="About your dog"
             onChange={this.handleInputChange}
           />{' '}
           <br />
-          Age:{' '}
-          <input
+          {/* Age:{' '} */}
+          <input className="form-input"
             type="text"
             value={this.state.dogAge}
             name="dogAge"
+            placeholder="Age"
             onChange={this.handleInputChange}
           />{' '}
           <br />
@@ -86,12 +91,18 @@ export default class AddPet extends Component {
               },
             }}
           > */}
-          <input type="submit" value="Add Pet" />
+          <div className="button-div">
+          <input className="form-button btn btn-md btn-dark" 
+          type="submit" 
+          value="Add Pet" />
+          </div>
+          <div className="button-div"></div>
           {/* </Link> */}
         </form>
         {this.state.message && (
           <div className="info info-danger">{this.state.message}</div>
         )}
+        </div>
       </div>
     )
   }

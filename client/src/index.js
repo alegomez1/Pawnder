@@ -11,7 +11,7 @@ axios.defaults.withCredentials = false
 
 ReactDOM.render(
   <Router>
-    <App />
+    <AddPet />
   </Router>,
   document.getElementById('root')
 )
