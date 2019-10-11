@@ -96,12 +96,14 @@ a{
   text-align: center;
 }
 .signup{
+  // border: 2px solid blue;
   display: grid;
   justify-content: center;
-  border: 2px solid blue;
 }
 .form-div{
-  border: 2px solid black;
+  // border: 2px solid black;
+  margin-top: 20px;
+  background-color: #ededed;
   width: 300px;
   height: 500px;
   display: flex;
@@ -115,8 +117,8 @@ a{
   border-radius: 10px;
 }
 .button-div{
-  padding-top: 20px;
-  border: 2px solid green;
+  // border: 2px solid green;
+  padding-top: 35px;
   display: flex;
   justify-content: center;
 }

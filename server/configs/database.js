@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 // Don't forget to set "MONGODB_URI" in ~/server/.env
 const uri =
-  process.env.MONGODB_URI || 
+  `mongodb+srv://alex:alex@cluster0-ci3y7.mongodb.net/test?retryWrites=true&w=majority` ||
   `mongodb://localhost/Pawnder`
 
 mongoose
