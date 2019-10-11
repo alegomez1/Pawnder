@@ -49,6 +49,9 @@ class Navbar extends Component {
 
                 <Link to="/search">Search</Link>
                 <span>
+                  <Search/>
+                </span>
+                <span>
                 <CircleImage/>
                 </span>
                 </div>

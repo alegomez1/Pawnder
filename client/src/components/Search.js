@@ -42,7 +42,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <span>
         <input
           type="text"
           placeholder="Search city"
@@ -52,11 +52,11 @@ class Search extends Component {
         <button type="text" onClick={this.search}>
           Search
         </button>
-        <div>
+        {/* <span>
           <h2>Number of results: {this.state.numberOfResults}</h2>
-        </div>
+        </span> */}
         {this.displayUsers()}
-      </div>
+      </span>
     )
   }
 }
