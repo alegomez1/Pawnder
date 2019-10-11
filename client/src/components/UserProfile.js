@@ -32,7 +32,7 @@ class UserProfile extends Component {
         city: current.city
       })
 
-      await Axios.get(`http://localhost:5000/api/dog/${current._id}`).then(result => {
+      await Axios.get(`https://pawnderapp.herokuapp.com/api/dog/${current._id}`).then(result => {
         let dog = result.data
 
         if (dog !== null) {
