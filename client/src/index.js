@@ -12,7 +12,7 @@ axios.defaults.withCredentials = false
 
 ReactDOM.render(
   <Router>
-    <Login />
+    <App />
   </Router>,
   document.getElementById('root')
 )
