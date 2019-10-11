@@ -35,8 +35,6 @@ class UserProfile extends Component {
       await Axios.get(`http://localhost:5000/api/dog/${current._id}`).then(result => {
         let dog = result.data
 
-
-
         if (dog !== null) {
           console.log('dog result', dog)
           this.setState({
@@ -79,7 +77,7 @@ class UserProfile extends Component {
     return (
       <div>
         {this.checkHasPet()}
-        <img src="" alt="ownerImage" />
+        <img src={this.state.ownerImage} alt="ownerImage" />
         <h4>{this.state.ownerName}</h4>
         <p>Bio: {this.state.ownerBio}</p>
         <p>City: {this.state.city}</p>
