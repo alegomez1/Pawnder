@@ -5,6 +5,9 @@ import api from '../api'
 // import Home from './Home'
 import Axios from 'axios'
 
+const url = 'http://localhost:5000'
+// const url = 'https://pawnderapp.herokuapp.com'
+
 class UserProfile extends Component {
   state = {
     dogImage: '',
@@ -32,7 +35,7 @@ class UserProfile extends Component {
         city: current.city
       })
 
-      await Axios.get(`https://pawnderapp.herokuapp.com/api/dog/${current._id}`).then(result => {
+      await Axios.get(`${url}/api/dog/${current._id}`).then(result => {
         let dog = result.data
 
         if (dog !== null) {

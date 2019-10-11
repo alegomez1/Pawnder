@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
 
+const url = 'http://localhost:5000'
+// const url = 'https://pawnderapp.herokuapp.com'
+
 class Search extends Component {
   state = {
     numberOfResults: '',
@@ -10,7 +13,7 @@ class Search extends Component {
   }
 
   search = () => {
-    Axios.get(`https://pawnderapp.herokuapp.com/api/city/${this.state.search}`).then(
+    Axios.get(`${url}/api/city/${this.state.search}`).then(
       results => {
         let allUsers = results.data
         this.setState({
