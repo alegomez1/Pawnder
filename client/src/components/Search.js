@@ -10,7 +10,7 @@ class Search extends Component {
   }
 
   search = () => {
-    Axios.get(`http://localhost:5000/api/city/${this.state.search}`).then(
+    Axios.get(`https://pawnderapp.herokuapp.com/api/city/${this.state.search}`).then(
       results => {
         let allUsers = results.data
         this.setState({

@@ -32,7 +32,7 @@ export default class App extends Component {
   }
 
   getUser = async () => {
-    let user = await Axios.get('http://localhost:5000/api/getUser').catch(err =>
+    let user = await Axios.get('https://pawnderapp.herokuapp.com/api/getUser').catch(err =>
       console.error(err)
     )
     console.log(user)

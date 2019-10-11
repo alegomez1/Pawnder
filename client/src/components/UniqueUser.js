@@ -11,7 +11,6 @@ class UniqueUser extends Component {
     dogImage: '',
     dogAge: '',
     dogBio: '',
-
   }
 
   componentDidMount() {
@@ -19,7 +18,7 @@ class UniqueUser extends Component {
 
     console.log('IN UNIQUE USER')
 
-    Axios.get(`http://localhost:5000/api/users/${id}`)
+    Axios.get(`https://pawnderapp.herokuapp.com/api/users/${id}`)
       .then(response => {
         console.log(response)
         this.setState({
@@ -38,16 +37,16 @@ class UniqueUser extends Component {
   render() {
     return (
       <div>
-      {/* Dog info */}
-      <img src={this.state.dogImage} alt='doggie' />
-      <h3>{this.state.dogName}</h3>
-      <h3>{this.state.dogAge}</h3>
-      <p>{this.state.dogBio}</p>
-      {/* Owner info */}
-      <img src={this.state.ownerImage} alt='owner' />
-      <h3>{this.state.ownerName}</h3>
-      <h3>{this.state.ownerAge}</h3>
-      <p>{this.state.ownerBio}</p>
+        {/* Dog info */}
+        <img src={this.state.dogImage} alt="doggie" />
+        <h3>{this.state.dogName}</h3>
+        <h3>{this.state.dogAge}</h3>
+        <p>{this.state.dogBio}</p>
+        {/* Owner info */}
+        <img src={this.state.ownerImage} alt="owner" />
+        <h3>{this.state.ownerName}</h3>
+        <h3>{this.state.ownerAge}</h3>
+        <p>{this.state.ownerBio}</p>
       </div>
     )
   }

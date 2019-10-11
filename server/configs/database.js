@@ -5,6 +5,7 @@ const uri =
   `mongodb+srv://alex:alex@cluster0-ci3y7.mongodb.net/test?retryWrites=true&w=majority` ||
   `mongodb://localhost/Pawnder`
 
+console.log(uri, '=-=-=-==-=-')
 mongoose
   .connect(uri, { useNewUrlParser: true })
   .then(x => {
