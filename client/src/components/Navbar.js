@@ -7,16 +7,11 @@ import UserProfile from './UserProfile'
 import Home from './Home'
 
 class Navbar extends Component {
-
-  handleLogoutClick(e) {
-    api.logout()
-  }
-
   render() {
-
+    console.log(this.props.user, this.props.user.username)
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <NavLink to="/">Pawnder</NavLink>
 
           <div className="nav-links">
@@ -29,11 +24,38 @@ class Navbar extends Component {
               {api.isLoggedIn() && (
               <Link to="/profile">
                 Profile
+              </Link>)}
+
+              <Link to="/search">
+                Search
               </Link>
+          </div> 
+        </nav>*/}
+
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <NavLink to="/">Pawnder</NavLink>
+
+          <div className="nav-links">
+            {this.props.user.username ? (
+              <React.Fragment>
+                <Link to="/" onClick={e => this.props.handleLogoutClick(e)}>
+                  Logout
+                </Link>
+
+                <Link to="/profile">Profile</Link>
+
+                <Link to="/search">Search</Link>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <NavLink to="/signup">Signup</NavLink>
+                <NavLink to="/login">Login</NavLink>
+              </React.Fragment>
             )}
+
+            {/* Seen when user IS logged in */}
           </div>
         </nav>
-
       </div>
     )
   }
