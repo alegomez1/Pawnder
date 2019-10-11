@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
 
+const url = 'http://localhost:5000'
+// const url = 'https://pawnderapp.herokuapp.com'
+
 class UniqueUser extends Component {
   state = {
     ownerImage: '',
@@ -18,7 +21,7 @@ class UniqueUser extends Component {
 
     console.log('IN UNIQUE USER')
 
-    Axios.get(`https://pawnderapp.herokuapp.com/api/users/${id}`)
+    Axios.get(`${url}/api/users/${id}`)
       .then(response => {
         console.log(response)
         this.setState({
