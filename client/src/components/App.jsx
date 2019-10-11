@@ -11,6 +11,9 @@ import Login from './Login'
 import Search from './Search'
 import Axios from 'axios'
 
+const url = 'http://localhost:5000'
+// const url = 'https://pawnderapp.herokuapp.com'
+
 // Components
 
 export default class App extends Component {
@@ -32,7 +35,7 @@ export default class App extends Component {
   }
 
   getUser = async () => {
-    let user = await Axios.get('http://localhost:5000/api/getUser').catch(err =>
+    let user = await Axios.get(`${url}/api/getUser`).catch(err =>
       console.error(err)
     )
     console.log(user)

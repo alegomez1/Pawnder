@@ -88,7 +88,40 @@ body {
     font-size: 1.2em;
   }
 }
-
 a{
   padding-left: 20px;
+}
+// Signup Page
+.header-text{
+  text-align: center;
+}
+.signup{
+  // border: 2px solid blue;
+  display: grid;
+  justify-content: center;
+}
+.form-div{
+  // border: 2px solid black;
+  margin-top: 20px;
+  background-color: #ededed;
+  width: 300px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+}
+.form-input{
+  margin-top: 20px;
+  text-align: center;
+  width: 200px;
+  height: 35px;
+  border-radius: 10px;
+}
+.button-div{
+  // border: 2px solid green;
+  padding-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+.form-button{
+background-color: blue !important;
 }

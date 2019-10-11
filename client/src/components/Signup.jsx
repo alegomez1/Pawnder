@@ -46,70 +46,81 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <div className="Signup">
-        <h2>Signup</h2>
+      <div className="signup">
+        <h2 className="header-text">Signup</h2>
+        <div className="form-div">
         <form>
-          Username:{' '}
-          <input
+          {/* Username:{' '} */}
+          <input className="form-input"
             type="text"
             value={this.state.username}
             name="username"
+            placeholder="username"
             onChange={this.handleInputChange}
           />{' '}
           <br />
-          Name:{' '}
-          <input
+          {/* Name:{' '} */}
+          <input className="form-input"
             type="text"
             value={this.state.ownerName}
             name="ownerName"
+            placeholder="Your name"
             onChange={this.handleInputChange}
           />{' '}
           <br />
-          ImageURL:{' '}
-          <input
+          {/* ImageURL:{' '} */}
+          <input className="form-input"
             type="text"
             value={this.state.ownerImage}
             name="ownerImage"
+            placeholder="Image URL"
             onChange={this.handleInputChange}
           />{' '}
           <br />
-          About you:{' '}
-          <input
+          {/* About you:{' '} */}
+          <input className="form-input"
             type="text"
             value={this.state.ownerBio}
             name="ownerBio"
+            placeholder="Bio"
             onChange={this.handleInputChange}
           />{' '}
           <br />
-          City:{' '}
-          <input
+          {/* City:{' '} */}
+          <input className="form-input"
             type="text"
             value={this.state.city}
             name="city"
+            placeholder="City"
             onChange={this.handleInputChange}
           />{' '}
           <br />
-          Age:{' '}
-          <input
+          {/* Age:{' '} */}
+          <input className="form-input"
             type="text"
             value={this.state.ownerAge}
             name="ownerAge"
+            placeholder="Age"
             onChange={this.handleInputChange}
           />{' '}
           <br />
-          Password:{' '}
-          <input
+          {/* Password:{' '} */}
+          <input className="form-input"
             type="password"
             value={this.state.password}
             name="password"
+            placeholder="password"
             onChange={this.handleInputChange}
           />{' '}
           <br />
-          <button onClick={e => this.handleClick(e)}>Signup</button>
+          <div className="button-div">
+          <button className="form-button btn btn-md btn-dark" onClick={e => this.handleClick(e)}>Signup</button>
+          </div>
         </form>
         {this.state.message && (
-          <div className="info info-danger">{this.state.message}</div>
+          <div className="info info-danger ">{this.state.message}</div>
         )}
+        </div>
       </div>
     )
   }
