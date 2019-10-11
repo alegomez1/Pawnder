@@ -88,19 +88,19 @@ body {
     font-size: 1.2em;
   }
 }
-a{
+a {
   padding-left: 20px;
 }
 // Signup Page
-.header-text{
+.header-text {
   text-align: center;
 }
-.signup{
+.signup {
   // border: 2px solid blue;
   display: grid;
   justify-content: center;
 }
-.form-div{
+.form-div {
   // border: 2px solid black;
   margin-top: 20px;
   background-color: #ededed;
@@ -109,25 +109,33 @@ a{
   display: flex;
   justify-content: center;
 }
-.form-input{
+.form-input {
   margin-top: 20px;
   text-align: center;
   width: 200px;
   height: 35px;
   border-radius: 10px;
 }
-.button-div{
+.button-div {
   // border: 2px solid green;
   padding-top: 35px;
   display: flex;
   justify-content: center;
 }
-.form-button{
-background-color: blue !important;
+.form-button {
+  background-color: blue !important;
 }
 
 // Circle Image
-.circle-image{
+.circle-image {
+  margin-left: 20px;
   border-radius: 30%;
- height: 40px;
+  height: 40px;
+}
+// Navbar
+.nav-links {
+  // border: 2px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }

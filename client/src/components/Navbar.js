@@ -40,6 +40,7 @@ class Navbar extends Component {
           <div className="nav-links">
             {this.props.user.username ? (
               <React.Fragment>
+              <div className="navbar-div">
                 <Link to="/" onClick={e => this.props.handleLogoutClick(e)}>
                   Logout
                 </Link>
@@ -47,13 +48,15 @@ class Navbar extends Component {
                 <Link to="/profile">Profile</Link>
 
                 <Link to="/search">Search</Link>
-
+                <span>
+                <CircleImage/>
+                </span>
+                </div>
               </React.Fragment>
             ) : (
               <React.Fragment>
                 <NavLink to="/signup">Signup</NavLink>
                 <NavLink to="/login">Login</NavLink>
-                <CircleImage/>
               </React.Fragment>
             )}
 
