@@ -15,6 +15,11 @@ class Search extends Component {
 
   search = async () => {
     // Axios.get(`${url}/api/city/${this.state.search}`).then(
+    //Have to reset state or the arrays keep increasing in size
+    this.setState({
+      results: [],
+      actualResults: []
+    })
     await Axios.get(`${url}/api/users`).then(
       results => {
         let allUsers = results.data.user
@@ -24,11 +29,9 @@ class Search extends Component {
           console.log('current search:', this.state.search)
 
           if(eachUser.city === this.state.search){
-            return(
-              <div><h1>
-                {eachUser.ownerName}
-              </h1></div>
-            )
+            this.state.actualResults.push(eachUser)
+            console.log('Added someone')
+            console.log(this.state.actualResults)
           }
         })
 
@@ -79,7 +82,6 @@ class Search extends Component {
         {/* <button type="text" onClick={this.search}>
           Search
         </button> */}
-        {/* {this.search()} */}
         <button type="submit" onClick={this.search}><i className="fa fa-search"></i></button>
         <span>
           <h2>Number of results: {this.state.numberOfResults}</h2>
