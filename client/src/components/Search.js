@@ -10,7 +10,7 @@ class Search extends Component {
     numberOfResults: '',
     search: '',
     results: [],
-    actualResults: []
+    actualResults: [],
   }
 
   search = async () => {
@@ -18,46 +18,33 @@ class Search extends Component {
     //Have to reset state or the arrays keep increasing in size
     this.setState({
       results: [],
-      actualResults: []
+      actualResults: [],
     })
-    await Axios.get(`${url}/api/users`).then(
-      results => {
-        let allUsers = results.data.user
-        console.log('All results==:',allUsers)
-        allUsers.map((eachUser)=>{
-          console.log('single user:', eachUser.ownerName)
-          console.log('current search:', this.state.search)
-
-          if(eachUser.city === this.state.search){
-            this.state.actualResults.push(eachUser)
-            // console.log('Added someone')
-            // console.log(this.state.actualResults)
-          }
-
-        })
-      }
-    )
+    await Axios.get(`${url}/api/users`).then(results => {
+      let allUsers = results.data.user
+      console.log('All results==:', allUsers)
+      allUsers.map(eachUser => {
+        if (eachUser.city === this.state.search) {
+          this.state.actualResults.push(eachUser)
+        }
+      })
+    }) //Somehow vvvv fixed the display issue
+    this.setState({
+      numberOfResults: this.state.actualResults.length,
+    })
     this.displayUsers()
   }
 
   displayUsers = () => {
-
-    return this.state.actualResults.map((eachUser)=>{
-      console.log('eachhh',eachUser.ownerName)
+    let test = this.state.actualResults.map(eachUser => {
+      console.log('eachhh', eachUser.ownerName)
+      return (
+        <Link to={`/user/${eachUser._id}`}>
+          <div className="search-result">{eachUser.ownerName}</div>
+        </Link>
+      )
     })
-    // return this.state.results.map((eachUser,i) => {
-
-    //   // if(eachUser[i].city==='Miami'){
-    //   //   return(
-    //   //     <div>{eachUser.ownerName}</div>
-    //   //   )
-    //   // }
-    //   // return(
-    //   // <Link key={i} to={`/user/${eachUser._id}`}>
-    //   // <div className="search-result">
-    //   // {eachUser.ownerName}
-    //   // </div></Link>)
-    // })
+    return test
   }
 
   handleChange = e => {
@@ -75,14 +62,14 @@ class Search extends Component {
           name="search"
           onChange={this.handleChange}
         ></input>
-        {/* <button type="text" onClick={this.search}>
-          Search
-        </button> */}
-        <button type="submit" onClick={this.search}><i className="fa fa-search"></i></button>
+        {this.search}
+        <button type="submit" onClick={this.search}>
+          <i className="fa fa-search"></i>
+        </button>
         <span>
           <h2>Number of results: {this.state.numberOfResults}</h2>
         </span>
-        {/* {this.displayUsers()} */}
+        {this.displayUsers()}
       </span>
     )
   }
