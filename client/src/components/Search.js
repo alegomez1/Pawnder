@@ -28,7 +28,7 @@ class Search extends Component {
     return this.state.results.map((eachUser,i) => {
       return(
       <Link key={i} to={`/user/${eachUser._id}`}>
-      <div >
+      <div className="search-result">
       {eachUser.ownerName}
       </div></Link>)
     })
@@ -49,12 +49,13 @@ class Search extends Component {
           name="search"
           onChange={this.handleChange}
         ></input>
-        <button type="text" onClick={this.search}>
+        {/* <button type="text" onClick={this.search}>
           Search
-        </button>
-        {/* <span>
+        </button> */}
+        <button type="submit" onClick={this.search}><i class="fa fa-search"></i></button>
+        <span>
           <h2>Number of results: {this.state.numberOfResults}</h2>
-        </span> */}
+        </span>
         {this.displayUsers()}
       </span>
     )
