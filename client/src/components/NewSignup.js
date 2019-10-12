@@ -166,7 +166,6 @@ class NewSignup extends Component {
       </div>
     )
   }
-
   render() {
     if (this.state.currentStage === 0) {
       return this.usernameAndPassword()
