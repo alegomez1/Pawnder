@@ -30,25 +30,21 @@ class Search extends Component {
 
           if(eachUser.city === this.state.search){
             this.state.actualResults.push(eachUser)
-            console.log('Added someone')
-            console.log(this.state.actualResults)
+            // console.log('Added someone')
+            // console.log(this.state.actualResults)
           }
+
         })
-
-        console.log('finished push', this.state.results)
-
-
-        // this.setState({
-        //   numberOfResults: results.data.length,
-        //   results: allUsers,
-        // })
       }
     )
+    this.displayUsers()
   }
 
   displayUsers = () => {
 
-    console.log('current search term:', this.state.search)
+    return this.state.actualResults.map((eachUser)=>{
+      console.log('eachhh',eachUser.ownerName)
+    })
     // return this.state.results.map((eachUser,i) => {
 
     //   // if(eachUser[i].city==='Miami'){
