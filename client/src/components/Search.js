@@ -55,7 +55,7 @@ class Search extends Component {
           Search
         </button> */}
         {this.search()}
-        <button type="submit" onClick={this.search}><i class="fa fa-search"></i></button>
+        <button type="submit" onClick={this.search}><i className="fa fa-search"></i></button>
         <span>
           <h2>Number of results: {this.state.numberOfResults}</h2>
         </span>
