@@ -65,7 +65,7 @@ class NewSignup extends Component {
   //Username and password
   usernameAndPassword = () => {
     return (
-      <div>
+      <div className="dynamic-signup-div">
         <input
           className="form-input"
           type="text"
@@ -82,14 +82,16 @@ class NewSignup extends Component {
           placeholder="password"
           onChange={this.handleInputChange}
         />
-        <button onClick={this.incrementCurrentStage}>Next</button>
+        <div className="button-div">
+        <button className="test-button" onClick={this.incrementCurrentStage}>Next</button>
+        </div>
       </div>
     )
   }
   // Owner info
   ownerInfo = () => {
     return (
-      <div>
+      <div className="dynamic-signup-div">
         <input
           className="form-input"
           type="text"
@@ -122,14 +124,16 @@ class NewSignup extends Component {
           placeholder="Bio"
           onChange={this.handleInputChange}
         />
-        <button onClick={this.incrementCurrentStage}>Next</button>
+                <div className="button-div">
+        <button className="test-button" onClick={this.incrementCurrentStage}>Next</button>
+        </div>
       </div>
     )
   }
   // Dog info
   dogInfo = () => {
     return (
-      <div>
+      <div className="dynamic-signup-div">
         <input
           className="form-input"
           type="text"
@@ -162,7 +166,9 @@ class NewSignup extends Component {
           placeholder="Image URL"
           onChange={this.handleInputChange}
         />
+        <div className="button-div">
         <button onClick={e => this.handleClick(e)}>Finish</button>
+        </div>
       </div>
     )
   }

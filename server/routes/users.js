@@ -19,9 +19,7 @@ router.get('/', async (req, res, next) => {
     let user = await User.find().catch(err =>
       console.error(err)
     )
-  
-    res.json({ dog, user })
-
+    res.json({ user })
 })
 
 // router.get('/:city', (req,res,next) => {
