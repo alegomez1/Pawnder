@@ -32,15 +32,11 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   console.log('PARAMS===', req.params)
-
-  let dog = await Dog.find({ ownerID: `${req.params.id}` }).catch(err =>
-    console.error(err)
-  )
-  let user = await User.find({ _id: `${req.params.id}` }).catch(err =>
+ user = await User.find({ _id: `${req.params.id}` }).catch(err =>
     console.error(err)
   )
 
-  res.json({ dog, user })
+  res.json({ user })
 
   //   .then(singleUser => {
   //     res.json(singleUser)
