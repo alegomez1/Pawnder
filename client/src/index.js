@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import AddPet from './components/AddPet'
 import axios from 'axios'
 import Login from './components/Login'
+import NewSignup from './components/NewSignup'
 axios.defaults.withCredentials = false
 // import registerServiceWorker from './registerServiceWorker';
 
