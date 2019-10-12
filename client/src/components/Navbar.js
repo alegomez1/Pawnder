@@ -5,6 +5,8 @@ import api from '../api'
 import App from './App'
 import UserProfile from './UserProfile'
 import Home from './Home'
+import Search from './Search'
+import CircleImage from './CircleImage'
 
 class Navbar extends Component {
   render() {
@@ -38,6 +40,7 @@ class Navbar extends Component {
           <div className="nav-links">
             {this.props.user.username ? (
               <React.Fragment>
+              <div className="navbar-div">
                 <Link to="/" onClick={e => this.props.handleLogoutClick(e)}>
                   Logout
                 </Link>
@@ -45,6 +48,13 @@ class Navbar extends Component {
                 <Link to="/profile">Profile</Link>
 
                 <Link to="/search">Search</Link>
+                {/* <span>
+                  <Search/>
+                </span> */}
+                <span>
+                <CircleImage/>
+                </span>
+                </div>
               </React.Fragment>
             ) : (
               <React.Fragment>
