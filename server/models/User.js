@@ -10,8 +10,10 @@ const userSchema = new Schema(
     ownerAge: String,
     city: String,
     password: String,
-    dog: Object
-
+    dogName: String,
+    dogImage: String,
+    dogBio: String,
+    dogAge: String
   },
   {
     timestamps: {

@@ -13,9 +13,11 @@ class Search extends Component {
   }
 
   search = () => {
-    Axios.get(`${url}/api/city/${this.state.search}`).then(
+    // Axios.get(`${url}/api/city/${this.state.search}`).then(
+    Axios.get(`${url}/api/users`).then(
       results => {
         let allUsers = results.data
+        console.log('ALL USERS====', allUsers)
         this.setState({
           numberOfResults: results.data.length,
           results: allUsers,
@@ -24,15 +26,15 @@ class Search extends Component {
     )
   }
 
-  displayUsers = () => {
-    return this.state.results.map((eachUser,i) => {
-      return(
-      <Link key={i} to={`/user/${eachUser._id}`}>
-      <div >
-      {eachUser.ownerName}
-      </div></Link>)
-    })
-  }
+  // displayUsers = () => {
+  //   return this.state.results.map((eachUser,i) => {
+  //     return(
+  //     <Link key={i} to={`/user/${eachUser._id}`}>
+  //     <div className="search-result">
+  //     {eachUser.ownerName}
+  //     </div></Link>)
+  //   })
+  // }
 
   handleChange = e => {
     this.setState({
@@ -49,13 +51,15 @@ class Search extends Component {
           name="search"
           onChange={this.handleChange}
         ></input>
-        <button type="text" onClick={this.search}>
+        {/* <button type="text" onClick={this.search}>
           Search
-        </button>
-        {/* <span>
+        </button> */}
+        {this.search()}
+        <button type="submit" onClick={this.search}><i className="fa fa-search"></i></button>
+        <span>
           <h2>Number of results: {this.state.numberOfResults}</h2>
-        </span> */}
-        {this.displayUsers()}
+        </span>
+        {/* {this.displayUsers()} */}
       </span>
     )
   }
