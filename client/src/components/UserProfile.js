@@ -41,7 +41,6 @@ class UserProfile extends Component {
         if (dog !== null) {
           console.log('dog result', dog)
           this.setState({
-
             dogImage: dog.dogImage,
             dogName: dog.dogName,
             dogBio: dog.dogBio,

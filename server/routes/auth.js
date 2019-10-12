@@ -39,8 +39,9 @@ router.post('/signup', (req, res, next) => {
         ownerBio,
         ownerAge,
         city,
-        dog: { name: '', age: '' },
+        dog: {}
       })
+      console.log('CREATED NEW USER========', newUser)
       return newUser.save()
     })
     .then(userSaved => {

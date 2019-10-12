@@ -19,8 +19,6 @@ class UniqueUser extends Component {
   componentDidMount() {
     let id = this.props.match.params.id
 
-    console.log('IN UNIQUE USER')
-
     Axios.get(`${url}/api/users/${id}`)
       .then(response => {
         console.log(response)

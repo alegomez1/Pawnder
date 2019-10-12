@@ -5,12 +5,23 @@ const Dog = require('../models/Dog')
 const router = express.Router()
 
 // Route to get all users
-router.get('/', (req, res, next) => {
-  User.find()
-    .then(users => {
-      res.json(users)
-    })
-    .catch(err => next(err))
+router.get('/', async (req, res, next) => {
+  // User.find()
+  //   .then(users => {
+  //     res.json(users)
+  //   })
+  //   .catch(err => next(err))
+
+    //To get both user and dog info
+    let dog = await Dog.find().catch(err =>
+      console.error(err)
+    )
+    let user = await User.find().catch(err =>
+      console.error(err)
+    )
+  
+    res.json({ dog, user })
+
 })
 
 // router.get('/:city', (req,res,next) => {

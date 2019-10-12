@@ -13,9 +13,11 @@ class Search extends Component {
   }
 
   search = () => {
-    Axios.get(`${url}/api/city/${this.state.search}`).then(
+    // Axios.get(`${url}/api/city/${this.state.search}`).then(
+    Axios.get(`${url}/api/city/Miami`).then(
       results => {
         let allUsers = results.data
+        console.log('ALL USERS====', allUsers)
         this.setState({
           numberOfResults: results.data.length,
           results: allUsers,
@@ -52,6 +54,7 @@ class Search extends Component {
         {/* <button type="text" onClick={this.search}>
           Search
         </button> */}
+        {this.search()}
         <button type="submit" onClick={this.search}><i class="fa fa-search"></i></button>
         <span>
           <h2>Number of results: {this.state.numberOfResults}</h2>
