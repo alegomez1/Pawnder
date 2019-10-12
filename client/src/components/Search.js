@@ -10,28 +10,40 @@ class Search extends Component {
     numberOfResults: '',
     search: '',
     results: [],
+    actualResults: [],
   }
 
-  search = () => {
-    Axios.get(`${url}/api/city/${this.state.search}`).then(
-      results => {
-        let allUsers = results.data
-        this.setState({
-          numberOfResults: results.data.length,
-          results: allUsers,
-        })
-      }
-    )
+  search = async () => {
+    // Axios.get(`${url}/api/city/${this.state.search}`).then(
+    //Have to reset state or the arrays keep increasing in size
+    this.setState({
+      results: [],
+      actualResults: [],
+    })
+    await Axios.get(`${url}/api/users`).then(results => {
+      let allUsers = results.data.user
+      allUsers.map(eachUser => {
+        if (eachUser.city === this.state.search) {
+          this.state.actualResults.push(eachUser)
+        }
+      })
+    }) //Somehow vvvv fixed the display issue
+    this.setState({
+      numberOfResults: this.state.actualResults.length,
+    })
+    this.displayUsers()
   }
 
   displayUsers = () => {
-    return this.state.results.map((eachUser,i) => {
-      return(
-      <Link key={i} to={`/user/${eachUser._id}`}>
-      <div >
-      {eachUser.ownerName}
-      </div></Link>)
+    let displayedResults = this.state.actualResults.map((eachUser, i) => {
+      console.log('eachhh', eachUser.ownerName)
+      return (
+        <Link key={i} to={`/user/${eachUser._id}`}>
+          <div className="search-result">{eachUser.ownerName}</div>
+        </Link>
+      )
     })
+    return displayedResults
   }
 
   handleChange = e => {
@@ -42,21 +54,22 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <span>
         <input
           type="text"
           placeholder="Search city"
           name="search"
           onChange={this.handleChange}
         ></input>
-        <button type="text" onClick={this.search}>
-          Search
+        {this.search}
+        <button type="submit" onClick={this.search}>
+          <i className="fa fa-search"></i>
         </button>
-        <div>
+        <span>
           <h2>Number of results: {this.state.numberOfResults}</h2>
-        </div>
+        </span>
         {this.displayUsers()}
-      </div>
+      </span>
     )
   }
 }

@@ -19,8 +19,6 @@ class UniqueUser extends Component {
   componentDidMount() {
     let id = this.props.match.params.id
 
-    console.log('IN UNIQUE USER')
-
     Axios.get(`${url}/api/users/${id}`)
       .then(response => {
         console.log(response)
@@ -29,10 +27,10 @@ class UniqueUser extends Component {
           ownerName: response.data.user[0].ownerName,
           ownerAge: response.data.user[0].ownerAge,
           ownerBio: response.data.user[0].ownerBio,
-          dogImage: response.data.dog[0].dogImage,
-          dogName: response.data.dog[0].dogName,
-          dogAge: response.data.dog[0].dogAge,
-          dogBio: response.data.dog[0].dogBio,
+          dogImage: response.data.user[0].dogImage,
+          dogName: response.data.user[0].dogName,
+          dogAge: response.data.user[0].dogAge,
+          dogBio: response.data.user[0].dogBio,
         })
       })
       .catch(err => console.log(err))

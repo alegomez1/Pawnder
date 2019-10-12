@@ -10,6 +10,7 @@ import UniqueUser from './UniqueUser'
 import Login from './Login'
 import Search from './Search'
 import Axios from 'axios'
+import NewSignup from './NewSignup'
 
 const url = 'http://localhost:5000'
 // const url = 'https://pawnderapp.herokuapp.com'
@@ -65,7 +66,7 @@ export default class App extends Component {
           />
           <Route
             path="/signup"
-            component={props => <Signup {...props} getUser={this.getUser} />}
+            component={props => <NewSignup {...props} getUser={this.getUser} />}
           />
           <Route
             path="/login"
