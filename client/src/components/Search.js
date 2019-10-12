@@ -22,7 +22,6 @@ class Search extends Component {
     })
     await Axios.get(`${url}/api/users`).then(results => {
       let allUsers = results.data.user
-      console.log('All results==:', allUsers)
       allUsers.map(eachUser => {
         if (eachUser.city === this.state.search) {
           this.state.actualResults.push(eachUser)
@@ -36,15 +35,15 @@ class Search extends Component {
   }
 
   displayUsers = () => {
-    let test = this.state.actualResults.map(eachUser => {
+    let displayedResults = this.state.actualResults.map((eachUser, i) => {
       console.log('eachhh', eachUser.ownerName)
       return (
-        <Link to={`/user/${eachUser._id}`}>
+        <Link key={i} to={`/user/${eachUser._id}`}>
           <div className="search-result">{eachUser.ownerName}</div>
         </Link>
       )
     })
-    return test
+    return displayedResults
   }
 
   handleChange = e => {
