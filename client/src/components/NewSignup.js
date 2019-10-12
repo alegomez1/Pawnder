@@ -13,7 +13,6 @@ class NewSignup extends Component {
       ownerAge: '',
       city: '',
       message: null,
-
       dogName: '',
       dogImage: '',
       dogBio: '',
@@ -29,7 +28,7 @@ class NewSignup extends Component {
       [event.target.name]: event.target.value,
     })
   }
-// Submits all info and redirects to profile
+  // Submits all info and redirects to profile
   handleClick(e) {
     e.preventDefault()
     let data = {
@@ -43,7 +42,7 @@ class NewSignup extends Component {
       dogName: this.state.dogName,
       dogImage: this.state.dogImage,
       dogBio: this.state.dogBio,
-      dogAge: this.state.dogAge
+      dogAge: this.state.dogAge,
     }
     api
       .signup(data)
@@ -83,7 +82,9 @@ class NewSignup extends Component {
           onChange={this.handleInputChange}
         />
         <div className="button-div">
-        <button className="test-button" onClick={this.incrementCurrentStage}>Next</button>
+          <button className="test-button" onClick={this.incrementCurrentStage}>
+            Next
+          </button>
         </div>
       </div>
     )
@@ -124,8 +125,10 @@ class NewSignup extends Component {
           placeholder="Bio"
           onChange={this.handleInputChange}
         />
-                <div className="button-div">
-        <button className="test-button" onClick={this.incrementCurrentStage}>Next</button>
+        <div className="button-div">
+          <button className="test-button" onClick={this.incrementCurrentStage}>
+            Next
+          </button>
         </div>
       </div>
     )
@@ -167,7 +170,7 @@ class NewSignup extends Component {
           onChange={this.handleInputChange}
         />
         <div className="button-div">
-        <button onClick={e => this.handleClick(e)}>Finish</button>
+          <button onClick={e => this.handleClick(e)}>Finish</button>
         </div>
       </div>
     )
