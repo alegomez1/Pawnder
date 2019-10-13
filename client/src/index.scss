@@ -236,6 +236,30 @@ height: 50px;
   display: flex;
   justify-content: flex-end;
 }
+.boot4{
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'Dosis', sans-serif;
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight:  bolder;
+  text-decoration: none;
+  border-bottom-style: none;
+}
+.signup-login{
+  color: black;
+  border-bottom-style: none;
+}
+.testlink{
+  text-decoration: none;
+  border-bottom-style: none;
+}
+
+.signup-login:hover{
+  color:  #adadad;
+  text-decoration: none;
+  border-bottom-style: none;
+}
 
 .testi{
   color: black;

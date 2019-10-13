@@ -70,10 +70,10 @@ class Navbar extends Component {
                 </React.Fragment>
               </div>
             ) : (
-              <div className="push">
+              <div className="col col-lg boot4">
                 <React.Fragment>
-                  <NavLink to="/signup">Signup</NavLink>
-                  <NavLink to="/login">Login</NavLink>
+                  <Link className="testlink" to="/signup"><span className='signup-login'>Signup</span></Link>
+                  <Link to="/login"><span className='signup-login'>Login</span></Link>
                 </React.Fragment>
               </div>
             )}
