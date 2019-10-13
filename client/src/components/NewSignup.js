@@ -62,6 +62,14 @@ class NewSignup extends Component {
     console.log('Current state', this.state)
     console.log('New stage:', this.state.currentStage)
   }
+
+decrementCurrentStage = () =>{
+  this.setState(state => ({
+    currentStage: state.currentStage - 1,
+  }))
+  console.log('Current state', this.state)
+  console.log('New stage:', this.state.currentStage)
+}
   //Username and password
   usernameAndPassword = () => {
     return (
@@ -89,7 +97,7 @@ class NewSignup extends Component {
           </div>
           <div className="button-div">
             <button
-              className="form-button"
+              className="form-button-original"
               onClick={this.incrementCurrentStage}
             >
               Next
@@ -142,12 +150,19 @@ class NewSignup extends Component {
             onChange={this.handleInputChange}
           />
           <div className="button-div">
+          <button
+              className="form-button-2"
+              onClick={this.decrementCurrentStage}
+            >
+              Back
+            </button>
             <button
               className="form-button"
               onClick={this.incrementCurrentStage}
             >
               Next
             </button>
+
           </div>
         </div>
       </div>
@@ -194,6 +209,12 @@ class NewSignup extends Component {
             onChange={this.handleInputChange}
           />
           <div className="button-div">
+          <button
+              className="form-button-2"
+              onClick={this.decrementCurrentStage}
+            >
+              Back
+            </button>
             <button className='form-button' onClick={e => this.handleClick(e)}>Finish</button>
           </div>
         </div>
