@@ -128,12 +128,12 @@ class NewSignup extends Component {
             placeholder="City"
             onChange={this.handleInputChange}
           />
-          <input
-            className="form-input"
+          <textarea
+            className="textarea"
             type="text"
             value={this.state.ownerBio}
             name="ownerBio"
-            placeholder="Bio"
+            placeholder="Tell us about yourself"
             onChange={this.handleInputChange}
           />
           <div className="button-div">
@@ -159,7 +159,7 @@ class NewSignup extends Component {
             type="text"
             value={this.state.dogName}
             name="dogName"
-            placeholder="Dog's name"
+            placeholder="Name"
             onChange={this.handleInputChange}
           />
           <input
@@ -170,8 +170,8 @@ class NewSignup extends Component {
             placeholder="Age"
             onChange={this.handleInputChange}
           />
-          <input
-            className="form-input"
+          <textarea
+            className="textarea"
             type="text"
             value={this.state.dogBio}
             name="dogBio"
@@ -198,8 +198,12 @@ class NewSignup extends Component {
       return this.usernameAndPassword()
     } else if (this.state.currentStage === 1) {
       return this.ownerInfo()
+
     } else if (this.state.currentStage === 2) {
       return this.dogInfo()
+
+
+
     }
   }
 }
