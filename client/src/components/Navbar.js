@@ -7,6 +7,7 @@ import UserProfile from './UserProfile'
 import Home from './Home'
 import Search from './Search'
 import CircleImage from './CircleImage'
+import logo from './images/Logo (1).png'
 
 class Navbar extends Component {
   render() {
@@ -35,7 +36,7 @@ class Navbar extends Component {
         </nav>*/}
 
         <nav className="navbar navbar-expand-lg navbar-light  navcolor">
-          <NavLink to="/">Pawnder</NavLink>
+          <NavLink to="/"><img className='logo' src={logo}/></NavLink>
 
           {/* <div className="nav-links navcolor"> */}
           {this.props.user.username ? (
