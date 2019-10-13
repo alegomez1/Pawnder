@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import api from '../api'
+import Progress from './Progress'
 
 class NewSignup extends Component {
   constructor(props) {
@@ -65,6 +66,7 @@ class NewSignup extends Component {
   usernameAndPassword = () => {
     return (
       <div className="dynamic-signup-div">
+      <Progress section={1}/>
         <div className="form-background">
           <h4 id="create-account-header">Create your account</h4>
           <div className="input-div">
@@ -101,7 +103,10 @@ class NewSignup extends Component {
   ownerInfo = () => {
     return (
       <div className="dynamic-signup-div">
+      <Progress section={2}/>
+
         <div className="form-background-owner">
+
           <h4 id="create-account-header">About You</h4>
 
           <input
@@ -152,7 +157,9 @@ class NewSignup extends Component {
   dogInfo = () => {
     return (
       <div className="dynamic-signup-div">
+        <Progress section={3}/>
         <div className="form-background-owner">
+
           <h4 id="create-account-header">Dog's Info</h4>
           <input
             className="form-input"

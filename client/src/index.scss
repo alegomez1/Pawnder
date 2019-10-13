@@ -221,7 +221,16 @@ a {
   font-weight: bolder;
   font-size: 20px;
   background-color: #31aa3f;
-
+}
+.selected{
+  color: #31aa3f;
+}
+.not-selected{
+  color: black;
+}
+.progress-bar{
+  margin-top: 40px;
+  background-color: white !important;
 }
 
 // Profile Styles
@@ -262,13 +271,13 @@ a {
 .cover-image-header {
   font-size: 80px;
   color: white;
-  -webkit-text-stroke: 0px black;
+  -webkit-text-stroke: 1px black;
   text-align: center;
 }
 .cover-image-subtext {
   font-size: 30px;
   color: white;
-  -webkit-text-stroke: 0px black;
+  -webkit-text-stroke: 1px black;
   text-align: center;
 }
 .cover-image-button-div {
@@ -279,8 +288,11 @@ a {
 }
 .cover-image-button {
   border-radius: 20px;
+  width: 150px;
+  height: 40px;
   background-color: #31aa3f;
   font-weight: bold;
+  font-size: 24px;
   color: white;
   border-width: 2px;
   border-color: white;
