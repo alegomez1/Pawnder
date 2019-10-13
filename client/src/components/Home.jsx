@@ -8,7 +8,9 @@ export default class Home extends Component {
     return (
       <div className="Home">
         {/* <h2>Welcome to Pawnder! {this.props.user.username}</h2> */}
-        <ImageCarousel/>
+        <div className="carousel-div">
+        <ImageCarousel />
+        </div>
       </div>
     )
   }

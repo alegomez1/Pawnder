@@ -9,8 +9,9 @@ import image3 from './images/image3.png'
 class ImageCarousel extends Component {
     render() {
         return (
-            <Carousel infiniteLoop={true} interval={100} showThumbs={false}>
-                <div>
+            
+            <Carousel infiniteLoop={true} interval={4000} showThumbs={false} width={'1080px'} autoPlay={true} transitionTime={500}>
+                <div class>
                     <img src={image1} />
                     {/* <p className="legend">Legend 1</p> */}
                 </div>
@@ -23,6 +24,7 @@ class ImageCarousel extends Component {
                     {/* <p className="legend">Legend 3</p> */}
                 </div>
             </Carousel>
+
         );
     }
 }
