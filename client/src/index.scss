@@ -2,7 +2,6 @@
 // Definition of variables
 $primary: #32c3ff;
 
-
 // ----------------------------------------
 // To install Boostrap:
 // 1) Run in the client folder: $ npm i bootstrap
@@ -19,13 +18,13 @@ $primary: #32c3ff;
 // --------------------
 // Style reusable for all components
 
-html,body
-{
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden; 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 
 body {
@@ -151,7 +150,7 @@ a {
 //   -moz-border-radius: 99em;
 //   border-radius: 99em;
 //   border: 2px solid #eee;
-//   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);  
+//   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
 // }
 // Navbar
 // .nav-links {
@@ -162,144 +161,153 @@ a {
 // }
 
 // Search result
-.search-result{
+.search-result {
   border: 2px solid black;
   width: 600px;
   height: 200px;
 }
 // New sign-up process
-.dynamic-signup-div{
+.dynamic-signup-div {
   display: grid;
   justify-content: center;
 }
-.test-button{
+.test-button {
   width: 90px;
 }
 
 // Profile Styles
-.profile-div{
+.profile-div {
   // border: 2px solid black;
   // margin-top: 20px;
   // margin-left: 30px;
   display: grid;
   justify-content: center;
 }
-.profile-dog-image{
+.profile-dog-image {
   width: 500px;
   border-radius: 30px;
   margin-top: 10px;
 }
 
-
-.Home{
+.Home {
   // padding-top: 30px;
   width: 100%;
-  background-color: #FFB48F !important;
+  // background-color: #FFB48F !important;
   height: 1000px;
 }
-.carousel-div{
+.carousel-div {
   // border: 2px solid black;
   display: flex;
   justify-content: center;
 }
-.cover-image{
-  background-image: url('./components/images/testcover2.jpeg');
+.cover-image {
+  background-image: url('./components/images/IMG_0701.JPG');
   background-repeat: no-repeat;
   background-size: cover;
   height: 600px;
 }
-.cover-image-header{
+.cover-image-content {
+  // padding-top: 360px;
+}
+.cover-image-header {
   font-size: 80px;
   color: white;
   -webkit-text-stroke: 0px black;
   text-align: center;
 }
-.cover-image-subtext{
+.cover-image-subtext {
   font-size: 30px;
   color: white;
   -webkit-text-stroke: 0px black;
   text-align: center;
 }
-.cover-image-button-div{
+.cover-image-button-div {
   margin-top: 20px;
   // border: 1px solid black;
   display: flex;
   justify-content: center;
 }
-.cover-image-button{
+.cover-image-button {
   border-radius: 20px;
-  background-color: #FFB48F;
+  background-color: #31aa3f;
+  font-weight: bold;
   color: white;
-
+  border-width: 2px;
+  border-color: white;
+}
+.cover-image-button:hover {
+  border-radius: 20px;
+  background-color: #30853a;
+  font-weight: bold;
+  // color: rgb(190, 190, 190);
+  border-width: 2px;
+  // border-color:  rgb(190, 190, 190);
 }
 
-.navcolor{
+.navcolor {
   background-color: #f2eff0 !important;
 
-  -webkit-box-shadow: 7px 4px 13px -5px rgba(0,0,0,0.36);
-  -moz-box-shadow: 7px 4px 13px -5px rgba(0,0,0,0.36);
-  box-shadow: 7px 4px 13px -5px rgba(0,0,0,0.36);
+  -webkit-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
 }
-.navbar{
+.navbar {
   height: 60px;
   width: 100%;
   // border: 2px solid yellow;
 }
-.nav-icons{
+.nav-icons {
   color: black;
   padding-right: 20px;
 }
-.nav-icons:hover{
+.nav-icons:hover {
   color: #adadad;
 }
-.logo{
-height: 50px;
+.logo {
+  height: 50px;
 }
 
-.boot1{
+.boot1 {
   // border: 2px solid blue;
 }
-.boot2{
+.boot2 {
   // border: 2px solid green;
 }
-.boot3{
+.boot3 {
   // border: 2px solid red;
   display: flex;
   justify-content: flex-end;
 }
-.boot4{
+.boot4 {
   display: flex;
   justify-content: flex-end;
   font-family: 'Dosis', sans-serif;
   margin-right: 20px;
   font-size: 20px;
-  font-weight:  bolder;
+  font-weight: bolder;
   text-decoration: none;
   border-bottom-style: none;
 }
-.signup-login{
+.signup-login {
   color: black;
   border-bottom-style: none;
 }
-.testlink{
+.testlink {
   text-decoration: none;
   border-bottom-style: none;
 }
 
-.signup-login:hover{
-  color:  #adadad;
+.signup-login:hover {
+  color: #adadad;
   text-decoration: none;
   border-bottom-style: none;
 }
 
-.testi{
+.testi {
   color: black;
 }
-.testpic{
+.testpic {
   height: 500px;
 }
-
-
-
 
 //#F17C42 #FFB48F
