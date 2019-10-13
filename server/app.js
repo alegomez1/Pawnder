@@ -29,7 +29,7 @@ app.use(
       cb(null, origin)// && origin.startsWith('http://localhost:3000'))
     },
     optionsSuccessStatus: 200,
-    credentials: false,
+    credentials: true,
   })
 )
 app.use(logger('dev'))

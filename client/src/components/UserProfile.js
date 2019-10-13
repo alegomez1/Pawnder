@@ -5,8 +5,8 @@ import api from '../api'
 // import Home from './Home'
 import Axios from 'axios'
 
-const url = 'http://localhost:5000'
-// const url = 'https://pawnderapp.herokuapp.com'
+// const url = 'http://localhost:5000'
+const url = 'https://pawnderapp.herokuapp.com'
 
 class UserProfile extends Component {
   state = {
