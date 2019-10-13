@@ -50,15 +50,15 @@ class Navbar extends Component {
                 <React.Fragment>
                   {/* <div className="navbar-div"> */}
                   <Link to="/" onClick={e => this.props.handleLogoutClick(e)}>
-                    <i className="fas fa-sign-out-alt nav-icons"></i>
+                    <i className="fas fa-sign-out-alt nav-icons fa-lg"></i>
                   </Link>
 
                   <Link to="/profile">
-                    <i class="fas fa-user-circle nav-icons"></i>
+                    <i class="fas fa-user-circle nav-icons fa-lg"></i>
                   </Link>
 
                   <Link to="/search">
-                    <i className="fa fa-search nav-icons"></i>
+                    <i className="fa fa-search nav-icons fa-lg"></i>
                   </Link>
                   {/* <span>
                   <Search/>
