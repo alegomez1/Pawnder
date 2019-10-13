@@ -2,6 +2,7 @@
 // Definition of variables
 $primary: #32c3ff;
 
+
 // ----------------------------------------
 // To install Boostrap:
 // 1) Run in the client folder: $ npm i bootstrap
@@ -191,7 +192,7 @@ a {
 
 
 .Home{
-  padding-top: 30px;
+  // padding-top: 30px;
   width: 100%;
   background-color: #FFB48F !important;
   height: 1000px;
@@ -200,6 +201,36 @@ a {
   // border: 2px solid black;
   display: flex;
   justify-content: center;
+}
+.cover-image{
+  background-image: url('./components/images/testcover2.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+.cover-image-header{
+  font-size: 80px;
+  color: white;
+  -webkit-text-stroke: 0px black;
+  text-align: center;
+}
+.cover-image-subtext{
+  font-size: 30px;
+  color: white;
+  -webkit-text-stroke: 0px black;
+  text-align: center;
+}
+.cover-image-button-div{
+  margin-top: 20px;
+  // border: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+.cover-image-button{
+  border-radius: 20px;
+  background-color: #FFB48F;
+  color: white;
+
 }
 
 .navcolor{
