@@ -181,16 +181,34 @@ a {
 
 
 .Home{
-  background-color: #EAE7DC !important;
+  padding-top: 30px;
+  background-color: #FFB48F !important;
   height: 1000px;
+}
+.carousel-div{
+  // border: 2px solid black;
+  display: flex;
+  justify-content: center;
 }
 
 .navcolor{
-  background-color: #BAB2B5 !important;
+  background-color: #f2eff0 !important;
 
   -webkit-box-shadow: 7px 4px 13px -5px rgba(0,0,0,0.36);
   -moz-box-shadow: 7px 4px 13px -5px rgba(0,0,0,0.36);
   box-shadow: 7px 4px 13px -5px rgba(0,0,0,0.36);
+}
+.navbar{
+  height: 60px;
+}
+.logo{
+height: 50px;
+}
+.testi{
+  color: black;
+}
+.testpic{
+  height: 500px;
 }
 
 //#F17C42 #FFB48F
