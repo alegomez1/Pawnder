@@ -34,10 +34,10 @@ class Navbar extends Component {
           </div> 
         </nav>*/}
 
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light  navcolor">
           <NavLink to="/">Pawnder</NavLink>
 
-          <div className="nav-links">
+          {/* <div className="nav-links navcolor"> */}
             {this.props.user.username ? (
               <React.Fragment>
               <div className="navbar-div">
@@ -64,7 +64,7 @@ class Navbar extends Component {
             )}
 
             {/* Seen when user IS logged in */}
-          </div>
+          {/* </div> */}
         </nav>
       </div>
     )

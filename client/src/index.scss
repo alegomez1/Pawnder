@@ -164,3 +164,33 @@ a {
 .test-button{
   width: 90px;
 }
+
+// Profile Styles
+.profile-div{
+  // border: 2px solid black;
+  // margin-top: 20px;
+  // margin-left: 30px;
+  display: grid;
+  justify-content: center;
+}
+.profile-dog-image{
+  width: 500px;
+  border-radius: 30px;
+  margin-top: 10px;
+}
+
+
+.Home{
+  background-color: #EAE7DC !important;
+  height: 1000px;
+}
+
+.navcolor{
+  background-color: #BAB2B5 !important;
+
+  -webkit-box-shadow: 7px 4px 13px -5px rgba(0,0,0,0.36);
+  -moz-box-shadow: 7px 4px 13px -5px rgba(0,0,0,0.36);
+  box-shadow: 7px 4px 13px -5px rgba(0,0,0,0.36);
+}
+
+//#F17C42 #FFB48F
