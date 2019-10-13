@@ -35,43 +35,54 @@ class Navbar extends Component {
           </div> 
         </nav>*/}
 
-        <nav className="navbar navbar-expand-lg navbar-light  navcolor">
-          <NavLink to="/"><img className='logo' src={logo}/></NavLink>
+        <div className="row boot1">
+        <nav className="navbar navbar-expand navbar-light  navcolor">
+          
+            <div className="col boot2">
+              <NavLink to="/">
+                <img className="logo" src={logo} />
+              </NavLink>
+            </div>
 
-          {/* <div className="nav-links navcolor"> */}
-          {this.props.user.username ? (
-            <React.Fragment>
-              {/* <div className="navbar-div"> */}
-              <Link to="/" onClick={e => this.props.handleLogoutClick(e)}>
-                <i className="fas fa-sign-out-alt"></i>
-              </Link>
+            {/* <div className="nav-links navcolor"> */}
+            {this.props.user.username ? (
+              <div className="col col-lg boot3">
+                <React.Fragment>
+                  {/* <div className="navbar-div"> */}
+                  <Link to="/" onClick={e => this.props.handleLogoutClick(e)}>
+                    <i className="fas fa-sign-out-alt nav-icons fa-lg"></i>
+                  </Link>
 
-              <Link to="/profile">
-                <i class="fas fa-user-circle"></i>
-              </Link>
+                  <Link to="/profile">
+                    <i class="fas fa-user-circle nav-icons fa-lg"></i>
+                  </Link>
 
-            
-              <Link to="/search">
-              <i className="fa fa-search"></i>
-              </Link>
-              {/* <span>
+                  <Link to="/search">
+                    <i className="fa fa-search nav-icons fa-lg"></i>
+                  </Link>
+                  {/* <span>
                   <Search/>
                 </span> */}
-              <span>
-                <CircleImage />
-              </span>
-              {/* </div> */}
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              <NavLink to="/signup">Signup</NavLink>
-              <NavLink to="/login">Login</NavLink>
-            </React.Fragment>
-          )}
+                  <span>
+                    <CircleImage />
+                  </span>
+                  {/* </div> */}
+                </React.Fragment>
+              </div>
+            ) : (
+              <div className="col col-lg boot4">
+                <React.Fragment>
+                  <Link className="testlink" to="/signup"><span className='signup-login'>Signup</span></Link>
+                  <Link to="/login"><span className='signup-login'>Login</span></Link>
+                </React.Fragment>
+              </div>
+            )}
 
-          {/* Seen when user IS logged in */}
-          {/* </div> */}
+            {/* Seen when user IS logged in */}
+            {/* </div> */}
+          
         </nav>
+        </div>
       </div>
     )
   }
