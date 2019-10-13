@@ -6,7 +6,6 @@ import App from './App'
 import UserProfile from './UserProfile'
 import Home from './Home'
 import Search from './Search'
-import CircleImage from './CircleImage'
 import logo from './images/Logo (1).png'
 
 class Navbar extends Component {
@@ -60,13 +59,6 @@ class Navbar extends Component {
                   <Link to="/search">
                     <i className="fa fa-search nav-icons fa-lg"></i>
                   </Link>
-                  {/* <span>
-                  <Search/>
-                </span> */}
-                  <span>
-                    <CircleImage />
-                  </span>
-                  {/* </div> */}
                 </React.Fragment>
               </div>
             ) : (
