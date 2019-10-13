@@ -18,6 +18,11 @@ $primary: #32c3ff;
 // --------------------
 // Style reusable for all components
 
+*{
+  font-family: 'Dosis', sans-serif;
+
+}
+
 html,
 body {
   width: 100%;
@@ -119,23 +124,6 @@ a {
   display: flex;
   justify-content: center;
 }
-.form-input {
-  margin-top: 20px;
-  text-align: center;
-  width: 200px;
-  height: 35px;
-  border-radius: 10px;
-}
-.button-div {
-  // border: 2px solid green;
-  padding-top: 35px;
-  display: flex;
-  justify-content: center;
-}
-.form-button {
-  background-color: blue !important;
-}
-
 // Circle Image
 // .circle-image {
 
@@ -168,11 +156,66 @@ a {
 }
 // New sign-up process
 .dynamic-signup-div {
+  // border: 2px solid blue;
   display: grid;
   justify-content: center;
 }
-.test-button {
+#create-account-header{
+  text-align: center;
+  padding-top: 30px;
+}
+.form-background{
+  margin-top: 50px;
+  // border: 2px solid black;
+  display: grid;
+  justify-content: center;
+  background-color: #f2eff0;
+  width: 400px;
+  height: 300px;
+
+  -webkit-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+}
+.form-background-owner{
+  margin-top: 50px;
+  // border: 2px solid black;
+  display: grid;
+  justify-content: center;
+  background-color: #f2eff0;
+  width: 400px;
+  height: 500px;
+
+  -webkit-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+}
+
+.input-div{
+  display: grid;
+  justify-content: center;
+}
+.form-input {
+  margin-top: 20px;
+  text-align: center;
+  width: 250px;
+  height: 50px;
+}
+.button-div {
+  // border: 2px solid green;
+  padding-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+.form-button {
   width: 90px;
+  height: 35px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+  background-color: #31aa3f;
+
 }
 
 // Profile Styles
