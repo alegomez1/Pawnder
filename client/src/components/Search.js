@@ -10,7 +10,9 @@ class Search extends Component {
     numberOfResults: '',
     search: '',
     results: [],
+    filteredResults: [],
     actualResults: [],
+    mediumDog: 'off'
   }
 
   search = async () => {
@@ -34,12 +36,34 @@ class Search extends Component {
     this.displayUsers()
   }
 
+  // filter = () => {
+  //   let filteredResults = this.state.actualResults.map((eachUser)=>{
+  //     if(this.state.mediumDog === 'on'){
+  //       let filtUsers = eachUser.filtUsers(user => user.dogSize === 'Medium')
+  //       this.state.filteredResults.push(filtUsers)
+  //     }
+  //     return filteredResults
+  //   }) 
+  // }
+
   displayUsers = () => {
     let displayedResults = this.state.actualResults.map((eachUser, i) => {
-      console.log('eachhh', eachUser.ownerName)
+      console.log('current state-----', this.state)
       return (
         <Link key={i} to={`/user/${eachUser._id}`}>
-          <div className="search-result">{eachUser.ownerName}</div>
+          <div className="search-result">
+            <div className="row">
+              <div className="col">
+                <img className="search-result-image" src={eachUser.dogImage} />
+              </div>
+              <div className="col">
+                <h4>{eachUser.dogName}</h4>
+              </div>
+              <div className="col">
+                <h4>{eachUser.ownerName}</h4>
+              </div>
+            </div>
+          </div>
         </Link>
       )
     })
@@ -54,22 +78,40 @@ class Search extends Component {
 
   render() {
     return (
-      <span>
+      <div className="search-div">
+        <div className="search-field-div">
         <input
-          type="text"
-          placeholder="Search city"
-          name="search"
-          onChange={this.handleChange}
-        ></input>
-        {this.search}
-        <button type="submit" onClick={this.search}>
-          <i className="fa fa-search"></i>
-        </button>
-        <span>
-          <h2>Number of results: {this.state.numberOfResults}</h2>
-        </span>
-        {this.displayUsers()}
-      </span>
+              type="checkbox"
+              name="mediumDog"
+              onChange={this.handleChange}
+            ></input><label>Medium dogs only</label>
+          <span>
+ 
+            <span>
+            
+              <input
+                className="search-field"
+                type="text"
+                placeholder="Search city"
+                name="search"
+                onChange={this.handleChange}
+              ></input>
+              {this.search}
+              <button
+                className="search-button"
+                type="submit"
+                onClick={this.search}
+              >
+                <i className="fa fa-search fa-2x"></i>
+              </button>
+            </span>
+            <span>
+              <h2>Number of results: {this.state.numberOfResults}</h2>
+            </span>
+            {this.displayUsers()}
+          </span>
+        </div>
+      </div>
     )
   }
 }

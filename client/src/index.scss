@@ -124,12 +124,36 @@ a {
   display: flex;
   justify-content: center;
 }
+//Search
+.search-div{
+  // border: 2px solid black;
+  margin-top: 40px;
 
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+.search-field-div{
+  // border: 2px solid blue;
+  align-content: center;
+  justify-content: center;
+}
+.search-field{
+  width: 350px;
+  height: 45px;
+}
+.search-button{
+margin-top: 19px;
+}
 // Search result
 .search-result {
   border: 2px solid black;
   width: 600px;
   height: 200px;
+}
+.search-result-image{
+  height: 180px;
+  width: 200px;
 }
 // New sign-up process
 .dynamic-signup-div {
@@ -172,6 +196,30 @@ a {
   -webkit-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
   -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
   box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+}
+.form-background-dog{
+  margin-top: 50px;
+  // border: 2px solid black;
+  display: grid;
+  justify-content: center;
+  background-color: #f2eff0;
+  width: 500px;
+  height: 700px;
+
+  -webkit-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+}
+#size-activity-header{
+  text-align: center;
+}
+.size-div{
+  display: flex;
+  justify-content: center;
+  // border: 2px solid black;
+}
+.size-input{
+  margin-right: 10px;
 }
 
 .input-div{
