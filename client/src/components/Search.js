@@ -39,7 +39,9 @@ class Search extends Component {
       console.log('eachhh', eachUser.ownerName)
       return (
         <Link key={i} to={`/user/${eachUser._id}`}>
-          <div className="search-result">{eachUser.ownerName}</div>
+          <div className="search-result">{eachUser.ownerName}
+          <img className='search-result-image' src={eachUser.dogImage}/>
+          </div>
         </Link>
       )
     })
@@ -57,6 +59,7 @@ class Search extends Component {
       <div className="search-div">
         <div className="search-field-div">
           <span>
+          <span>
             <input
             className='search-field'
               type="text"
@@ -65,9 +68,10 @@ class Search extends Component {
               onChange={this.handleChange}
             ></input>
             {this.search}
-            <button type="submit" onClick={this.search}>
+            <button className = 'search-button' type="submit" onClick={this.search}>
               <i className="fa fa-search fa-2x"></i>
             </button>
+            </span>
             <span>
               <h2>Number of results: {this.state.numberOfResults}</h2>
             </span>

@@ -126,24 +126,32 @@ a {
 }
 //Search
 .search-div{
-  border: 2px solid black;
+  // border: 2px solid black;
+  margin-top: 40px;
+
   display: grid;
   justify-content: center;
   align-content: center;
 }
 .search-field-div{
-  border: 2px solid blue;
+  // border: 2px solid blue;
   align-content: center;
   justify-content: center;
 }
 .search-field{
-  width: 250px;
+  width: 350px;
   height: 45px;
+}
+.search-button{
+margin-top: 19px;
 }
 // Search result
 .search-result {
   border: 2px solid black;
   width: 600px;
+  height: 200px;
+}
+.search-result-image{
   height: 200px;
 }
 // New sign-up process
