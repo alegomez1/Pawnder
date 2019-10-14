@@ -173,7 +173,7 @@ decrementCurrentStage = () =>{
     return (
       <div className="dynamic-signup-div">
         <Progress section={3}/>
-        <div className="form-background-owner">
+        <div className="form-background-dog">
 
           <h4 id="create-account-header">Dog's Info</h4>
           <input
@@ -192,6 +192,14 @@ decrementCurrentStage = () =>{
             placeholder="Age"
             onChange={this.handleInputChange}
           />
+          <h4 id="create-account-header">Size</h4>
+          <fieldset>
+            <input type='radio' value='small' name='size'/><label>Small</label>
+            <input type='radio' value='medium' name='size'/><label>Medium</label>
+            <input type='radio' value='large' name='size'/><label>Large</label>
+          </fieldset>
+
+
           <textarea
             className="textarea"
             type="text"
@@ -223,15 +231,14 @@ decrementCurrentStage = () =>{
   }
   render() {
     if (this.state.currentStage === 0) {
-      return this.usernameAndPassword()
+      return this.dogInfo()
+
+
     } else if (this.state.currentStage === 1) {
       return this.ownerInfo()
 
     } else if (this.state.currentStage === 2) {
-      return this.dogInfo()
-
-
-
+      return this.usernameAndPassword()
     }
   }
 }
