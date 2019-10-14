@@ -25,6 +25,24 @@ class NewSignup extends Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this)
   }
+
+  uploadImage = async e => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'pawnderImage')
+    const res = await fetch(
+    'https://api.cloudinary.com/v1_1/pawnder/image/upload', {
+      method: 'POST',
+      body: data
+    }
+    )
+    const file = await res.json()
+    this.setState({
+      ownerImage: file.secure_url
+    })
+  }
+
   // Changes state values to what is typed
   handleInputChange(event) {
     this.setState({
@@ -39,7 +57,7 @@ class NewSignup extends Component {
       username: this.state.username,
       ownerName: this.state.ownerName,
       password: this.state.password,
-      ownerImage: this.state.ownerImage,
+      // ownerImage: this.state.ownerImage,
       ownerBio: this.state.ownerBio,
       ownerAge: this.state.ownerAge,
       city: this.state.city,
@@ -99,7 +117,13 @@ class NewSignup extends Component {
               placeholder="password"
               onChange={this.handleInputChange}
             />
-          </div>
+
+            <h4>Upload Image</h4>
+            <input type="file"
+            name = "file"
+            placeholder= "Upload an image"
+            onChange ={this.uploadImage}/>
+
           <div className="button-div">
             <button
               className="form-button-original"
@@ -110,12 +134,15 @@ class NewSignup extends Component {
           </div>
         </div>
       </div>
+      </div>
     )
   }
   // Owner info
   ownerInfo = () => {
+    console.log('curent state-----', this.state)
     return (
       <div className="dynamic-signup-div">
+      <img src={this.state.ownerImage} alt='ownerpichere'></img>
         <Progress section={2} />
 
         <div className="form-background-owner">
