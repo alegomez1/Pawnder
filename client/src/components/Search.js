@@ -132,39 +132,38 @@ class Search extends Component {
             name="dogSize"
             value="Large"
             onChange={this.handleChange}
-          ></input>
+          ></input> <label>Large size</label>
           <input
             type="checkbox"
             name="dogSize"
             value="Medium"
             onChange={this.handleChange}
-          ></input>
+          ></input><label>Medium size</label>
           <input
             type="checkbox"
             name="dogSize"
             value="Small"
             onChange={this.handleChange}
-          ></input>
+          ></input><label>Small size</label>
 
           <input
             type="checkbox"
             name="dogActivityLevel"
             value="Low"
             onChange={this.handleChange}
-          ></input>
+          ></input><label>Low Energy</label>
           <input
             type="checkbox"
             name="dogActivityLevel"
             value="Moderate"
             onChange={this.handleChange}
-          ></input>
+          ></input><label>Moderate Energy</label>
           <input
             type="checkbox"
             name="dogActivityLevel"
             value="High"
             onChange={this.handleChange}
-          ></input>
-          <label>Medium dogs only</label>
+          ></input><label>High Energy</label>
           <span>
             <span>
               <input
