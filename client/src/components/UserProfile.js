@@ -25,6 +25,7 @@ class UserProfile extends Component {
   // Getting info from API
   async componentDidMount() {
     let current = await api.getLocalStorageUser()
+    console.log('curent.....', current)
     if (current != null) {
       this.setState({
         ownerImage: current.ownerImage,

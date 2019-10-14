@@ -57,7 +57,7 @@ class NewSignup extends Component {
       username: this.state.username,
       ownerName: this.state.ownerName,
       password: this.state.password,
-      // ownerImage: this.state.ownerImage,
+      ownerImage: this.state.ownerImage,
       ownerBio: this.state.ownerBio,
       ownerAge: this.state.ownerAge,
       city: this.state.city,
@@ -118,12 +118,6 @@ class NewSignup extends Component {
               onChange={this.handleInputChange}
             />
 
-            <h4>Upload Image</h4>
-            <input type="file"
-            name = "file"
-            placeholder= "Upload an image"
-            onChange ={this.uploadImage}/>
-
           <div className="button-div">
             <button
               className="form-button-original"
@@ -139,10 +133,8 @@ class NewSignup extends Component {
   }
   // Owner info
   ownerInfo = () => {
-    console.log('curent state-----', this.state)
     return (
       <div className="dynamic-signup-div">
-      <img src={this.state.ownerImage} alt='ownerpichere'></img>
         <Progress section={2} />
 
         <div className="form-background-owner">
@@ -180,6 +172,16 @@ class NewSignup extends Component {
             placeholder="Tell us about yourself"
             onChange={this.handleInputChange}
           />
+
+
+<h4>Upload Image</h4>
+            <input type="file"
+            name = "file"
+            placeholder= "Upload an image"
+            onChange ={this.uploadImage}/>
+
+
+
           <div className="button-div">
             <button
               className="form-button-2"
