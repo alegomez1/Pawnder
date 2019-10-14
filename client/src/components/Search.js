@@ -10,8 +10,9 @@ class Search extends Component {
     numberOfResults: '',
     search: '',
     results: [],
+    filteredResults: [],
     actualResults: [],
-    largeDog: 'off'
+    mediumDog: 'off'
   }
 
   search = async () => {
@@ -34,6 +35,16 @@ class Search extends Component {
     })
     this.displayUsers()
   }
+
+  // filter = () => {
+  //   let filteredResults = this.state.actualResults.map((eachUser)=>{
+  //     if(this.state.mediumDog === 'on'){
+  //       let filtUsers = eachUser.filtUsers(user => user.dogSize === 'Medium')
+  //       this.state.filteredResults.push(filtUsers)
+  //     }
+  //     return filteredResults
+  //   }) 
+  // }
 
   displayUsers = () => {
     let displayedResults = this.state.actualResults.map((eachUser, i) => {
@@ -69,13 +80,15 @@ class Search extends Component {
     return (
       <div className="search-div">
         <div className="search-field-div">
-          <span>
-            <input
+        <input
               type="checkbox"
-              name="largeDog"
+              name="mediumDog"
               onChange={this.handleChange}
-            ></input>
+            ></input><label>Medium dogs only</label>
+          <span>
+ 
             <span>
+            
               <input
                 className="search-field"
                 type="text"
