@@ -18,6 +18,7 @@ class NewSignup extends Component {
       dogImage: '',
       dogBio: '',
       dogAge: '',
+      dogSize: '',
 
       currentStage: 0,
     }
@@ -28,6 +29,7 @@ class NewSignup extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     })
+    console.log('current state->', this.state)
   }
   // Submits all info and redirects to profile
   handleClick(e) {
@@ -44,6 +46,7 @@ class NewSignup extends Component {
       dogImage: this.state.dogImage,
       dogBio: this.state.dogBio,
       dogAge: this.state.dogAge,
+      dogSize: this.state.dogSize,
     }
     api
       .signup(data)
@@ -63,18 +66,18 @@ class NewSignup extends Component {
     console.log('New stage:', this.state.currentStage)
   }
 
-decrementCurrentStage = () =>{
-  this.setState(state => ({
-    currentStage: state.currentStage - 1,
-  }))
-  console.log('Current state', this.state)
-  console.log('New stage:', this.state.currentStage)
-}
+  decrementCurrentStage = () => {
+    this.setState(state => ({
+      currentStage: state.currentStage - 1,
+    }))
+    console.log('Current state', this.state)
+    console.log('New stage:', this.state.currentStage)
+  }
   //Username and password
   usernameAndPassword = () => {
     return (
       <div className="dynamic-signup-div">
-      <Progress section={1}/>
+        <Progress section={1} />
         <div className="form-background">
           <h4 id="create-account-header">Create your account</h4>
           <div className="input-div">
@@ -111,10 +114,9 @@ decrementCurrentStage = () =>{
   ownerInfo = () => {
     return (
       <div className="dynamic-signup-div">
-      <Progress section={2}/>
+        <Progress section={2} />
 
         <div className="form-background-owner">
-
           <h4 id="create-account-header">About You</h4>
 
           <input
@@ -150,7 +152,7 @@ decrementCurrentStage = () =>{
             onChange={this.handleInputChange}
           />
           <div className="button-div">
-          <button
+            <button
               className="form-button-2"
               onClick={this.decrementCurrentStage}
             >
@@ -162,7 +164,6 @@ decrementCurrentStage = () =>{
             >
               Next
             </button>
-
           </div>
         </div>
       </div>
@@ -172,9 +173,8 @@ decrementCurrentStage = () =>{
   dogInfo = () => {
     return (
       <div className="dynamic-signup-div">
-        <Progress section={3}/>
+        <Progress section={3} />
         <div className="form-background-dog">
-
           <h4 id="create-account-header">Dog's Info</h4>
           <input
             className="form-input"
@@ -193,12 +193,30 @@ decrementCurrentStage = () =>{
             onChange={this.handleInputChange}
           />
           <h4 id="create-account-header">Size</h4>
-          <fieldset>
-            <input type='radio' value='small' name='size'/><label>Small</label>
-            <input type='radio' value='medium' name='size'/><label>Medium</label>
-            <input type='radio' value='large' name='size'/><label>Large</label>
-          </fieldset>
 
+          <fieldset>
+            <input
+              type="radio"
+              value="Small"
+              name="dogSize"
+              onChange={this.handleInputChange}
+            />
+            <label>Small</label>
+            <input
+              type="radio"
+              value="Medium"
+              name="dogSize"
+              onChange={this.handleInputChange}
+            />
+            <label>Medium</label>
+            <input
+              type="radio"
+              value="Large"
+              name="dogSize"
+              onChange={this.handleInputChange}
+            />
+            <label>Large</label>
+          </fieldset>
 
           <textarea
             className="textarea"
@@ -217,13 +235,15 @@ decrementCurrentStage = () =>{
             onChange={this.handleInputChange}
           />
           <div className="button-div">
-          <button
+            <button
               className="form-button-2"
               onClick={this.decrementCurrentStage}
             >
               Back
             </button>
-            <button className='form-button' onClick={e => this.handleClick(e)}>Finish</button>
+            <button className="form-button" onClick={e => this.handleClick(e)}>
+              Finish
+            </button>
           </div>
         </div>
       </div>
@@ -233,12 +253,10 @@ decrementCurrentStage = () =>{
     if (this.state.currentStage === 0) {
       return this.dogInfo()
 
-
+      return this.usernameAndPassword()
     } else if (this.state.currentStage === 1) {
       return this.ownerInfo()
-
     } else if (this.state.currentStage === 2) {
-      return this.usernameAndPassword()
     }
   }
 }
