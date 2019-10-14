@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 import api from '../api'
 // import AddPet from './AddPet'
 // import Home from './Home'
-import Axios from 'axios'
+// import Axios from 'axios'
 
-const url = 'http://localhost:5000'
+// const url = 'http://localhost:5000'
 // const url = 'https://pawnderapp.herokuapp.com'
 
 class UserProfile extends Component {

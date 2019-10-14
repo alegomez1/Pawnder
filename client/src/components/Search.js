@@ -61,8 +61,9 @@ class Search extends Component {
     return this.state.actualResults.filter(eachUser => {
       console.log(eachUser.dogActivityLevel, this.state.dogActivityLevel)
       return (
-        this.state.dogActivityLevel.includes(eachUser.dogActivityLevel) &&
-        this.state.dogSize.includes(eachUser.dogSize)
+        this.state.dogSize.includes(eachUser.dogSize) &&
+        this.state.dogActivityLevel.includes(eachUser.dogActivityLevel) 
+        
       )
     })
   }
@@ -75,7 +76,7 @@ class Search extends Component {
           <div className="search-result">
             <div className="row">
               <div className="col">
-                <img className="search-result-image" src={eachUser.dogImage} />
+                <img className="search-result-image" src={eachUser.dogImage} alt='dogpic'/>
               </div>
               <div className="col">
                 <h4>{eachUser.dogName}</h4>
@@ -102,9 +103,9 @@ class Search extends Component {
     if (e.target.checked) {
       attribute.push(e.target.value)
     } else {
-      attribute.splice(attribute.indexOf(e.target.value), 1)
+      attribute.splice(attribute.indexOf('e.target.value'), 1)
     }
-    console.log(attribute)
+    console.log('attributeeee',attribute)
     this.setState({
       [e.target.name]: attribute,
       firstClick: false,

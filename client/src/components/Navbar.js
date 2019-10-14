@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Route, Link, NavLink, Switch } from 'react-router-dom'
-import Signup from './Signup'
-import api from '../api'
-import App from './App'
-import UserProfile from './UserProfile'
-import Home from './Home'
-import Search from './Search'
+import { Link, NavLink } from 'react-router-dom'
+// import Signup from './Signup'
+// import api from '../api'
+// import App from './App'
+// import UserProfile from './UserProfile'
+// import Home from './Home'
+// import Search from './Search'
 import logo from './images/Logo (1).png'
 
 class Navbar extends Component {
@@ -39,7 +39,7 @@ class Navbar extends Component {
           
             <div className="col boot2">
               <NavLink to="/">
-                <img className="logo" src={logo} />
+                <img className="logo" src={logo} alt='logo'/>
               </NavLink>
             </div>
 
@@ -53,7 +53,7 @@ class Navbar extends Component {
                   </Link>
 
                   <Link to="/profile">
-                    <i class="fas fa-user-circle nav-icons fa-lg"></i>
+                    <i className="fas fa-user-circle nav-icons fa-lg"></i>
                   </Link>
 
                   <Link to="/search">
