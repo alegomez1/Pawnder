@@ -128,6 +128,26 @@ class Search extends Component {
     return (
       <div className="search-div">
         <div className="search-field-div">
+
+        <span>
+              <input
+                className="search-field"
+                type="text"
+                placeholder="Search city"
+                name="search"
+                onChange={this.handleSearch}
+              ></input>
+              {this.search}
+              <button
+                className="search-button"
+                type="submit"
+                onClick={this.search}
+              >
+                <i className="fa fa-search fa-2x"></i>
+              </button>
+            </span>
+
+            <br/>
           <input
             type="checkbox"
             name="dogSize"
@@ -165,29 +185,13 @@ class Search extends Component {
             value="High"
             onChange={this.handleChange}
           ></input><label>High Energy</label>
-          <span>
-            <span>
-              <input
-                className="search-field"
-                type="text"
-                placeholder="Search city"
-                name="search"
-                onChange={this.handleSearch}
-              ></input>
-              {this.search}
-              <button
-                className="search-button"
-                type="submit"
-                onClick={this.search}
-              >
-                <i className="fa fa-search fa-2x"></i>
-              </button>
-            </span>
-            <span>
-              <h2>Number of results: {this.state.numberOfResults}</h2>
-            </span>
+
+            
+
+              {/* <h2>Number of results: {this.state.numberOfResults}</h2> */}
+
             {this.displayUsers()}
-          </span>
+
         </div>
       </div>
     )
