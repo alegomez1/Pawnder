@@ -124,7 +124,22 @@ a {
   display: flex;
   justify-content: center;
 }
-
+//Search
+.search-div{
+  border: 2px solid black;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+.search-field-div{
+  border: 2px solid blue;
+  align-content: center;
+  justify-content: center;
+}
+.search-field{
+  width: 250px;
+  height: 45px;
+}
 // Search result
 .search-result {
   border: 2px solid black;

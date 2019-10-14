@@ -54,22 +54,27 @@ class Search extends Component {
 
   render() {
     return (
-      <span>
-        <input
-          type="text"
-          placeholder="Search city"
-          name="search"
-          onChange={this.handleChange}
-        ></input>
-        {this.search}
-        <button type="submit" onClick={this.search}>
-          <i className="fa fa-search"></i>
-        </button>
-        <span>
-          <h2>Number of results: {this.state.numberOfResults}</h2>
-        </span>
-        {this.displayUsers()}
-      </span>
+      <div className="search-div">
+        <div className="search-field-div">
+          <span>
+            <input
+            className='search-field'
+              type="text"
+              placeholder="Search city"
+              name="search"
+              onChange={this.handleChange}
+            ></input>
+            {this.search}
+            <button type="submit" onClick={this.search}>
+              <i className="fa fa-search fa-2x"></i>
+            </button>
+            <span>
+              <h2>Number of results: {this.state.numberOfResults}</h2>
+            </span>
+            {this.displayUsers()}
+          </span>
+        </div>
+      </div>
     )
   }
 }
