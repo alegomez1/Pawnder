@@ -26,20 +26,40 @@ class NewSignup extends Component {
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
-  uploadImage = async e => {
+  uploadOwnerImage = async e => {
     const files = e.target.files
     const data = new FormData()
     data.append('file', files[0])
     data.append('upload_preset', 'pawnderImage')
     const res = await fetch(
-    'https://api.cloudinary.com/v1_1/pawnder/image/upload', {
-      method: 'POST',
-      body: data
-    }
+      'https://api.cloudinary.com/v1_1/pawnder/image/upload',
+      {
+        method: 'POST',
+        body: data,
+      }
     )
     const file = await res.json()
     this.setState({
-      ownerImage: file.secure_url
+      ownerImage: file.secure_url,
+    })
+  }
+
+
+  uploadDogImage = async e => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'pawnderImage')
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/pawnder/image/upload',
+      {
+        method: 'POST',
+        body: data,
+      }
+    )
+    const file = await res.json()
+    this.setState({
+      dogImage: file.secure_url,
     })
   }
 
@@ -66,7 +86,7 @@ class NewSignup extends Component {
       dogBio: this.state.dogBio,
       dogAge: this.state.dogAge,
       dogSize: this.state.dogSize,
-      dogActivityLevel: this.state.dogActivityLevel
+      dogActivityLevel: this.state.dogActivityLevel,
     }
     api
       .signup(data)
@@ -117,22 +137,22 @@ class NewSignup extends Component {
               placeholder="password"
               onChange={this.handleInputChange}
             />
-
-          <div className="button-div">
-            <button
-              className="form-button-original"
-              onClick={this.incrementCurrentStage}
-            >
-              Next
-            </button>
+            <div className="button-div">
+              <button
+                className="form-button-original"
+                onClick={this.incrementCurrentStage}
+              >
+                Next
+              </button>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     )
   }
   // Owner info
   ownerInfo = () => {
+    console.log('state----', this.state)
     return (
       <div className="dynamic-signup-div">
         <Progress section={2} />
@@ -173,14 +193,13 @@ class NewSignup extends Component {
             onChange={this.handleInputChange}
           />
 
-
-<h4>Upload Image</h4>
-            <input type="file"
-            name = "file"
-            placeholder= "Upload an image"
-            onChange ={this.uploadImage}/>
-
-
+          <h4>Upload Image</h4>
+          <input
+            type="file"
+            name="file"
+            placeholder="Upload an image"
+            onChange={this.uploadOwnerImage}
+          />
 
           <div className="button-div">
             <button
@@ -254,8 +273,6 @@ class NewSignup extends Component {
             </fieldset>
           </div>
 
-
-
           <textarea
             className="textarea"
             type="text"
@@ -265,7 +282,15 @@ class NewSignup extends Component {
             onChange={this.handleInputChange}
           />
 
-<h4 id="size-activity-header">Activity Level</h4>
+<h4>Upload Image</h4>
+          <input
+            type="file"
+            name="file"
+            placeholder="Upload an image"
+            onChange={this.uploadDogImage}
+          />
+
+          <h4 id="size-activity-header">Activity Level</h4>
           <div className="size-div">
             <fieldset>
               <input
@@ -296,14 +321,6 @@ class NewSignup extends Component {
           </div>
 
 
-          <input
-            className="form-input"
-            type="text"
-            value={this.state.dogImage}
-            name="dogImage"
-            placeholder="Image URL"
-            onChange={this.handleInputChange}
-          />
           <div className="button-div">
             <button
               className="form-button-2"
@@ -320,6 +337,7 @@ class NewSignup extends Component {
     )
   }
   render() {
+    console.log('currentstate======', this.state)
     if (this.state.currentStage === 0) {
       return this.usernameAndPassword()
     } else if (this.state.currentStage === 1) {
