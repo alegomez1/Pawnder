@@ -22,7 +22,8 @@ router.post('/signup', (req, res, next) => {
     dogImage,
     dogBio,
     dogAge,
-    dogSize
+    dogSize,
+    dogActivityLevel
   } = req.body
   if (!username || !password) {
     res.status(400).json({ message: 'Indicate username and password' })
@@ -48,7 +49,8 @@ router.post('/signup', (req, res, next) => {
         dogImage,
         dogBio,
         dogAge,
-        dogSize
+        dogSize,
+        dogActivityLevel
       })
       console.log('CREATED NEW USER========', newUser)
       return newUser.save()

@@ -209,9 +209,16 @@ margin-top: 19px;
   -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
   box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
 }
-.test-center{
-  display: grid;
-
+#size-activity-header{
+  text-align: center;
+}
+.size-div{
+  display: flex;
+  justify-content: center;
+  // border: 2px solid black;
+}
+.size-input{
+  margin-right: 10px;
 }
 
 .input-div{

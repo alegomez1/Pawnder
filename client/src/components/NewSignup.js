@@ -19,6 +19,7 @@ class NewSignup extends Component {
       dogBio: '',
       dogAge: '',
       dogSize: '',
+      dogActivityLevel: '',
 
       currentStage: 0,
     }
@@ -47,6 +48,7 @@ class NewSignup extends Component {
       dogBio: this.state.dogBio,
       dogAge: this.state.dogAge,
       dogSize: this.state.dogSize,
+      dogActivityLevel: this.state.dogActivityLevel
     }
     api
       .signup(data)
@@ -192,31 +194,38 @@ class NewSignup extends Component {
             placeholder="Age"
             onChange={this.handleInputChange}
           />
-          <h4 id="create-account-header">Size</h4>
 
-          <fieldset>
-            <input
-              type="radio"
-              value="Small"
-              name="dogSize"
-              onChange={this.handleInputChange}
-            />
-            <label>Small</label>
-            <input
-              type="radio"
-              value="Medium"
-              name="dogSize"
-              onChange={this.handleInputChange}
-            />
-            <label>Medium</label>
-            <input
-              type="radio"
-              value="Large"
-              name="dogSize"
-              onChange={this.handleInputChange}
-            />
-            <label>Large</label>
-          </fieldset>
+          <h4 id="size-activity-header">Size</h4>
+          <div className="size-div">
+            <fieldset>
+              <input
+                className="size-input"
+                type="radio"
+                value="Small"
+                name="dogSize"
+                onChange={this.handleInputChange}
+              />
+              <label className="size-input">Small</label>
+              <input
+                className="size-input"
+                type="radio"
+                value="Medium"
+                name="dogSize"
+                onChange={this.handleInputChange}
+              />
+              <label className="size-input">Medium</label>
+              <input
+                className="size-input"
+                type="radio"
+                value="Large"
+                name="dogSize"
+                onChange={this.handleInputChange}
+              />
+              <label className="size-input">Large</label>
+            </fieldset>
+          </div>
+
+
 
           <textarea
             className="textarea"
@@ -226,6 +235,38 @@ class NewSignup extends Component {
             placeholder="About your dog"
             onChange={this.handleInputChange}
           />
+
+<h4 id="size-activity-header">Activity Level</h4>
+          <div className="size-div">
+            <fieldset>
+              <input
+                className="size-input"
+                type="radio"
+                value="Low"
+                name="dogActivityLevel"
+                onChange={this.handleInputChange}
+              />
+              <label className="size-input">Low</label>
+              <input
+                className="size-input"
+                type="radio"
+                value="Moderate"
+                name="dogActivityLevel"
+                onChange={this.handleInputChange}
+              />
+              <label className="size-input">Moderate</label>
+              <input
+                className="size-input"
+                type="radio"
+                value="High"
+                name="dogActivityLevel"
+                onChange={this.handleInputChange}
+              />
+              <label className="size-input">High</label>
+            </fieldset>
+          </div>
+
+
           <input
             className="form-input"
             type="text"
@@ -251,12 +292,11 @@ class NewSignup extends Component {
   }
   render() {
     if (this.state.currentStage === 0) {
-      return this.dogInfo()
-
       return this.usernameAndPassword()
     } else if (this.state.currentStage === 1) {
       return this.ownerInfo()
     } else if (this.state.currentStage === 2) {
+      return this.dogInfo()
     }
   }
 }
