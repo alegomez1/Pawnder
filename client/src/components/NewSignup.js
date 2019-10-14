@@ -25,7 +25,7 @@ class NewSignup extends Component {
     }
     this.handleInputChange = this.handleInputChange.bind(this)
   }
-
+  //Uploading images
   uploadOwnerImage = async e => {
     const files = e.target.files
     const data = new FormData()
@@ -39,12 +39,11 @@ class NewSignup extends Component {
       }
     )
     const file = await res.json()
+    console.log('fileeee', file)
     this.setState({
-      ownerImage: file.secure_url,
+      ownerImage: file.eager[0].secure_url,
     })
   }
-
-
   uploadDogImage = async e => {
     const files = e.target.files
     const data = new FormData()
@@ -59,7 +58,7 @@ class NewSignup extends Component {
     )
     const file = await res.json()
     this.setState({
-      dogImage: file.secure_url,
+      dogImage: file.eager[0].secure_url,
     })
   }
 
@@ -192,14 +191,17 @@ class NewSignup extends Component {
             placeholder="Tell us about yourself"
             onChange={this.handleInputChange}
           />
-
-          <h4>Upload Image</h4>
-          <input
-            type="file"
-            name="file"
-            placeholder="Upload an image"
-            onChange={this.uploadOwnerImage}
-          />
+          <div className="image-upload-div">
+            <h5 className="image-header">Image</h5>
+            <input
+              id="upload-button"
+              className="form-input-2"
+              type="file"
+              name="file"
+              placeholder="Upload an image"
+              onChange={this.uploadOwnerImage}
+            />
+          </div>
 
           <div className="button-div">
             <button
@@ -282,13 +284,17 @@ class NewSignup extends Component {
             onChange={this.handleInputChange}
           />
 
-<h4>Upload Image</h4>
-          <input
-            type="file"
-            name="file"
-            placeholder="Upload an image"
-            onChange={this.uploadDogImage}
-          />
+          <div className="image-upload-div">
+            <h5 className="image-header">Image</h5>
+            <input
+              id="upload-button"
+              className="form-input-2"
+              type="file"
+              name="file"
+              placeholder="Upload an image"
+              onChange={this.uploadDogImage}
+            />
+          </div>
 
           <h4 id="size-activity-header">Activity Level</h4>
           <div className="size-div">
@@ -319,7 +325,6 @@ class NewSignup extends Component {
               <label className="size-input">High</label>
             </fieldset>
           </div>
-
 
           <div className="button-div">
             <button
