@@ -128,13 +128,13 @@ a {
 .search-div{
   // border: 2px solid black;
   margin-top: 40px;
-
   display: grid;
   justify-content: center;
   align-content: center;
 }
 .search-field-div{
   // border: 2px solid blue;
+  display: grid;
   align-content: center;
   justify-content: center;
 }
@@ -154,6 +154,9 @@ margin-top: 19px;
 .search-result-image{
   height: 180px;
   width: 200px;
+}
+.align-center{
+  text-align: center;
 }
 // New sign-up process
 .dynamic-signup-div {
