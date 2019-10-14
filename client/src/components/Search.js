@@ -12,7 +12,11 @@ class Search extends Component {
     results: [],
     filteredResults: [],
     actualResults: [],
-    mediumDog: 'off'
+    dogActivityLevel: ['Low', 'Moderate', 'High'],
+    dogSize: ['Small', 'Medium', 'Large'],
+    firstClick: true,
+
+    // mediumDog: 'off',
   }
 
   search = async () => {
@@ -24,15 +28,22 @@ class Search extends Component {
     })
     await Axios.get(`${url}/api/users`).then(results => {
       let allUsers = results.data.user
+      let aResults = []
+      console.log(allUsers)
       allUsers.map(eachUser => {
+        console.log(eachUser.city, this.state.search)
+
         if (eachUser.city === this.state.search) {
-          this.state.actualResults.push(eachUser)
+          //this.state.actualResults.push(eachUser)
+          aResults.push(eachUser)
         }
       })
-    }) //Somehow vvvv fixed the display issue
-    this.setState({
-      numberOfResults: this.state.actualResults.length,
+      this.setState({
+        actualResults: aResults,
+        numberOfResults: aResults.length,
+      })
     })
+
     this.displayUsers()
   }
 
@@ -43,11 +54,21 @@ class Search extends Component {
   //       this.state.filteredResults.push(filtUsers)
   //     }
   //     return filteredResults
-  //   }) 
+  //   })
   // }
 
+  filterUsers = () => {
+    return this.state.actualResults.filter(eachUser => {
+      console.log(eachUser.dogActivityLevel, this.state.dogActivityLevel)
+      return (
+        this.state.dogActivityLevel.includes(eachUser.dogActivityLevel) &&
+        this.state.dogSize.includes(eachUser.dogSize)
+      )
+    })
+  }
+
   displayUsers = () => {
-    let displayedResults = this.state.actualResults.map((eachUser, i) => {
+    let displayedResults = this.filterUsers().map((eachUser, i) => {
       console.log('current state-----', this.state)
       return (
         <Link key={i} to={`/user/${eachUser._id}`}>
@@ -71,8 +92,34 @@ class Search extends Component {
   }
 
   handleChange = e => {
+    //let newArray = []
+
+    console.log(e.target.name, e.target.value, e.target.checked)
+    let attribute = [...this.state[e.target.name]]
+    if (this.state.firstClick) {
+      attribute = []
+    }
+    if (e.target.checked) {
+      attribute.push(e.target.value)
+    } else {
+      attribute.splice(attribute.indexOf(e.target.value), 1)
+    }
+    console.log(attribute)
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: attribute,
+      firstClick: false,
+    })
+    //newArray.push(e.target.value)
+    console.log(attribute)
+
+    // this.setState({
+    //   [e.target.name]: e.target.value,
+    // })
+  }
+
+  handleSearch = e => {
+    this.setState({
+      search: e.target.value,
     })
   }
 
@@ -80,21 +127,52 @@ class Search extends Component {
     return (
       <div className="search-div">
         <div className="search-field-div">
-        <input
-              type="checkbox"
-              name="mediumDog"
-              onChange={this.handleChange}
-            ></input><label>Medium dogs only</label>
+          <input
+            type="checkbox"
+            name="dogSize"
+            value="Large"
+            onChange={this.handleChange}
+          ></input>
+          <input
+            type="checkbox"
+            name="dogSize"
+            value="Medium"
+            onChange={this.handleChange}
+          ></input>
+          <input
+            type="checkbox"
+            name="dogSize"
+            value="Small"
+            onChange={this.handleChange}
+          ></input>
+
+          <input
+            type="checkbox"
+            name="dogActivityLevel"
+            value="Low"
+            onChange={this.handleChange}
+          ></input>
+          <input
+            type="checkbox"
+            name="dogActivityLevel"
+            value="Moderate"
+            onChange={this.handleChange}
+          ></input>
+          <input
+            type="checkbox"
+            name="dogActivityLevel"
+            value="High"
+            onChange={this.handleChange}
+          ></input>
+          <label>Medium dogs only</label>
           <span>
- 
             <span>
-            
               <input
                 className="search-field"
                 type="text"
                 placeholder="Search city"
                 name="search"
-                onChange={this.handleChange}
+                onChange={this.handleSearch}
               ></input>
               {this.search}
               <button
