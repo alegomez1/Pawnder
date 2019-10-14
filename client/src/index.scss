@@ -147,13 +147,30 @@ margin-top: 19px;
 }
 // Search result
 .search-result {
-  border: 2px solid black;
+  // border: 2px solid black;
+  background-color: #f8f8f8;
+  margin-bottom: 40px;
   width: 600px;
   height: 200px;
+
+  -webkit-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+
+}
+.no-padding{
+  padding: 0 !important;
 }
 .search-result-image{
-  height: 180px;
-  width: 200px;
+  height: 200px;
+  width: 250px;
+}
+.search-name{
+  color: black;
+}
+.search-bio{
+  color: #6d6d6d;
+  font-weight: normal;
 }
 .align-center{
   text-align: center;

@@ -40,12 +40,12 @@ class Search extends Component {
       return (
         <Link key={i} to={`/user/${eachUser._id}`}>
         <div className='row search-result'>
-          <div className='col'>
+          <div className='col no-padding'>
           <img className='search-result-image' src={eachUser.dogImage} alt='each dog'/>
           </div>
           <div className='col'>
-          <h5 className='align-center'>{eachUser.dogName}</h5>
-          <p className='align-center'>{eachUser.dogBio}</p>
+          <h4 className='align-center search-name'>{eachUser.dogName}</h4>
+          <p className='align-center search-bio'>{eachUser.dogBio}</p>
           </div>
         </div>
         </Link>
