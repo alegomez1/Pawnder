@@ -128,28 +128,37 @@ a {
 .search-div{
   // border: 2px solid black;
   margin-top: 40px;
+  margin-left: 40px;
   display: grid;
-  justify-content: center;
+  justify-content: left;
   align-content: center;
+}
+.span-test{
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 .search-field-div{
   // border: 2px solid blue;
   display: grid;
   align-content: center;
-  justify-content: center;
+  justify-content: left;
 }
 .search-field{
-  width: 350px;
+  width: 550px;
   height: 45px;
+  font-size: 20px;
 }
 .search-button{
-margin-top: 19px;
+  width: 50px;
+  height: 44px;
 }
 // Search result
 .search-result {
   // border: 2px solid black;
   background-color: #f8f8f8;
-  margin-bottom: 40px;
+  margin-top: 40px;
+  // margin-bottom: 40px;
   width: 600px;
   height: 200px;
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import api from '../api'
 import Progress from './Progress'
+import tennis from '../components/images/tennisballs1.png'
 
 class NewSignup extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class NewSignup extends Component {
       dogAge: '',
       dogSize: '',
       dogActivityLevel: '',
+      level: '',
 
       currentStage: 0,
     }
@@ -86,6 +88,7 @@ class NewSignup extends Component {
       dogAge: this.state.dogAge,
       dogSize: this.state.dogSize,
       dogActivityLevel: this.state.dogActivityLevel,
+      level: this.state.level
     }
     api
       .signup(data)

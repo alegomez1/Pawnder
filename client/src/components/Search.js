@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
+import tennis from './images/tennisballs1.png'
+import tennis2 from './images/tennisballs2.png'
+import tennis3 from './images/tennisballs3.png'
 
 const url = 'http://localhost:5000'
 // const url = 'https://pawnderapp.herokuapp.com'
@@ -36,8 +39,18 @@ class Search extends Component {
 
   displayUsers = () => {
     let displayedResults = this.state.actualResults.map((eachUser, i) => {
+      if(eachUser.dogActivityLevel === 'Low'){
+        eachUser.dogActivityLevel = tennis
+      }
+      else if(eachUser.dogActivityLevel === 'Moderate'){
+        eachUser.dogActivityLevel = tennis2
+      }
+      else if(eachUser.dogActivityLevel === 'High'){
+        eachUser.dogActivityLevel = tennis3
+      }
       console.log('eachhh', eachUser.ownerName)
       return (
+        <React.Fragment>
         <Link key={i} to={`/user/${eachUser._id}`}>
         <div className='row search-result'>
           <div className='col no-padding'>
@@ -46,9 +59,12 @@ class Search extends Component {
           <div className='col'>
           <h4 className='align-center search-name'>{eachUser.dogName}</h4>
           <p className='align-center search-bio'>{eachUser.dogBio}</p>
+          <img className='tennis-balls' src={eachUser.dogActivityLevel} alt='tennis'></img>
           </div>
         </div>
         </Link>
+        </React.Fragment>
+
       )
     })
     return displayedResults
@@ -64,21 +80,25 @@ class Search extends Component {
     return (
       <div className="search-div">
         <div className="search-field-div">
-          <span>
+          <span className='span-test'>
             <input
+              className= 'search-field'
               type="text"
               placeholder="Search city"
               name="search"
               onChange={this.handleChange}
             ></input>
             {this.search}
-            <button type="submit" onClick={this.search}>
+            <button 
+            className='search-button'
+            type="submit" 
+            onClick={this.search}>
               <i className="fa fa-search"></i>
             </button>
-            <span>
-              <h2>Number of results: {this.state.numberOfResults}</h2>
-            </span>
           </span>
+          {/* <span>
+              <h2>Number of results: {this.state.numberOfResults}</h2>
+            </span> */}
         </div>
         {this.displayUsers()}
       </div>
