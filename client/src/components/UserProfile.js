@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import { NavLink } from 'react-router-dom'
 import api from '../api'
+import GoogleMaps from './GoogleMaps'
 // import AddPet from './AddPet'
 // import Home from './Home'
 // import Axios from 'axios'
@@ -67,6 +68,9 @@ class UserProfile extends Component {
               <p className="profile-text">Age: {this.state.ownerAge}</p>
               <p className="profile-text">IMAGE</p>
             </div>
+          </div>
+          <div className='col-8'>
+      <GoogleMaps/>
           </div>
         </div>
       </div>
