@@ -19,7 +19,6 @@ class Search extends Component {
     actualResults: [],
     sort: true,
   }
-
   search = async () => {
     // Axios.get(`${url}/api/city/${this.state.search}`).then(
     //Have to reset state or the arrays keep increasing in size
@@ -51,19 +50,15 @@ class Search extends Component {
     )
   }
   displayUsers = () => {
-    // var obj = this.state.actualResults
-    // obj.sort((a,b)=> a.dogActivityLevel > b.dogActivityLevel)
     let displayedResults
     if (this.state.sort === true) {
       console.log('TRUE SO SORTING BY ACTIVITY')
       displayedResults = this.sortByActivity().map((eachUser, i) => {
-        if(eachUser.dogActivityLevel === 1){
+        if (eachUser.dogActivityLevel === 1) {
           eachUser.tennis = tennis
-        }
-        else if(eachUser.dogActivityLevel === 2){
+        } else if (eachUser.dogActivityLevel === 2) {
           eachUser.tennis = tennis2
-        }
-        else if(eachUser.dogActivityLevel === 3){
+        } else if (eachUser.dogActivityLevel === 3) {
           eachUser.tennis = tennis3
         }
         if (eachUser.dogSize === 'Small') {
@@ -75,7 +70,7 @@ class Search extends Component {
         }
         return (
           <React.Fragment key={i}>
-            <Link  to={`/user/${eachUser._id}`}>
+            <Link to={`/user/${eachUser._id}`}>
               <div className="row search-result">
                 <div className="col no-padding">
                   <img
@@ -117,13 +112,11 @@ class Search extends Component {
       displayedResults = this.reverseSortByActivity().map((eachUser, i) => {
         console.log('FALSE SO NOTTTTT SORTING BY ACTIVITY')
 
-        if(eachUser.dogActivityLevel === 1){
+        if (eachUser.dogActivityLevel === 1) {
           eachUser.tennis = tennis
-        }
-        else if(eachUser.dogActivityLevel === 2){
+        } else if (eachUser.dogActivityLevel === 2) {
           eachUser.tennis = tennis2
-        }
-        else if(eachUser.dogActivityLevel === 3){
+        } else if (eachUser.dogActivityLevel === 3) {
           eachUser.tennis = tennis3
         }
         if (eachUser.dogSize === 'Small') {
@@ -135,7 +128,7 @@ class Search extends Component {
         }
         return (
           <React.Fragment key={i}>
-            <Link  to={`/user/${eachUser._id}`}>
+            <Link to={`/user/${eachUser._id}`}>
               <div className="row search-result">
                 <div className="col no-padding">
                   <img
@@ -221,14 +214,10 @@ class Search extends Component {
             <label>Sort by activity</label>
             {/* {this.search} */}
           </span>
-          {/* <span>
-              <h2>Number of results: {this.state.numberOfResults}</h2>
-            </span> */}
         </div>
         {this.displayUsers()}
       </div>
     )
   }
 }
-
 export default Search
