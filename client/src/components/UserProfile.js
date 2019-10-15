@@ -55,6 +55,8 @@ class UserProfile extends Component {
         <p>About: {this.state.ownerBio}</p>
         <p>City: {this.state.city}</p>
         <p>Age: {this.state.ownerAge}</p>
+        <p>IMAGE</p>
+        {/* {this.state.level} */}
 
       </div>
     )

@@ -128,32 +128,76 @@ a {
 .search-div{
   // border: 2px solid black;
   margin-top: 40px;
+  margin-left: 40px;
   display: grid;
-  justify-content: center;
+  justify-content: left;
   align-content: center;
+}
+.span-test{
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 .search-field-div{
   // border: 2px solid blue;
   display: grid;
   align-content: center;
-  justify-content: center;
+  justify-content: left;
 }
 .search-field{
-  width: 350px;
+  width: 550px;
   height: 45px;
+  font-size: 20px;
 }
 .search-button{
-margin-top: 19px;
+  width: 50px;
+  height: 44px;
 }
 // Search result
 .search-result {
-  border: 2px solid black;
+  // border: 2px solid black;
+  background-color: #f8f8f8;
+  margin-top: 40px;
+  // margin-bottom: 40px;
   width: 600px;
   height: 200px;
+
+  -webkit-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+
+}
+.no-padding{
+  padding: 0 !important;
 }
 .search-result-image{
-  height: 180px;
-  width: 200px;
+  height: 200px;
+  width: 250px;
+}
+.search-name{
+  color: black;
+}
+.search-bio{
+  color: #6d6d6d;
+  font-weight: normal;
+}
+.tennis-balls{
+  height: 25px
+}
+.dog-size{
+  height: 35px;
+}
+.tennis-balls-row{
+  // border: 2px solid black;
+height: 90px;
+align-content: flex-end;
+color: black;
+margin-bottom: 0px;
+}
+
+.testcol{
+  // border: 2px solid black;
+  display: grid;
 }
 .align-center{
   text-align: center;
