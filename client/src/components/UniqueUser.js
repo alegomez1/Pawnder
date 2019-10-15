@@ -71,5 +71,4 @@ class UniqueUser extends Component {
     )
   }
 }
-
 export default UniqueUser
