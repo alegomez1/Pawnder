@@ -13,8 +13,8 @@ import Axios from 'axios'
 import NewSignup from './NewSignup'
 import SendEmail from './SendEmail'
 
-// const url = 'http://localhost:5000'
-const url = 'https://pawnderapp.herokuapp.com'
+const url = 'http://localhost:5000'
+// const url = 'https://pawnderapp.herokuapp.com'
 
 // Components
 
