@@ -46,7 +46,7 @@ class UserProfile extends Component {
     return (
       <div className="profile-div">
         <div className="row text-center">
-          <div className="col-4 profile-col">
+          <div className="col-3 profile-col">
             <div className="margin-div align-center">
               <img
                 className="profile-dog-image center-block"
@@ -69,7 +69,7 @@ class UserProfile extends Component {
               <p className="profile-text">IMAGE</p>
             </div>
           </div>
-          <div className='col-8'>
+          <div className='col-9 map'>
       <GoogleMaps/>
           </div>
         </div>
