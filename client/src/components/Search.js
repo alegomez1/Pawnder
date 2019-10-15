@@ -40,8 +40,6 @@ class Search extends Component {
     })
     this.displayUsers()
   }
-
-  
   sortByActivity = () => {
     return this.state.actualResults.sort(
       (a, b) => a.dogActivityLevel - b.dogActivityLevel
@@ -49,10 +47,9 @@ class Search extends Component {
   }
   reverseSortByActivity = () => {
     return this.state.actualResults.sort(
-      (a, b) => a.dogActivityLevel > b.dogActivityLevel
+      (a, b) => b.dogActivityLevel - a.dogActivityLevel
     )
   }
-
   displayUsers = () => {
     // var obj = this.state.actualResults
     // obj.sort((a,b)=> a.dogActivityLevel > b.dogActivityLevel)
