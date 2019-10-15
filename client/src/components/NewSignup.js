@@ -69,7 +69,57 @@ class NewSignup extends Component {
     this.setState({
       [event.target.name]: event.target.value,
     })
+    this.convertActivityToNumbers()
     console.log('current state->', this.state)
+  }
+
+  activityNumbers(event) {
+    if (event.target.value === 'Low'){
+      event.target.value = 1
+      this.setState({
+        [event.target.name]: event.target.value,
+      })
+    }
+    if (event.target.value === 'Moderate'){
+      event.target.value = 2
+      this.setState({
+        [event.target.name]: event.target.value,
+      })
+    }
+    if (event.target.value === 'High'){
+      event.target.value = 3
+      this.setState({
+        [event.target.name]: event.target.value,
+      })
+    }
+
+    console.log('current state->', this.state)
+  }
+
+  convertActivityToNumbers = () =>{
+    console.log('updating numbers')
+    if(this.state.dogActivityLevel === 'Low'){
+      this.setState({
+        dogActivityLevel: 1
+      })
+      console.log('updated one')
+    }
+
+    if(this.state.dogActivityLevel === 'Moderate'){
+      this.setState({
+        dogActivityLevel: 2
+      })
+      console.log('updated two')
+
+    }
+
+    if(this.state.dogActivityLevel === 'High'){
+      this.setState({
+        dogActivityLevel: 3
+      })
+      console.log('updated three')
+
+    }
   }
   // Submits all info and redirects to profile
   handleClick(e) {
@@ -254,7 +304,7 @@ class NewSignup extends Component {
               <input
                 className="size-input"
                 type="radio"
-                value="Small"
+                value='Small'
                 name="dogSize"
                 onChange={this.handleInputChange}
               />
@@ -276,27 +326,6 @@ class NewSignup extends Component {
               />
               <label className="size-input">Large</label>
             </fieldset>
-          </div>
-
-          <textarea
-            className="textarea"
-            type="text"
-            value={this.state.dogBio}
-            name="dogBio"
-            placeholder="About your dog"
-            onChange={this.handleInputChange}
-          />
-
-          <div className="image-upload-div">
-            <h5 className="image-header">Image</h5>
-            <input
-              id="upload-button"
-              className="form-input-2"
-              type="file"
-              name="file"
-              placeholder="Upload an image"
-              onChange={this.uploadDogImage}
-            />
           </div>
 
           <h4 id="size-activity-header">Activity Level</h4>
@@ -328,6 +357,29 @@ class NewSignup extends Component {
               <label className="size-input">High</label>
             </fieldset>
           </div>
+
+          <textarea
+            className="textarea"
+            type="text"
+            value={this.state.dogBio}
+            name="dogBio"
+            placeholder="About your dog"
+            onChange={this.handleInputChange}
+          />
+
+          <div className="image-upload-div">
+            <h5 className="image-header">Image</h5>
+            <input
+              id="upload-button"
+              className="form-input-2"
+              type="file"
+              name="file"
+              placeholder="Upload an image"
+              onChange={this.uploadDogImage}
+            />
+          </div>
+
+          
 
           <div className="button-div">
             <button

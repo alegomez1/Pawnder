@@ -41,9 +41,15 @@ class Search extends Component {
     this.displayUsers()
   }
 
+  
   sortByActivity = () => {
     return this.state.actualResults.sort(
       (a, b) => a.dogActivityLevel - b.dogActivityLevel
+    )
+  }
+  reverseSortByActivity = () => {
+    return this.state.actualResults.sort(
+      (a, b) => a.dogActivityLevel > b.dogActivityLevel
     )
   }
 
@@ -52,16 +58,17 @@ class Search extends Component {
     // obj.sort((a,b)=> a.dogActivityLevel > b.dogActivityLevel)
     let displayedResults
     if (this.state.sort === true) {
+      console.log('TRUE SO SORTING BY ACTIVITY')
       displayedResults = this.sortByActivity().map((eachUser, i) => {
-        // if(eachUser.dogActivityLevel === 1){
-        //   eachUser.dogActivityLevel = tennis
-        // }
-        // else if(eachUser.dogActivityLevel === 2){
-        //   eachUser.dogActivityLevel = tennis2
-        // }
-        // else if(eachUser.dogActivityLevel === 3){
-        //   eachUser.dogActivityLevel = tennis3
-        // }
+        if(eachUser.dogActivityLevel === 1){
+          eachUser.tennis = tennis
+        }
+        else if(eachUser.dogActivityLevel === 2){
+          eachUser.tennis = tennis2
+        }
+        else if(eachUser.dogActivityLevel === 3){
+          eachUser.tennis = tennis3
+        }
         if (eachUser.dogSize === 'Small') {
           eachUser.dogSize = size1
         } else if (eachUser.dogSize === 'Medium') {
@@ -69,10 +76,9 @@ class Search extends Component {
         } else if (eachUser.dogSize === 'Large') {
           eachUser.dogSize = size3
         }
-        console.log('eachhh', eachUser.ownerName)
         return (
-          <React.Fragment>
-            <Link key={i} to={`/user/${eachUser._id}`}>
+          <React.Fragment key={i}>
+            <Link  to={`/user/${eachUser._id}`}>
               <div className="row search-result">
                 <div className="col no-padding">
                   <img
@@ -91,7 +97,7 @@ class Search extends Component {
                       {/* <p>Activity: </p> */}
                       <img
                         className="tennis-balls"
-                        src={eachUser.dogActivityLevel}
+                        src={eachUser.tennis}
                         alt="tennis"
                       ></img>
                     </div>
@@ -111,16 +117,18 @@ class Search extends Component {
         )
       })
     } else {
-      displayedResults = this.state.actualResults.map((eachUser, i) => {
-        // if(eachUser.dogActivityLevel === 1){
-        //   eachUser.dogActivityLevel = tennis
-        // }
-        // else if(eachUser.dogActivityLevel === 2){
-        //   eachUser.dogActivityLevel = tennis2
-        // }
-        // else if(eachUser.dogActivityLevel === 3){
-        //   eachUser.dogActivityLevel = tennis3
-        // }
+      displayedResults = this.reverseSortByActivity().map((eachUser, i) => {
+        console.log('FALSE SO NOTTTTT SORTING BY ACTIVITY')
+
+        if(eachUser.dogActivityLevel === 1){
+          eachUser.tennis = tennis
+        }
+        else if(eachUser.dogActivityLevel === 2){
+          eachUser.tennis = tennis2
+        }
+        else if(eachUser.dogActivityLevel === 3){
+          eachUser.tennis = tennis3
+        }
         if (eachUser.dogSize === 'Small') {
           eachUser.dogSize = size1
         } else if (eachUser.dogSize === 'Medium') {
@@ -128,10 +136,9 @@ class Search extends Component {
         } else if (eachUser.dogSize === 'Large') {
           eachUser.dogSize = size3
         }
-        console.log('eachhh', eachUser.ownerName)
         return (
-          <React.Fragment>
-            <Link key={i} to={`/user/${eachUser._id}`}>
+          <React.Fragment key={i}>
+            <Link  to={`/user/${eachUser._id}`}>
               <div className="row search-result">
                 <div className="col no-padding">
                   <img
@@ -150,7 +157,7 @@ class Search extends Component {
                       {/* <p>Activity: </p> */}
                       <img
                         className="tennis-balls"
-                        src={eachUser.dogActivityLevel}
+                        src={eachUser.tennis}
                         alt="tennis"
                       ></img>
                     </div>
