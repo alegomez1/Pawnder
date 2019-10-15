@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Link, NavLink, Switch } from 'react-router-dom'
+// import { Route, Link, NavLink, Switch } from 'react-router-dom'
 import api from '../api'
 
 export default class AddPet extends Component {

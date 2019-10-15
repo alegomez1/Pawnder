@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 import api from '../api'
 // import AddPet from './AddPet'
 // import Home from './Home'
-import Axios from 'axios'
+// import Axios from 'axios'
 
-const url = 'http://localhost:5000'
+// const url = 'http://localhost:5000'
 // const url = 'https://pawnderapp.herokuapp.com'
 
 class UserProfile extends Component {
@@ -25,6 +25,7 @@ class UserProfile extends Component {
   // Getting info from API
   async componentDidMount() {
     let current = await api.getLocalStorageUser()
+    console.log('curent.....', current)
     if (current != null) {
       this.setState({
         ownerImage: current.ownerImage,
@@ -38,61 +39,24 @@ class UserProfile extends Component {
         dogBio: current.dogBio,
         dogAge: current.dogAge,
       })
-
-      // await Axios.get(`${url}/api/dog/${current._id}`).then(result => {
-      //   let dog = result.data
-
-      //   if (dog !== null) {
-      //     console.log('dog result', dog)
-      //     this.setState({
-      //       dogImage: dog.dogImage,
-      //       dogName: dog.dogName,
-      //       dogBio: dog.dogBio,
-      //       dogAge: dog.dogAge,
-      //       dogActivities: dog.dogActivities,
-            
-      //     })
-      //   }
-      // })
     }
   }
-  // checkHasPet = () => {
-  //   if (this.state.dogName !== '') {
-  //     return (
-  //       <div>
-  //         <h2>Dog Profile Page</h2>
-  //         <img src={this.state.dogImage} alt="dogImage" />
-  //         <h4>Name: {this.state.dogName}</h4>
-  //         <p>Bio: {this.state.dogBio}</p>
-  //         <p>Age: {this.state.dogAge}</p>
-  //         <p>Activities: {this.state.dogActivities}</p>
-  //       </div>
-  //     )
-  //   } else {
-  //     return (
-  //       <div>
-  //         <NavLink to="/addPet">
-  //           <button>Add Pet</button>
-  //         </NavLink>
-  //         <br />
-  //       </div>
-  //     )
-  //   }
-  // }
   render() {
     return (
-      <div>
-        {/* {this.checkHasPet()} */}
-        <img src={this.state.dogImage} alt="dogImage" />
+      <div className="profile-div">
+      
+        <img className="profile-dog-image" src={this.state.dogImage} alt="dogImage" />
         <h4>{this.state.dogName}</h4>
-        <p>Bio: {this.state.dogBio}</p>
+        <p>About: {this.state.dogBio}</p>
         <p>Age: {this.state.dogAge}</p>
 
         <img src={this.state.ownerImage} alt="ownerImage" />
         <h4>{this.state.ownerName}</h4>
-        <p>Bio: {this.state.ownerBio}</p>
+        <p>About: {this.state.ownerBio}</p>
         <p>City: {this.state.city}</p>
         <p>Age: {this.state.ownerAge}</p>
+        <p>IMAGE</p>
+        {/* {this.state.level} */}
 
       </div>
     )
