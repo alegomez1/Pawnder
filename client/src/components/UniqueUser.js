@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Axios from 'axios'
 import GoogleMaps from './GoogleMaps'
 
-const url = 'http://localhost:5000'
-// const url = 'https://pawnderapp.herokuapp.com'
+// const url = 'http://localhost:5000'
+const url = 'https://pawnderapp.herokuapp.com'
 
 class UniqueUser extends Component {
   state = {
