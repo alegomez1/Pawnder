@@ -17,6 +17,7 @@ class Search extends Component {
     search: '',
     results: [],
     actualResults: [],
+    sort: true
   }
 
   search = async () => {
@@ -40,61 +41,120 @@ class Search extends Component {
     this.displayUsers()
   }
 
+
+  sortByActivity = () =>{
+    return this.state.actualResults.sort((a,b)=> a.dogActivityLevel - b.dogActivityLevel)
+  }
+
   displayUsers = () => {
-    let displayedResults = this.state.actualResults.map((eachUser, i) => {
-      if(eachUser.dogActivityLevel === 'Low'){
-        eachUser.dogActivityLevel = tennis
-      }
-      else if(eachUser.dogActivityLevel === 'Moderate'){
-        eachUser.dogActivityLevel = tennis2
-      }
-      else if(eachUser.dogActivityLevel === 'High'){
-        eachUser.dogActivityLevel = tennis3
-      }
-
-      if(eachUser.dogSize === 'Small'){
-        eachUser.dogSize = size1
-      }
-      else if(eachUser.dogSize === 'Medium'){
-        eachUser.dogSize = size2
-
-      }
-      else if(eachUser.dogSize === 'Large'){
-        eachUser.dogSize = size3
-      }
-
-
-      console.log('eachhh', eachUser.ownerName)
-      return (
-        <React.Fragment>
-        <Link key={i} to={`/user/${eachUser._id}`}>
-        <div className='row search-result'>
-          <div className='col no-padding'>
-          <img className='search-result-image' src={eachUser.dogImage} alt='each dog'/>
+    // var obj = this.state.actualResults
+    // obj.sort((a,b)=> a.dogActivityLevel > b.dogActivityLevel)
+    let displayedResults;
+    if(this.state.sort === true){
+      displayedResults = this.sortByActivity().map((eachUser, i) => {
+        // if(eachUser.dogActivityLevel === 1){
+        //   eachUser.dogActivityLevel = tennis
+        // }
+        // else if(eachUser.dogActivityLevel === 2){
+        //   eachUser.dogActivityLevel = tennis2
+        // }
+        // else if(eachUser.dogActivityLevel === 3){
+        //   eachUser.dogActivityLevel = tennis3
+        // }
+        if(eachUser.dogSize === 'Small'){
+          eachUser.dogSize = size1
+        }
+        else if(eachUser.dogSize === 'Medium'){
+          eachUser.dogSize = size2
+        }
+        else if(eachUser.dogSize === 'Large'){
+          eachUser.dogSize = size3
+        }
+        console.log('eachhh', eachUser.ownerName)
+        return (
+          <React.Fragment>
+          <Link key={i} to={`/user/${eachUser._id}`}>
+          <div className='row search-result'>
+            <div className='col no-padding'>
+            <img className='search-result-image' src={eachUser.dogImage} alt='each dog'/>
+            </div>
+            <div className='col testcol'>
+            <h4 className='align-center search-name'>{eachUser.dogName}</h4>
+            <p className='align-center search-bio'>{eachUser.dogBio}</p>
+            <div className='row tennis-balls-row'>
+            <div className='col'>
+            {/* <p>Activity: </p> */}
+            <img className='tennis-balls' src={eachUser.dogActivityLevel} alt='tennis'></img>
+            </div>
+            {/* <p>Size: </p> */}
+            <div className='col size-div'>
+  
+            <img className='dog-size' src={eachUser.dogSize} alt='size'></img>
+            </div>
+  
+            </div>
+  
+            </div>
           </div>
-          <div className='col testcol'>
-          <h4 className='align-center search-name'>{eachUser.dogName}</h4>
-          <p className='align-center search-bio'>{eachUser.dogBio}</p>
-          <div className='row tennis-balls-row'>
-          <div className='col'>
-          {/* <p>Activity: </p> */}
-          <img className='tennis-balls' src={eachUser.dogActivityLevel} alt='tennis'></img>
+          </Link>
+          </React.Fragment>
+        )
+      })
+    } else{
+      displayedResults = this.state.actualResults.map((eachUser, i) => {
+        // if(eachUser.dogActivityLevel === 1){
+        //   eachUser.dogActivityLevel = tennis
+        // }
+        // else if(eachUser.dogActivityLevel === 2){
+        //   eachUser.dogActivityLevel = tennis2
+        // }
+        // else if(eachUser.dogActivityLevel === 3){
+        //   eachUser.dogActivityLevel = tennis3
+        // }
+        if(eachUser.dogSize === 'Small'){
+          eachUser.dogSize = size1
+        }
+        else if(eachUser.dogSize === 'Medium'){
+          eachUser.dogSize = size2
+  
+        }
+        else if(eachUser.dogSize === 'Large'){
+          eachUser.dogSize = size3
+        }
+        console.log('eachhh', eachUser.ownerName)
+        return (
+          <React.Fragment>
+          <Link key={i} to={`/user/${eachUser._id}`}>
+          <div className='row search-result'>
+            <div className='col no-padding'>
+            <img className='search-result-image' src={eachUser.dogImage} alt='each dog'/>
+            </div>
+            <div className='col testcol'>
+            <h4 className='align-center search-name'>{eachUser.dogName}</h4>
+            <p className='align-center search-bio'>{eachUser.dogBio}</p>
+            <div className='row tennis-balls-row'>
+            <div className='col'>
+            {/* <p>Activity: </p> */}
+            <img className='tennis-balls' src={eachUser.dogActivityLevel} alt='tennis'></img>
+            </div>
+            {/* <p>Size: </p> */}
+            <div className='col size-div'>
+  
+            <img className='dog-size' src={eachUser.dogSize} alt='size'></img>
+            </div>
+  
+            </div>
+  
+            </div>
           </div>
-          {/* <p>Size: </p> */}
-          <div className='col size-div'>
+          </Link>
+          </React.Fragment>
+        )
+      })
+    }
 
-          <img className='dog-size' src={eachUser.dogSize} alt='size'></img>
-          </div>
 
-          </div>
-
-          </div>
-        </div>
-        </Link>
-        </React.Fragment>
-
-      )
-    })
+      
     return displayedResults
   }
 
@@ -102,6 +162,17 @@ class Search extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     })
+    console.log('state-----',this.state)
+    this.displayUsers()
+
+  }
+
+  changeButton = (e) =>{
+    this.setState({
+      [e.target.name]: !e.target.checked
+    })
+    console.log(this.state)
+    this.displayUsers()
   }
 
   render() {
@@ -109,6 +180,11 @@ class Search extends Component {
       <div className="search-div">
         <div className="search-field-div">
           <span className='span-test'>
+          <input
+          type='checkbox'
+          name='sort'
+          onChange={this.changeButton}
+          ></input><label>Sort by activity</label>
             <input
               className= 'search-field'
               type="text"
