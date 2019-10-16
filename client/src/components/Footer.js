@@ -4,19 +4,26 @@ class Footer extends Component {
   render() {
     return (
       <div className="footer-section center-stuff">
-        <div className="row">
+        <div className="row footer-row">
+        
+        <div className="col-4">
+          <a href='#'>
+           <i class="fas fa-info fa-2x faIcons"></i>
+          </a>
+          </div>
 
           <div className="col-4">
-            <p>Technologies used</p>
-          </div>
-          <div className="col-4">
             <a href="https://github.com/alegomez1">
-              <i className="fab fa-github-square fa-3x faIcons"></i>
+            <i class="fab fa-github fa-2x faIcons"></i>
+{/* <i className="fab fa-github-square fa-2x faIcons"></i> */}
             </a>
           </div>
+
+
           <div className="col-4">
             <a href="https://linkedin.com/in/alegomez1996">
-              <i className="fab fa-linkedin fa-3x faIcons"></i>
+              {/* <i className="fab fa-linkedin fa-2x faIcons"></i> */}
+              <i class="fab fa-linkedin-in fa-2x faIcons"></i>
             </a>
           </div>
           </div>
