@@ -390,6 +390,8 @@ margin-bottom: 0px;
   background-size: cover;
   height: 800px;
   width: 100%;
+
+
 }
 .cover-image-content {
   // padding-top: 360px;
@@ -434,10 +436,15 @@ margin-bottom: 0px;
 
 //Middle Section
 
+#how-it-works{
+  font-size: 60px;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
 .middle-section{
   height: 400px;
   width: 100%;
-  background-color: white
+  background-color: white;
 }
 .middle-row{
   margin-top: 20px;
@@ -457,6 +464,7 @@ margin-bottom: 0px;
   padding: 0;
   width: 100%;
   color: black;
+  margin-bottom: 120px;
 }
 .image-col{
   display: grid;
@@ -467,6 +475,21 @@ margin-bottom: 0px;
   justify-content: center;
 }
 
+//Footer
+.footer-section{
+  width: 100%;
+  height: 100px;
+  background-color: #333333;
+}
+
+.faIcons{
+  color: white;
+}
+
+.center-stuff{
+  display: flex;
+  justify-content: space-evenly;
+}
 
 
 

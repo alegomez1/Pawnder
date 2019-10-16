@@ -7,7 +7,7 @@ class MiddleSection extends Component {
   render() {
     return (
       <div className="middle-section container-2">
-        <h2 className="align-center">How it works</h2>
+        <h1 id='how-it-works' className="align-center">How it works</h1>
         <div className="row middle-row">
           <div className="col">
             <h2 className="align-center">Sign Up</h2>
@@ -40,7 +40,7 @@ class MiddleSection extends Component {
             </div>
           </div>
         </div>
-
+      {/* Images section */}
         <div className="row">
           <div className="col">
             <div className="image-cont">
