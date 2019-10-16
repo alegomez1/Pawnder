@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import { NavLink } from 'react-router-dom'
 import api from '../api'
+import GoogleMaps from './GoogleMaps'
 // import AddPet from './AddPet'
 // import Home from './Home'
 // import Axios from 'axios'
@@ -44,23 +45,36 @@ class UserProfile extends Component {
   render() {
     return (
       <div className="profile-div">
-      
-        <img className="profile-dog-image" src={this.state.dogImage} alt="dogImage" />
-        <h4>{this.state.dogName}</h4>
-        <p>About: {this.state.dogBio}</p>
-        <p>Age: {this.state.dogAge}</p>
+        <div className="row text-center">
+          <div className="col-3 profile-col">
+            <div className="margin-div align-center">
+              <img
+                className="profile-dog-image center-block"
+                src={this.state.dogImage}
+                alt="dogImage"
+              />
+              <h4 className="profile-header">{this.state.dogName}</h4>
+              <p className="profile-text">About: {this.state.dogBio}</p>
+              <p className="profile-text">Age: {this.state.dogAge}</p>
 
-        <img src={this.state.ownerImage} alt="ownerImage" />
-        <h4>{this.state.ownerName}</h4>
-        <p>About: {this.state.ownerBio}</p>
-        <p>City: {this.state.city}</p>
-        <p>Age: {this.state.ownerAge}</p>
-        <p>IMAGE</p>
-        {/* {this.state.level} */}
-
+              <img
+                className="profile-dog-image"
+                src={this.state.ownerImage}
+                alt="ownerImage"
+              />
+              <h4 className="profile-header">{this.state.ownerName}</h4>
+              <p className="profile-text">About: {this.state.ownerBio}</p>
+              <p className="profile-text">City: {this.state.city}</p>
+              <p className="profile-text">Age: {this.state.ownerAge}</p>
+              <p className="profile-text">IMAGE</p>
+            </div>
+          </div>
+          <div className='col-9 map'>
+      <GoogleMaps/>
+          </div>
+        </div>
       </div>
     )
   }
 }
-
 export default UserProfile
