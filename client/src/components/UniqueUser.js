@@ -4,8 +4,8 @@ import GoogleMaps from './GoogleMaps'
 import { Link } from 'react-router-dom'
 
 
-const url = 'http://localhost:5000'
-// const url = 'https://pawnderapp.herokuapp.com'
+// const url = 'http://localhost:5000'
+const url = 'https://pawnderapp.herokuapp.com'
 
 class UniqueUser extends Component {
   state = {
@@ -44,11 +44,11 @@ class UniqueUser extends Component {
         <div className="row text-center">
           <div className="col-3 profile-col">
             <div className="margin-div align-center">
-              <Link to='/sendEmail'>
+              {/* <Link to='/sendEmail'>
               <button>
                 Send Email
               </button>
-              </Link>
+              </Link> */}
               <img
                 className="profile-dog-image center-block"
                 src={this.state.dogImage}

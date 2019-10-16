@@ -257,6 +257,20 @@ margin-bottom: 0px;
   -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
   box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
 }
+
+.form-background-login{
+  margin-top: 50px;
+  // border: 2px solid black;
+  display: grid;
+  justify-content: center;
+  background-color: #f2eff0;
+  width: 400px;
+  height: 300px;
+
+  -webkit-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+}
 #size-activity-header{
   text-align: center;
 }
@@ -325,7 +339,6 @@ margin-bottom: 0px;
   font-weight: bolder;
   font-size: 20px;
   background-color: #31aa3f;
-  margin-left: 30px;
 }
 .form-button-2 {
   width: 90px;
@@ -351,6 +364,10 @@ margin-bottom: 0px;
 .profile-div{
   background-color: #1b1b1b;
   color: white;
+}
+.profile-container{
+  border: 2px solid blue;
+  min-height: 100%;
 }
 .profile-dog-image {
   width: 200px;
