@@ -425,7 +425,28 @@ margin-bottom: 0px;
   border-width: 2px;
   border-color: white;
 }
+
+.cover-image-button-2 {
+  border-radius: 20px;
+  width: 150px;
+  height: 40px;
+  background-color: #31aa3f;
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+  border-width: 2px;
+  border-color: rgb(27, 27, 27);
+}
+
 .cover-image-button:hover {
+  border-radius: 20px;
+  background-color: #30853a;
+  font-weight: bold;
+  // color: rgb(190, 190, 190);
+  border-width: 2px;
+  // border-color:  rgb(190, 190, 190);
+}
+.cover-image-button-2:hover {
   border-radius: 20px;
   background-color: #30853a;
   font-weight: bold;
@@ -446,8 +467,18 @@ margin-bottom: 0px;
   width: 100%;
   background-color: white;
 }
+.middle-headers{
+  margin-bottom: 30px;
+}
+.middle-paragraphs{
+  color: #6d6d6d;
+}
 .middle-row{
   margin-top: 20px;
+}
+.button-row{
+  padding-top: 70px;
+
 }
 .middle-image-1{
 
@@ -464,7 +495,7 @@ margin-bottom: 0px;
   padding: 0;
   width: 100%;
   color: black;
-  margin-bottom: 120px;
+  margin-bottom: 320px;
 }
 .image-col{
   display: grid;
