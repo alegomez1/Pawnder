@@ -69,9 +69,6 @@ class Navbar extends Component {
                 </React.Fragment>
               </div>
             )}
-
-            {/* Seen when user IS logged in */}
-            {/* </div> */}
           
         </nav>
         </div>
