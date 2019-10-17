@@ -39,7 +39,6 @@ class Feed extends Component {
         )
       })
       return allPosts
-   
       
     }
 
