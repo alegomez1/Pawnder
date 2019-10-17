@@ -82,6 +82,7 @@ class UniqueUser extends Component {
           </div>
           <div className='col-9 map'>
 {/* FEED */}
+<h2>{this.state.ownerName}'s Posts</h2>
 <Feed userID={this.state.userID} posts={this.state.posts} />
           </div>
         </div>
