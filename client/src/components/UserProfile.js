@@ -3,11 +3,12 @@ import React, { Component } from 'react'
 import api from '../api'
 import GoogleMaps from './GoogleMaps'
 import Feed from './Feed'
+import axios from 'axios'
 // import AddPet from './AddPet'
 // import Home from './Home'
 // import Axios from 'axios'
 
-// const url = 'http://localhost:5000'
+const url = 'http://localhost:5000'
 // const url = 'https://pawnderapp.herokuapp.com'
 
 class UserProfile extends Component {
@@ -23,25 +24,30 @@ class UserProfile extends Component {
     ownerAge: '',
     ownerActivities: '',
     city: '',
+    posts: [],
+    currentPost: '',
   }
   // Getting info from API
   async componentDidMount() {
-    let current = await api.getLocalStorageUser()
-    console.log('curent.....', current)
-    if (current != null) {
-      this.setState({
-        ownerImage: current.ownerImage,
-        ownerName: current.username,
-        ownerBio: current.ownerBio,
-        ownerAge: current.ownerAge,
-        city: current.city,
+    let currentUser = await api.getLocalStorageUser()
+    let id= currentUser._id
 
-        dogImage: current.dogImage,
-        dogName: current.dogName,
-        dogBio: current.dogBio,
-        dogAge: current.dogAge,
+    axios.get(`${url}/api/users/${id}`)
+    .then(response => {
+      console.log('axios response------',response)
+      this.setState({
+        ownerImage: response.data.user[0].ownerImage,
+        ownerName: response.data.user[0].ownerName,
+        ownerAge: response.data.user[0].ownerAge,
+        ownerBio: response.data.user[0].ownerBio,
+        city: response.data.user[0].city,
+        dogImage: response.data.user[0].dogImage,
+        dogName: response.data.user[0].dogName,
+        dogAge: response.data.user[0].dogAge,
+        dogBio: response.data.user[0].dogBio,
       })
-    }
+    })
+    .catch(err => console.log(err))
   }
 
   handleInputChange = (e) =>{
@@ -84,6 +90,7 @@ class UserProfile extends Component {
             <input
             className='feed-input'
             placeholder="Make a post"
+            name= 'currentPost'
             onChange={this.handleInputChange}
             />
             <button

@@ -5,7 +5,8 @@ class Feed extends Component {
 
   state={
     ownerImage: '',
-    ownerName: ''
+    ownerName: '',
+    posts: []
   }
 
 
@@ -17,6 +18,7 @@ class Feed extends Component {
         this.setState({
           ownerImage: current.ownerImage,
           ownerName: current.username,
+          posts: current.posts
           // ownerBio: current.ownerBio,
           // ownerAge: current.ownerAge,
           // city: current.city,
@@ -32,7 +34,8 @@ class Feed extends Component {
 
   render () {
     console.log('in the feed')
-    console.log(this.props.info)
+    console.log('feed props----',this.props.info)
+    console.log('feed user posts----', this.state.posts)
     return (
       <div>
         <h1>Here is the feed for {this.state.ownerName}</h1>
