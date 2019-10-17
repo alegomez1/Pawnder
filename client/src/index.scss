@@ -180,6 +180,8 @@ a {
 .search-bio{
   color: #6d6d6d;
   font-weight: normal;
+  font-size: 15px;
+  text-align: left;
 }
 .tennis-balls{
   height: 25px
@@ -331,6 +333,27 @@ margin-bottom: 0px;
   background-color: #31aa3f;
 }
 
+.email-button {
+  margin-top: 20px;
+  width: 150px;
+  height: 35px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+  background-color: #31aa3f;
+}
+.email-button:hover {
+  margin-top: 20px;
+  width: 150px;
+  height: 35px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+  background-color: #288333;
+}
+
 .form-button {
   width: 90px;
   height: 35px;
@@ -362,7 +385,7 @@ margin-bottom: 0px;
 }
 // Profile Styles
 .profile-div{
-  background-color: #1b1b1b;
+  background-color: #666666;
   color: white;
 }
 .profile-container{
@@ -380,6 +403,18 @@ margin-bottom: 0px;
 }
 .profile-text{
   font-size: 15px;
+}
+.feed-input{
+  margin-top: 40px;
+  width: 400px;
+  height: 40px;
+}
+.post-button{
+  height: 40px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  color: #288333;
 }
 // .map{
 //   margin-right: 20px;
@@ -541,6 +576,34 @@ margin-bottom: 0px;
 .center-stuff{
   display: flex;
   justify-content: space-evenly;
+}
+
+
+//Mail
+
+.mail-div{
+  // border: 2px solid black;
+  display: grid;
+  justify-content: center;
+}
+#subject-field{
+  margin-top: 50px;
+  width: 350px;
+  height: 50px;
+  text-align: center;
+}
+#your-email-field{
+  margin-top: 50px;
+  width: 350px;
+  height: 50px;
+  text-align: center;
+
+}
+#message-field{
+  margin-top: 50px;
+  width: 350px;
+  height: 100px;
+  text-align: center;
 }
 
 

@@ -12,6 +12,7 @@ import Search from './Search'
 import Axios from 'axios'
 import NewSignup from './NewSignup'
 import SendEmail from './SendEmail'
+import GoogleMaps from './GoogleMaps'
 
 const url = 'http://localhost:5000'
 // const url = 'https://pawnderapp.herokuapp.com'
@@ -80,6 +81,12 @@ export default class App extends Component {
               <UserProfile {...props} hasPet={this.state.hasPet} />
             )}
           />
+
+          <Route
+            path="/map"
+            component={
+              GoogleMaps}
+          />
           {/* <Route exact path="/addedPet">
             
           </Route> */}
@@ -94,8 +101,8 @@ export default class App extends Component {
             component={props => <UniqueUser {...props} />}
           />
           <Route
-            path='/sendEmail'
-            component={props => <SendEmail {...props}/>}
+            path="/sendEmail"
+            component={props => <SendEmail {...props} />}
           />
         </Switch>
       </div>

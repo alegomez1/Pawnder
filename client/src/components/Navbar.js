@@ -10,25 +10,25 @@ import logo from './images/Logo (1).png'
 
 class Navbar extends Component {
   render() {
-    console.log(this.props.user, this.props.user.username)
     return (
       <div>
-
         <div className="row boot1">
-        <nav className="navbar navbar-expand navbar-light  navcolor">
-          
+          <nav className="navbar navbar-expand navbar-light  navcolor">
             <div className="col boot2">
               <NavLink to="/">
-                <img className="logo" src={logo} alt='logo'/>
+                <img className="logo" src={logo} alt="logo" />
               </NavLink>
             </div>
 
             {this.props.user.username ? (
               <div className="col col-lg boot3">
                 <React.Fragment>
-
                   <Link to="/search">
                     <i className="fa fa-search nav-icons fa-lg"></i>
+                  </Link>
+
+                  <Link to="/map">
+                    <i className="fas fa-map-marked-alt nav-icons fa-lg"></i>
                   </Link>
 
                   <Link to="/profile">
@@ -43,13 +43,16 @@ class Navbar extends Component {
             ) : (
               <div className="col col-lg boot4">
                 <React.Fragment>
-                  <Link className="testlink" to="/signup"><span className='signup-login'>Signup</span></Link>
-                  <Link to="/login"><span className='signup-login'>Login</span></Link>
+                  <Link className="testlink" to="/signup">
+                    <span className="signup-login">Signup</span>
+                  </Link>
+                  <Link to="/login">
+                    <span className="signup-login">Login</span>
+                  </Link>
                 </React.Fragment>
               </div>
             )}
-          
-        </nav>
+          </nav>
         </div>
       </div>
     )

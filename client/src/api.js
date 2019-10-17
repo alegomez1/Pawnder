@@ -5,8 +5,8 @@ const service = axios.create({
     process.env.NODE_ENV === 'production'
       ? '/api'
       : 'http://localhost:5000/api',
-      // http://localhost:5000/api
-      // https://pawnderapp.herokuapp.com
+  // http://localhost:5000/api
+  // https://pawnderapp.herokuapp.com
   withCredentials: false,
 })
 
@@ -104,6 +104,13 @@ export default {
   addCountry(body) {
     return service
       .post('/countries', body)
+      .then(res => res.data)
+      .catch(errHandler)
+  },
+
+  addPost(body) {
+    return service
+      .post('/users/:id/addPost', body)
       .then(res => res.data)
       .catch(errHandler)
   },
