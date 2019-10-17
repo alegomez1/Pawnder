@@ -385,11 +385,57 @@ margin-bottom: 0px;
 }
 // Profile Styles
 .profile-div{
-  background-color: #666666;
-  color: white;
+  // background-color: #666666;
+  color: black;
+  margin-left: 20px;
+}
+.profile-col{
+  
+  // border: 2px solid blue;
+  -webkit-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+}
+.feed{
+  // border: 2px solid black;
+  display: grid;
+  // display: grid;
+  justify-content: center;
+}
+.post-div{
+  // border: 2px solid blue;
+  width: 600px;
+  height: 100px;
+  margin-top: 20px;
+
+  -webkit-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+}
+#post-header{
+  margin-top: 50px;
+  text-align: left;
+}
+.feed-post{
+  // border: 2px solid black;
+  height: 50px;
+  margin-top: 25px;
+  display: flex;
+  align-content: center;
+
+
+}
+.feed-paragraph{
+margin-left: 10px;
+margin-top: 15px;
+}
+
+.feed-comp-div{
+  -webkit-box-shadow: 0px 4px 18px -13px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 4px 18px -13px rgba(0,0,0,0.75);
+  box-shadow: 0px 4px 18px -13px rgba(0,0,0,0.75);
 }
 .profile-container{
-  border: 2px solid blue;
   min-height: 100%;
 }
 .profile-dog-image {
@@ -405,7 +451,7 @@ margin-bottom: 0px;
   font-size: 15px;
 }
 .feed-input{
-  margin-top: 40px;
+  margin-top: 30px;
   width: 400px;
   height: 40px;
 }

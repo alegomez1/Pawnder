@@ -120,6 +120,7 @@ class UserProfile extends Component {
           </div>
           {/* FEED SECTION */}
           <div className="col-9 feed">
+            <div className='post-div'>
             <input
               className="feed-input"
               placeholder="Make a post"
@@ -129,9 +130,13 @@ class UserProfile extends Component {
             <button className="post-button" onClick={this.handleSubmit}>
               Post!
             </button>
-            <h2>Posts by you</h2>
+            <h2 id="post-header">Posts by you</h2>
+            <div className='feed-comp-div'>
             <Feed userID={this.state.userID} posts={this.state.posts} />
+            </div>
           </div>
+          </div>
+
         </div>
       </div>
     )

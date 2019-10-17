@@ -20,22 +20,30 @@ class Feed extends Component {
       setInterval(() => {
         axios.get(`${url}/api/users/${this.props.userID}`)
         .then(response=>{
-          
-          // console.log('feed axios response-----', response)
           this.setState({
             posts: response.data.user[0].posts
           })
         })
       }, 1000);
+    }
 
-      // console.log('new propssssssss', this.props)
+    sortByActivity = () => {
+      return this.state.posts.sort(
+        (a, b) => a - b
+      )
     }
 
     displayPosts = () =>{
-      let allPosts = this.state.posts.map((eachPost, i)=>{
+
+
+      let reverse = this.state.posts.map((_, idx, arr) => arr[arr.length - 1 - idx ]);
+
+      let allPosts = reverse.map((eachPost, i)=>{
         // console.log(eachPost)
         return(
-          <p key={i}>{eachPost}</p>
+          <div key={i} className='feed-post'>
+          <p className='feed-paragraph'>{eachPost}</p>
+          </div>
         )
       })
       return allPosts
