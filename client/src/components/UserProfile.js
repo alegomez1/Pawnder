@@ -24,7 +24,7 @@ class UserProfile extends Component {
     ownerAge: '',
     ownerActivities: '',
     city: '',
-    posts: [],
+    posts: [''],
     currentPost: '',
     userID: ''
   }
@@ -62,6 +62,9 @@ class UserProfile extends Component {
 
   makePost = () =>{
     console.log('make post function called', this.state.userID)
+
+    // this.state.posts.push(this.state.currentPost)
+    // console.log('state posts', this.state.posts)
 
     axios.post(`${url}/api/users/${this.state.userID}/posts`, this.state.currentPost)
     .then(
@@ -114,11 +117,7 @@ class UserProfile extends Component {
             >
               Post!
             </button>
-            <Feed userID={this.state.userID}/>
-
-
-
-            
+            <Feed userID={this.state.userID} posts={this.state.posts}/>
           </div>
         </div>
       </div>

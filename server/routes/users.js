@@ -35,8 +35,10 @@ router.get('/:id/posts', async (req, res, next) => {
 })
 
 router.post('/:id/posts', async (req,res,next)=>{
-
   console.log('------POST ROUTE CALLED-------')
+  user = await User.find({ _id: `${req.params.id}` }).catch(err =>
+    console.error(err)
+  )
 
 })
 

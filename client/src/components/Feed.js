@@ -11,7 +11,7 @@ class Feed extends Component {
     ownerImage: '',
     ownerName: '',
     userID: this.props.userID,
-    posts: []
+    posts: this.props.posts
   }
 
 
@@ -27,6 +27,8 @@ class Feed extends Component {
           })
         })
       }, 2000);
+
+      console.log('new propssssssss', this.props)
     }
 
     displayPosts = () =>{
@@ -41,10 +43,7 @@ class Feed extends Component {
       
     }
 
-
   render () {
-
-    console.log('user posts-----', this.state.posts)
 
     return (
       <div>
