@@ -45,6 +45,20 @@ export class GoogleMaps extends Component {
       >
         <Marker onClick={this.onMarkerClick} name={'Miami International Airport'} />
         <Marker position ={{lat: 25.769241,lng: -80.199099 } }onClick={this.onMarkerClick} name={'Test'} />
+        <Marker position ={{lat: 25.779241,lng: -80.194099 } }onClick={this.onMarkerClick} name={'Test'} />
+        <Marker position ={{lat: 25.769391,lng: -80.191299 } }onClick={this.onMarkerClick} name={'Test'} />
+        <Marker position ={{lat: 25.776191,lng: -80.199099 } }onClick={this.onMarkerClick} name={'Test'} />
+        <Marker position ={{lat: 25.779241,lng: -80.194099 } }onClick={this.onMarkerClick} name={'Test'} />
+        <Marker position ={{lat: 25.759241,lng: -80.209999 } }onClick={this.onMarkerClick} name={'Test'} />
+        <Marker position ={{lat: 25.779241,lng: -80.249999 } }onClick={this.onMarkerClick} name={'Test'} />
+        <Marker position ={{lat: 25.729241,lng: -80.279999 } }onClick={this.onMarkerClick} name={'Test'} />
+
+
+
+
+
+
+
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}

@@ -24,59 +24,99 @@ class UserProfile extends Component {
     ownerAge: '',
     ownerActivities: '',
     city: '',
-    posts: [''],
+    posts: [],
     currentPost: '',
-    userID: ''
+    userID: '',
   }
   // Getting info from API
   async componentDidMount() {
     let currentUser = await api.getLocalStorageUser()
-    let id= currentUser._id
+    let id = currentUser._id
 
-    axios.get(`${url}/api/users/${id}`)
-    .then(response => {
-      console.log('axios response------',response)
-      this.setState({
-        ownerImage: response.data.user[0].ownerImage,
-        ownerName: response.data.user[0].ownerName,
-        ownerAge: response.data.user[0].ownerAge,
-        ownerBio: response.data.user[0].ownerBio,
-        userID: response.data.user[0]._id,
-        city: response.data.user[0].city,
-        dogImage: response.data.user[0].dogImage,
-        dogName: response.data.user[0].dogName,
-        dogAge: response.data.user[0].dogAge,
-        dogBio: response.data.user[0].dogBio,
+    axios
+      .get(`${url}/api/users/${id}`)
+      .then(response => {
+        // console.log('axios response------', response)
+        this.setState({
+          ownerImage: response.data.user[0].ownerImage,
+          ownerName: response.data.user[0].ownerName,
+          ownerAge: response.data.user[0].ownerAge,
+          ownerBio: response.data.user[0].ownerBio,
+          userID: response.data.user[0]._id,
+          city: response.data.user[0].city,
+          dogImage: response.data.user[0].dogImage,
+          dogName: response.data.user[0].dogName,
+          dogAge: response.data.user[0].dogAge,
+          dogBio: response.data.user[0].dogBio,
+        })
       })
-    })
-    .catch(err => console.log(err))
+      .catch(err => console.log(err))
   }
 
-  handleInputChange = (e) =>{
+  handleSubmit = e => {
+    e.preventDefault()
+
+    let data = {
+      post: this.state.currentPost,
+    }
+
+    console.log(data)
+
+    this.makePost()
+
+    console.log(this.state)
+
+    // api
+    //   .addDog(data)
+    //   .then(result => {
+    //     console.log('SUCCESS!=====>', result)
+    //     this.props.toggleHasPet()
+    //     this.props.history.push('/profile') // Redirect to the home page
+    //   })
+    //   .catch(err => this.setState({ message: err.toString() }))
+  }
+
+  handleInputChange = e => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     })
+    console.log(this.state)
+
     // console.log('current user post state------', this.state.currentPost)
   }
 
-
-  makePost = () =>{
-    console.log('make post function called', this.state.userID)
+  makePost = () => {
+    console.log('hey we posting')
+    // console.log('make post function called', this.state.userID)
 
     // this.state.posts.push(this.state.currentPost)
     // console.log('state posts', this.state.posts)
 
-    axios.post(`${url}/api/users/${this.state.userID}/posts`, this.state.currentPost)
-    .then(
-      console.log('MADE POST')
+    axios.post(
+      `${url}/api/users/${this.state.userID}/addPost`,
+      this.state.currentPost
     )
+
+    console.log(this.state.currentPost)
+
+    // console.log('asdasd')
+
+    let allPosts = this.state.posts
+    let newPost = this.state.currentPost
+
+    console.log(allPosts)
+
+    this.setState({
+      posts: allPosts.push(newPost),
+    })
+
+    console.log(this.state.posts)
+    // .then(console.log('MADE POST'))
   }
 
-
   render() {
-
-    console.log('in profile')
-    console.log('props=====', this.props)
+    // console.log('in profile')
+    // console.log('props=====', this.props)
     return (
       <div className="profile-div">
         <div className="row text-center">
@@ -100,24 +140,20 @@ class UserProfile extends Component {
               <p className="profile-text">About: {this.state.ownerBio}</p>
               <p className="profile-text">City: {this.state.city}</p>
               <p className="profile-text">Age: {this.state.ownerAge}</p>
-
             </div>
           </div>
           {/* FEED SECTION */}
-          <div className='col-9 feed'>
+          <div className="col-9 feed">
             <input
-            className='feed-input'
-            placeholder="Make a post"
-            name= 'currentPost'
-            onChange={this.handleInputChange}
+              className="feed-input"
+              placeholder="Make a post"
+              name="currentPost"
+              onChange={this.handleInputChange}
             />
-            <button
-            className='post-button'
-            onClick={this.makePost}
-            >
+            <button className="post-button" onClick={this.handleSubmit}>
               Post!
             </button>
-            <Feed userID={this.state.userID} posts={this.state.posts}/>
+            <Feed userID={this.state.userID} posts={this.state.posts} />
           </div>
         </div>
       </div>

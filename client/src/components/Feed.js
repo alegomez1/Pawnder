@@ -21,19 +21,19 @@ class Feed extends Component {
         axios.get(`${url}/api/users/${this.props.userID}`)
         .then(response=>{
           
-          console.log('feed axios response-----', response)
+          // console.log('feed axios response-----', response)
           this.setState({
             posts: response.data.user[0].posts
           })
         })
       }, 2000);
 
-      console.log('new propssssssss', this.props)
+      // console.log('new propssssssss', this.props)
     }
 
     displayPosts = () =>{
       let allPosts = this.state.posts.map((eachPost, i)=>{
-        console.log(eachPost)
+        // console.log(eachPost)
         return(
           <h3 key={i}>{eachPost}</h3>
         )
