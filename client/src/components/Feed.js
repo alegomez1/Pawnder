@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import api from '../api'
 
-const url = 'http://localhost:5000'
-// const url = 'https://pawnderapp.herokuapp.com'
+// const url = 'http://localhost:5000'
+const url = 'https://pawnderapp.herokuapp.com'
 
 class Feed extends Component {
 
@@ -13,7 +12,6 @@ class Feed extends Component {
     userID: this.props.userID,
     posts: this.props.posts
   }
-
 
     // Getting info from API
      componentDidMount() {
@@ -34,12 +32,9 @@ class Feed extends Component {
     }
 
     displayPosts = () =>{
-
-
       let reverse = this.state.posts.map((_, idx, arr) => arr[arr.length - 1 - idx ]);
 
       let allPosts = reverse.map((eachPost, i)=>{
-        // console.log(eachPost)
         return(
           <div key={i} className='feed-post'>
           <p className='feed-paragraph'>{eachPost}</p>
