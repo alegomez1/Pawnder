@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import { NavLink } from 'react-router-dom'
 import api from '../api'
 import GoogleMaps from './GoogleMaps'
+import Feed from './Feed'
 // import AddPet from './AddPet'
 // import Home from './Home'
 // import Axios from 'axios'
@@ -42,7 +43,16 @@ class UserProfile extends Component {
       })
     }
   }
+
+  handleInputChange = (e) =>{
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
   render() {
+
+    console.log('in profile')
+    console.log('props=====', this.props)
     return (
       <div className="profile-div">
         <div className="row text-center">
@@ -70,8 +80,23 @@ class UserProfile extends Component {
             </div>
           </div>
           {/* FEED SECTION */}
-          <div className='col-9 map'>
+          <div className='col-9 feed'>
+            <input
+            className='feed-input'
+            placeholder="Make a post"
+            onChange={this.handleInputChange}
+            />
+            <button
+            className='post-button'
+            onClick={this.makePost}
+            >
+              Post!
+            </button>
+            <Feed/>
 
+
+
+            
           </div>
         </div>
       </div>
