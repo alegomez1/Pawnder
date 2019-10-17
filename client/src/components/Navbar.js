@@ -13,26 +13,6 @@ class Navbar extends Component {
     console.log(this.props.user, this.props.user.username)
     return (
       <div>
-        {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <NavLink to="/">Pawnder</NavLink>
-
-          <div className="nav-links">
-            {!api.isLoggedIn() && <NavLink to="/signup">Signup</NavLink>}
-            {!api.isLoggedIn() && <NavLink to="/login">Login</NavLink>}
-            {api.isLoggedIn() && (
-              <Link to="/" onClick={e => this.handleLogoutClick(e)}>
-                Logout
-              </Link>)}
-              {api.isLoggedIn() && (
-              <Link to="/profile">
-                Profile
-              </Link>)}
-
-              <Link to="/search">
-                Search
-              </Link>
-          </div> 
-        </nav>*/}
 
         <div className="row boot1">
         <nav className="navbar navbar-expand navbar-light  navcolor">
@@ -43,21 +23,20 @@ class Navbar extends Component {
               </NavLink>
             </div>
 
-            {/* <div className="nav-links navcolor"> */}
             {this.props.user.username ? (
               <div className="col col-lg boot3">
                 <React.Fragment>
-                  {/* <div className="navbar-div"> */}
-                  <Link to="/" onClick={e => this.props.handleLogoutClick(e)}>
-                    <i className="fas fa-sign-out-alt nav-icons fa-lg"></i>
+
+                  <Link to="/search">
+                    <i className="fa fa-search nav-icons fa-lg"></i>
                   </Link>
 
                   <Link to="/profile">
                     <i className="fas fa-user-circle nav-icons fa-lg"></i>
                   </Link>
 
-                  <Link to="/search">
-                    <i className="fa fa-search nav-icons fa-lg"></i>
+                  <Link to="/" onClick={e => this.props.handleLogoutClick(e)}>
+                    <i className="fas fa-sign-out-alt nav-icons fa-lg"></i>
                   </Link>
                 </React.Fragment>
               </div>
@@ -69,9 +48,6 @@ class Navbar extends Component {
                 </React.Fragment>
               </div>
             )}
-
-            {/* Seen when user IS logged in */}
-            {/* </div> */}
           
         </nav>
         </div>

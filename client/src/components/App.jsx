@@ -11,6 +11,7 @@ import Login from './Login'
 import Search from './Search'
 import Axios from 'axios'
 import NewSignup from './NewSignup'
+import SendEmail from './SendEmail'
 
 const url = 'http://localhost:5000'
 // const url = 'https://pawnderapp.herokuapp.com'
@@ -91,6 +92,10 @@ export default class App extends Component {
           <Route
             path="/user/:id"
             component={props => <UniqueUser {...props} />}
+          />
+          <Route
+            path='/sendEmail'
+            component={props => <SendEmail {...props}/>}
           />
         </Switch>
       </div>

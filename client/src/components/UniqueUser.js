@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
+import GoogleMaps from './GoogleMaps'
+import { Link } from 'react-router-dom'
+
 
 const url = 'http://localhost:5000'
 // const url = 'https://pawnderapp.herokuapp.com'
@@ -37,20 +40,42 @@ class UniqueUser extends Component {
   }
   render() {
     return (
-      <div>
-        {/* Dog info */}
-        <img src={this.state.dogImage} alt="doggie" />
-        <h3>{this.state.dogName}</h3>
-        <h3>{this.state.dogAge}</h3>
-        <p>{this.state.dogBio}</p>
-        {/* Owner info */}
-        <img src={this.state.ownerImage} alt="owner" />
-        <h3>{this.state.ownerName}</h3>
-        <h3>{this.state.ownerAge}</h3>
-        <p>{this.state.ownerBio}</p>
+      <div className="profile-div">
+        <div className="row text-center">
+          <div className="col-3 profile-col">
+            <div className="margin-div align-center">
+              {/* <Link to='/sendEmail'>
+              <button>
+                Send Email
+              </button>
+              </Link> */}
+              <img
+                className="profile-dog-image center-block"
+                src={this.state.dogImage}
+                alt="dogImage"
+              />
+              <h4 className="profile-header">{this.state.dogName}</h4>
+              <p className="profile-text">About: {this.state.dogBio}</p>
+              <p className="profile-text">Age: {this.state.dogAge}</p>
+
+              <img
+                className="profile-dog-image"
+                src={this.state.ownerImage}
+                alt="ownerImage"
+              />
+              <h4 className="profile-header">{this.state.ownerName}</h4>
+              <p className="profile-text">About: {this.state.ownerBio}</p>
+              <p className="profile-text">City: {this.state.city}</p>
+              <p className="profile-text">Age: {this.state.ownerAge}</p>
+              <p className="profile-text">IMAGE</p>
+            </div>
+          </div>
+          <div className='col-9 map'>
+      <GoogleMaps/>
+          </div>
+        </div>
       </div>
     )
   }
 }
-
 export default UniqueUser

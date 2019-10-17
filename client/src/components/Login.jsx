@@ -32,36 +32,43 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="signup">
+      <div className="dynamic-signup-div">
         <h2 className="header-text">Login</h2>
-        <div className="form-div">
-        <form>
-          {/* Username:{' '} */}
-          <input className="form-input"
-            type="text"
-            value={this.state.username}
-            name="username"
-            placeholder="username"
-            onChange={this.handleInputChange}
-          />{' '}
-          <br />
-          {/* Password:{' '} */}
-          <input className="form-input"
-            type="password"
-            value={this.state.password}
-            placeholder="password"
-            name="password"
-            onChange={this.handleInputChange}
-          />{' '}
-          <br />
-          <div className="button-div">
-          <button className="form-button btn btn-md btn-dark" onClick={e => this.handleClick(e)}>Login</button>
-          </div>
-        </form>
-        {this.state.message && (
-          <div className="info info-danger">{this.state.message}</div>
-        )}
-      </div>
+        <div className="form-background-login">
+          <form>
+            {/* Username:{' '} */}
+            <input
+              className="form-input"
+              type="text"
+              value={this.state.username}
+              name="username"
+              placeholder="username"
+              onChange={this.handleInputChange}
+            />{' '}
+            <br />
+            {/* Password:{' '} */}
+            <input
+              className="form-input"
+              type="password"
+              value={this.state.password}
+              placeholder="password"
+              name="password"
+              onChange={this.handleInputChange}
+            />{' '}
+            <br />
+            <div className="button-div">
+              <button
+                className="form-button btn btn-md btn-dark"
+                onClick={e => this.handleClick(e)}
+              >
+                Login
+              </button>
+            </div>
+          </form>
+          {this.state.message && (
+            <div className="info info-danger">{this.state.message}</div>
+          )}
+        </div>
       </div>
     )
   }
