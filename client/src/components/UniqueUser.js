@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import GoogleMaps from './GoogleMaps'
 import { Link } from 'react-router-dom'
+
+// import GoogleMaps from './GoogleMaps'
+// import { Link } from 'react-router-dom'
+import Feed from './Feed'
 
 
 const url = 'http://localhost:5000'
@@ -17,6 +20,8 @@ class UniqueUser extends Component {
     dogImage: '',
     dogAge: '',
     dogBio: '',
+    posts:[],
+    userID:''
   }
 
   componentDidMount() {
@@ -34,6 +39,7 @@ class UniqueUser extends Component {
           dogName: response.data.user[0].dogName,
           dogAge: response.data.user[0].dogAge,
           dogBio: response.data.user[0].dogBio,
+          userID: response.data.user[0]._id
         })
       })
       .catch(err => console.log(err))
@@ -44,11 +50,11 @@ class UniqueUser extends Component {
         <div className="row text-center">
           <div className="col-3 profile-col">
             <div className="margin-div align-center">
-              <Link to='/sendEmail'>
+              {/* <Link to='/sendEmail'>
               <button>
                 Send Email
               </button>
-              </Link>
+              </Link> */}
               <img
                 className="profile-dog-image center-block"
                 src={this.state.dogImage}
@@ -67,11 +73,17 @@ class UniqueUser extends Component {
               <p className="profile-text">About: {this.state.ownerBio}</p>
               <p className="profile-text">City: {this.state.city}</p>
               <p className="profile-text">Age: {this.state.ownerAge}</p>
-              <p className="profile-text">IMAGE</p>
+
             </div>
+            <Link to='/sendEmail'>
+            <button
+            className='email-button'
+            >Contact</button></Link>
           </div>
           <div className='col-9 map'>
-      <GoogleMaps/>
+{/* FEED */}
+<h2>{this.state.ownerName}'s Posts</h2>
+<Feed userID={this.state.userID} posts={this.state.posts} />
           </div>
         </div>
       </div>

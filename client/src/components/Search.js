@@ -80,10 +80,10 @@ class Search extends Component {
                   />
                 </div>
                 <div className="col testcol">
-                  <h4 className="align-center search-name">
+                  <h4 className="search-name">
                     {eachUser.dogName}
                   </h4>
-                  <p className="align-center search-bio">{eachUser.dogBio}</p>
+                  <p className="search-bio">{eachUser.dogBio}</p>
                   <div className="row tennis-balls-row">
                     <div className="col">
                       {/* <p>Activity: </p> */}
@@ -138,10 +138,10 @@ class Search extends Component {
                   />
                 </div>
                 <div className="col testcol">
-                  <h4 className="align-center search-name">
+                  <h4 className="search-name">
                     {eachUser.dogName}
                   </h4>
-                  <p className="align-center search-bio">{eachUser.dogBio}</p>
+                  <p className="search-bio">{eachUser.dogBio}</p>
                   <div className="row tennis-balls-row">
                     <div className="col">
                       {/* <p>Activity: </p> */}

@@ -180,6 +180,8 @@ a {
 .search-bio{
   color: #6d6d6d;
   font-weight: normal;
+  font-size: 15px;
+  text-align: left;
 }
 .tennis-balls{
   height: 25px
@@ -257,6 +259,20 @@ margin-bottom: 0px;
   -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
   box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
 }
+
+.form-background-login{
+  margin-top: 50px;
+  // border: 2px solid black;
+  display: grid;
+  justify-content: center;
+  background-color: #f2eff0;
+  width: 400px;
+  height: 300px;
+
+  -webkit-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+  box-shadow: 7px 4px 13px -5px rgba(0, 0, 0, 0.36);
+}
 #size-activity-header{
   text-align: center;
 }
@@ -317,6 +333,27 @@ margin-bottom: 0px;
   background-color: #31aa3f;
 }
 
+.email-button {
+  margin-top: 20px;
+  width: 150px;
+  height: 35px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+  background-color: #31aa3f;
+}
+.email-button:hover {
+  margin-top: 20px;
+  width: 150px;
+  height: 35px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+  background-color: #288333;
+}
+
 .form-button {
   width: 90px;
   height: 35px;
@@ -325,7 +362,6 @@ margin-bottom: 0px;
   font-weight: bolder;
   font-size: 20px;
   background-color: #31aa3f;
-  margin-left: 30px;
 }
 .form-button-2 {
   width: 90px;
@@ -349,8 +385,12 @@ margin-bottom: 0px;
 }
 // Profile Styles
 .profile-div{
-  background-color: #1b1b1b;
+  background-color: #666666;
   color: white;
+}
+.profile-container{
+  border: 2px solid blue;
+  min-height: 100%;
 }
 .profile-dog-image {
   width: 200px;
@@ -364,6 +404,18 @@ margin-bottom: 0px;
 .profile-text{
   font-size: 15px;
 }
+.feed-input{
+  margin-top: 40px;
+  width: 400px;
+  height: 40px;
+}
+.post-button{
+  height: 40px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  color: #288333;
+}
 // .map{
 //   margin-right: 20px;
 // }
@@ -375,9 +427,9 @@ margin-bottom: 0px;
 }
 .Home {
   // padding-top: 30px;
-  width: 100%;
+  // width: 100%;
   // background-color: #FFB48F !important;
-  height: 1000px;
+  // height: 1000px;
 }
 .carousel-div {
   // border: 2px solid black;
@@ -390,18 +442,20 @@ margin-bottom: 0px;
   background-size: cover;
   height: 800px;
   width: 100%;
+
+
 }
 .cover-image-content {
   // padding-top: 360px;
 }
 .cover-image-header {
-  font-size: 80px;
+  font-size: 120px;
   color: white;
   -webkit-text-stroke: 1px black;
   text-align: center;
 }
 .cover-image-subtext {
-  font-size: 30px;
+  font-size: 40px;
   color: white;
   -webkit-text-stroke: 1px black;
   text-align: center;
@@ -423,6 +477,19 @@ margin-bottom: 0px;
   border-width: 2px;
   border-color: white;
 }
+
+.cover-image-button-2 {
+  border-radius: 20px;
+  width: 150px;
+  height: 40px;
+  background-color: #31aa3f;
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+  border-width: 2px;
+  border-color: rgb(27, 27, 27);
+}
+
 .cover-image-button:hover {
   border-radius: 20px;
   background-color: #30853a;
@@ -431,6 +498,118 @@ margin-bottom: 0px;
   border-width: 2px;
   // border-color:  rgb(190, 190, 190);
 }
+.cover-image-button-2:hover {
+  border-radius: 20px;
+  background-color: #30853a;
+  font-weight: bold;
+  // color: rgb(190, 190, 190);
+  border-width: 2px;
+  // border-color:  rgb(190, 190, 190);
+}
+
+//Middle Section
+
+#how-it-works{
+  font-size: 60px;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+.middle-section{
+  height: 400px;
+  width: 100%;
+  background-color: white;
+}
+.middle-headers{
+  margin-bottom: 30px;
+}
+.middle-paragraphs{
+  color: #6d6d6d;
+}
+.middle-row{
+  margin-top: 20px;
+}
+.button-row{
+  padding-top: 70px;
+
+}
+.middle-image-1{
+
+}
+.middle-image-2{
+  height: 140px;
+  margin-top: 32px;
+}
+.middle-image-3{
+  height: 170px;
+}
+.container-2{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: black;
+  margin-bottom: 320px;
+}
+.image-col{
+  display: grid;
+  justify-content: center;
+}
+.image-cont{
+  display: flex;
+  justify-content: center;
+}
+
+//Footer
+.footer-section{
+  width: 100%;
+  height: 100px;
+  background-color: #333333;
+}
+.footer-row{
+  padding-top: 20px
+}
+
+.faIcons{
+  color: white;
+}
+
+
+.center-stuff{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+//Mail
+
+.mail-div{
+  // border: 2px solid black;
+  display: grid;
+  justify-content: center;
+}
+#subject-field{
+  margin-top: 50px;
+  width: 350px;
+  height: 50px;
+  text-align: center;
+}
+#your-email-field{
+  margin-top: 50px;
+  width: 350px;
+  height: 50px;
+  text-align: center;
+
+}
+#message-field{
+  margin-top: 50px;
+  width: 350px;
+  height: 100px;
+  text-align: center;
+}
+
+
+
+
+
 
 .navcolor {
   background-color: #f2eff0 !important;
