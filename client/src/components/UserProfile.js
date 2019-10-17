@@ -56,7 +56,20 @@ class UserProfile extends Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+    // console.log('current user post state------', this.state.currentPost)
   }
+
+
+  makePost = () =>{
+    console.log('make post function called', this.state.userID)
+
+    axios.post(`${url}/api/users/${this.state.userID}/posts`, this.state.currentPost)
+    .then(
+      console.log('MADE POST')
+    )
+  }
+
+
   render() {
 
     console.log('in profile')
@@ -84,7 +97,7 @@ class UserProfile extends Component {
               <p className="profile-text">About: {this.state.ownerBio}</p>
               <p className="profile-text">City: {this.state.city}</p>
               <p className="profile-text">Age: {this.state.ownerAge}</p>
-              <p className="profile-text">IMAGE</p>
+
             </div>
           </div>
           {/* FEED SECTION */}

@@ -67,7 +67,7 @@ class UniqueUser extends Component {
               <p className="profile-text">About: {this.state.ownerBio}</p>
               <p className="profile-text">City: {this.state.city}</p>
               <p className="profile-text">Age: {this.state.ownerAge}</p>
-              <p className="profile-text">IMAGE</p>
+
             </div>
           </div>
           <div className='col-9 map'>
