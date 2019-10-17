@@ -18,9 +18,15 @@ export default class Signup extends Component {
   }
 
   handleInputChange(event) {
+    if(event.target.name === 'city'){
+      console.log('changing cityyyyyyy')
+      this.setState({
+        [event.target.name]: event.target.value.toLowerCase()
+      })
+    }else{
     this.setState({
       [event.target.name]: event.target.value,
-    })
+    })}
   }
 
   handleClick(e) {
@@ -32,7 +38,7 @@ export default class Signup extends Component {
       ownerImage: this.state.ownerImage,
       ownerBio: this.state.ownerBio,
       ownerAge: this.state.ownerAge,
-      city: this.state.city,
+      city: this.state.city
     }
     api
       .signup(data)

@@ -38,9 +38,10 @@ class SendEmail extends Component {
 
   render() {
     return (
-      <div className="mail">
+      <div className="mail-div align-center">
         <form onSubmit={this.handleSubmit}>
           <input
+            id='subject-field'
             type="text"
             placeholder="subject"
             onChange={this.handleChange}
@@ -48,21 +49,23 @@ class SendEmail extends Component {
           />
           <br />
           <input
+          id='your-email-field'
             type="text"
-            placeholder="email"
+            placeholder="your e-mail"
             onChange={this.handleChange}
             name="email"
           />
           <br />
 
-          <input
+          <textarea
+          id='message-field'
             type="textarea"
             placeholder="message"
             onChange={this.handleChange}
             name="message"
           />
           <br />
-          <button>Send e-mail</button>
+          <button className='email-button'>Send e-mail</button>
         </form>
       </div>
     )

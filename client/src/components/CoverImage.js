@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 class CoverImage extends Component {
   render() {
+    
     return (
       <div className="cover-image">
         <div className="cover-image-content">
