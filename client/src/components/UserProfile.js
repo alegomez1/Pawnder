@@ -94,23 +94,22 @@ class UserProfile extends Component {
 
     axios.post(
       `${url}/api/users/${this.state.userID}/addPost`,
-      this.state.currentPost
+      {currentPost:this.state.currentPost}
     )
 
-    console.log(this.state.currentPost)
+    // console.log(this.state.currentPost)
 
     // console.log('asdasd')
 
-    let allPosts = this.state.posts
-    let newPost = this.state.currentPost
+    // let allPosts = this.state.posts
+    // let newPost = this.state.currentPost
 
-    console.log(allPosts)
+    // console.log(allPosts)
 
-    this.setState({
-      posts: allPosts.push(newPost),
-    })
-
-    console.log(this.state.posts)
+    // this.setState({
+    //   posts: allPosts.push(newPost),
+    // })
+    // console.log(this.state.posts)
     // .then(console.log('MADE POST'))
   }
 

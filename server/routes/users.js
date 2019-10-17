@@ -28,13 +28,28 @@ router.get('/:id/posts', async (req, res, next) => {
   res.json({ user })
 })
 
-router.post('/:id/addPost', async (req, res, next) => {
+router.post('/:id/addPost', (req, res, next) => {
+  console.log('REQ.BODY', req.body)
+  const newPost = req.body.currentPost
+  console.log(newPost)
   console.log('------POST ROUTE CALLED-------')
-  user = await User.find({ _id: `${req.params.id}` }).catch(err =>
-    console.error(err)
-  )
-  console.log(user)
-  res.json(user)
+  User.findByIdAndUpdate({_id: req.params.id}, {$push:{posts: newPost}})
+    .then(
+      results => {
+        console.log('RESULTS-=-=-=-=-=-=-', results)
+        // results.posts.push(newPost)
+        // console.log('NEW POST ARRAY-=-=-=-=-=-=-', results.posts)
+        // router.save(function(err){
+        //   console.log(err)
+        // })
+        res.json(results)
+      })
+
+    //   // console.log('found-----', user[0].posts),
+    //   // user[0].posts.push('TESTING'),
+    //   // console.log('NEW POST-----', user[0].posts),
+    // )
+    // .catch(err => console.error(err))
 })
 
 module.exports = router
