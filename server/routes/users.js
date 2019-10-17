@@ -30,10 +30,13 @@ router.get('/:id/posts', async (req, res, next) => {
 
 router.post('/:id/addPost', (req, res, next) => {
   console.log('REQ.BODY', req.body)
-  const newPost = req.body.currentPost
+  let newPost = req.body.currentPost
+  const today = new Date()
+  const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
   console.log(newPost)
   console.log('------POST ROUTE CALLED-------')
-  User.findByIdAndUpdate({_id: req.params.id}, {$push:{posts: newPost}})
+  User.findByIdAndUpdate({_id: req.params.id}, {$push:{posts: newPost+' '+date}})
     .then(
       results => {
         console.log('RESULTS-=-=-=-=-=-=-', results)

@@ -129,6 +129,7 @@ class UserProfile extends Component {
             <button className="post-button" onClick={this.handleSubmit}>
               Post!
             </button>
+            <h2>Posts by you</h2>
             <Feed userID={this.state.userID} posts={this.state.posts} />
           </div>
         </div>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
+import { Link } from 'react-router-dom'
+
 // import GoogleMaps from './GoogleMaps'
 // import { Link } from 'react-router-dom'
 import Feed from './Feed'
@@ -73,6 +75,10 @@ class UniqueUser extends Component {
               <p className="profile-text">Age: {this.state.ownerAge}</p>
 
             </div>
+            <Link to='/sendEmail'>
+            <button
+            className='email-button'
+            >Contact</button></Link>
           </div>
           <div className='col-9 map'>
 {/* FEED */}
