@@ -26,6 +26,7 @@ class UserProfile extends Component {
     city: '',
     posts: [],
     currentPost: '',
+    userID: ''
   }
   // Getting info from API
   async componentDidMount() {
@@ -40,6 +41,7 @@ class UserProfile extends Component {
         ownerName: response.data.user[0].ownerName,
         ownerAge: response.data.user[0].ownerAge,
         ownerBio: response.data.user[0].ownerBio,
+        userID: response.data.user[0]._id,
         city: response.data.user[0].city,
         dogImage: response.data.user[0].dogImage,
         dogName: response.data.user[0].dogName,
@@ -99,7 +101,7 @@ class UserProfile extends Component {
             >
               Post!
             </button>
-            <Feed/>
+            <Feed userID={this.state.userID}/>
 
 
 
