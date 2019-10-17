@@ -17,7 +17,7 @@ class Feed extends Component {
 
     // Getting info from API
      componentDidMount() {
-      setTimeout(() => {
+      setInterval(() => {
         axios.get(`${url}/api/users/${this.props.userID}`)
         .then(response=>{
           
@@ -26,7 +26,7 @@ class Feed extends Component {
             posts: response.data.user[0].posts
           })
         })
-      }, 2000);
+      }, 1000);
 
       // console.log('new propssssssss', this.props)
     }
@@ -46,7 +46,7 @@ class Feed extends Component {
 
     return (
       <div>
-        <h1>Here is the feed for {this.state.ownerName}</h1>
+        <h1>Your feed</h1>
         {this.displayPosts()}
       </div>
     )

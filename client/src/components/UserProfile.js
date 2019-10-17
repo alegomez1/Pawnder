@@ -86,36 +86,13 @@ class UserProfile extends Component {
   }
 
   makePost = () => {
-    console.log('hey we posting')
-    // console.log('make post function called', this.state.userID)
-
-    // this.state.posts.push(this.state.currentPost)
-    // console.log('state posts', this.state.posts)
-
     axios.post(
       `${url}/api/users/${this.state.userID}/addPost`,
       {currentPost:this.state.currentPost}
     )
-
-    // console.log(this.state.currentPost)
-
-    // console.log('asdasd')
-
-    // let allPosts = this.state.posts
-    // let newPost = this.state.currentPost
-
-    // console.log(allPosts)
-
-    // this.setState({
-    //   posts: allPosts.push(newPost),
-    // })
-    // console.log(this.state.posts)
-    // .then(console.log('MADE POST'))
   }
 
   render() {
-    // console.log('in profile')
-    // console.log('props=====', this.props)
     return (
       <div className="profile-div">
         <div className="row text-center">

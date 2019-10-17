@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import GoogleMaps from './GoogleMaps'
-import { Link } from 'react-router-dom'
+// import GoogleMaps from './GoogleMaps'
+// import { Link } from 'react-router-dom'
+import Feed from './Feed'
 
 
 const url = 'http://localhost:5000'
@@ -17,6 +18,8 @@ class UniqueUser extends Component {
     dogImage: '',
     dogAge: '',
     dogBio: '',
+    posts:[],
+    userID:''
   }
 
   componentDidMount() {
@@ -34,6 +37,7 @@ class UniqueUser extends Component {
           dogName: response.data.user[0].dogName,
           dogAge: response.data.user[0].dogAge,
           dogBio: response.data.user[0].dogBio,
+          userID: response.data.user[0]._id
         })
       })
       .catch(err => console.log(err))
@@ -71,7 +75,8 @@ class UniqueUser extends Component {
             </div>
           </div>
           <div className='col-9 map'>
-      {/* <GoogleMaps/> */}
+{/* FEED */}
+<Feed userID={this.state.userID} posts={this.state.posts} />
           </div>
         </div>
       </div>
