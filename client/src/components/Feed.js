@@ -29,6 +29,18 @@ class Feed extends Component {
       }, 2000);
     }
 
+    displayPosts = () =>{
+      let allPosts = this.state.posts.map((eachPost, i)=>{
+        console.log(eachPost)
+        return(
+          <h3 key={i}>{eachPost}</h3>
+        )
+      })
+      return allPosts
+   
+      
+    }
+
 
   render () {
 
@@ -37,6 +49,7 @@ class Feed extends Component {
     return (
       <div>
         <h1>Here is the feed for {this.state.ownerName}</h1>
+        {this.displayPosts()}
       </div>
     )
   }
