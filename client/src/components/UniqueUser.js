@@ -71,7 +71,7 @@ class UniqueUser extends Component {
             </div>
           </div>
           <div className='col-9 map'>
-      <GoogleMaps/>
+      {/* <GoogleMaps/> */}
           </div>
         </div>
       </div>

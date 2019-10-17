@@ -29,7 +29,10 @@ export class GoogleMaps extends Component {
     }
   }
   render() {
+    console.log('in map')
     return (
+      <div>
+      <h1 className='align-center'>Places to hang out in Miami</h1>
       <Map
         google={this.props.google}
         zoom={14}
@@ -52,6 +55,7 @@ export class GoogleMaps extends Component {
           </div>
         </InfoWindow>
       </Map>
+      </div>
     )
   }
 }

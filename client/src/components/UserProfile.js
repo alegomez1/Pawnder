@@ -69,8 +69,9 @@ class UserProfile extends Component {
               <p className="profile-text">IMAGE</p>
             </div>
           </div>
+          {/* FEED SECTION */}
           <div className='col-9 map'>
-      <GoogleMaps/>
+
           </div>
         </div>
       </div>
