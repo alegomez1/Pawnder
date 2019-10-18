@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 // import { NavLink } from 'react-router-dom'
 import api from '../api'
-import GoogleMaps from './GoogleMaps'
 import Feed from './Feed'
 import axios from 'axios'
-// import AddPet from './AddPet'
-// import Home from './Home'
-// import Axios from 'axios'
 
 // const url = 'http://localhost:5000'
 const url = 'https://pawnderapp.herokuapp.com'

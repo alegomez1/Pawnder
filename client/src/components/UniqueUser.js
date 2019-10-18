@@ -45,7 +45,7 @@ class UniqueUser extends Component {
   }
   render() {
     return (
-   <div className="profile-div">
+      <div className="profile-div">
         <div className="row text-center">
           <div className="col-3 profile-col">
             <div className="margin-div align-center">
@@ -71,22 +71,20 @@ class UniqueUser extends Component {
           </div>
           {/* FEED SECTION */}
           <div className="col-9 feed">
-            <div className='post-div'>
-            <h2 id="post-header-unique">{this.state.ownerName}'s Posts</h2>
-            <div className='feed-comp-div-unique'>
-            <Feed userID={this.state.userID} posts={this.state.posts} />
+            <div className="post-div">
+              <h2 id="post-header-unique">{this.state.ownerName}'s Posts</h2>
+
+              <div className="feed-comp-div-unique">
+                <Feed userID={this.state.userID} posts={this.state.posts} />
+              </div>
+              <Link to="/sendEmail">
+                <button className="email-button">Contact</button>
+              </Link>
             </div>
           </div>
-          </div>
-
         </div>
       </div>
     )
   }
 }
 export default UniqueUser
-
-
-// <Link to="/sendEmail">
-// <button className="email-button">Contact</button>
-// </Link>
