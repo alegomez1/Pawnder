@@ -207,11 +207,12 @@ class Search extends Component {
               <i className="fa fa-search"></i>
             </button>
             <input
+            className='sort-activity'
               type="checkbox"
               name="sort"
               onChange={this.changeButton}
             ></input>
-            <label>Sort by activity</label>
+            <label id='sort-activity-label'>Sort by activity</label>
             {/* {this.search} */}
           </span>
         </div>

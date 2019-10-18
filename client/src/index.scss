@@ -481,9 +481,31 @@ margin-top: 15px;
   margin-bottom: 2px;
   color: #288333;
 }
-// .map{
-//   margin-right: 20px;
-// }
+.search-button{
+  height: 44px;
+  width: 50px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  color: #288333;
+}
+.search-button:hover{
+  height: 44px;
+  width: 50px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  background-color: #dfdfdf;
+}
+.sort-activity{
+  margin-top: 13px;
+  margin-left: 10px;
+}
+#sort-activity-label{
+  margin-left: 10px;
+  margin-top: 8px;
+}
+
 .map-text{
   color: black;
 }
