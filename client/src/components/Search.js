@@ -256,6 +256,24 @@ class Search extends Component {
     this.search()
   }
 
+  filterActivity = e => {
+    this.setState({
+      sortActivity: !e.target.checked,
+      sortName: false,
+    })
+    console.log('name:',this.state.sortName, 'activity:',this.state.sortActivity)
+    this.search()
+  }
+
+  filterName = e => {
+    this.setState({
+      sortName: !e.target.checked,
+      sortActivity: false,
+    })
+    console.log('name:',this.state.sortName, 'activity:',this.state.sortActivity)
+    this.search()
+  }
+
   render() {
     return (
       <div className="search-div">
@@ -280,7 +298,7 @@ class Search extends Component {
               className="sort-activity"
               type="checkbox"
               name="sortActivity"
-              onChange={this.changeButton}
+              onChange={this.filterActivity}
             ></input>
             <label id="sort-activity-label">Sort by activity</label>
             {/* Filter by name */}
@@ -288,7 +306,7 @@ class Search extends Component {
               className="sort-activity"
               type="checkbox"
               name="sortName"
-              onChange={this.changeButton}
+              onChange={this.filterName}
             ></input>
             <label id="sort-activity-label">Sort by name</label>
 
