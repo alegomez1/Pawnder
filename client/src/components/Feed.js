@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-// const url = 'http://localhost:5000'
-const url = 'https://pawnderapp.herokuapp.com'
+const url = 'http://localhost:5000'
+// const url = 'https://pawnderapp.herokuapp.com'
 
 class Feed extends Component {
 

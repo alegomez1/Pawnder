@@ -14,8 +14,8 @@ import NewSignup from './NewSignup'
 import SendEmail from './SendEmail'
 import GoogleMaps from './GoogleMaps'
 
-// const url = 'http://localhost:5000'
-const url = 'https://pawnderapp.herokuapp.com'
+const url = 'http://localhost:5000'
+// const url = 'https://pawnderapp.herokuapp.com'
 
 // Components
 

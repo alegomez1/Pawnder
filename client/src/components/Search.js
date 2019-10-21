@@ -8,8 +8,8 @@ import size1 from './images/dogSize1.png'
 import size2 from './images/dogSize2.png'
 import size3 from './images/dogSize3.png'
 
-// const url = 'http://localhost:5000'
-const url = 'https://pawnderapp.herokuapp.com'
+const url = 'http://localhost:5000'
+// const url = 'https://pawnderapp.herokuapp.com'
 
 class Search extends Component {
   state = {
