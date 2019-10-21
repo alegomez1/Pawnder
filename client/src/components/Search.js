@@ -16,7 +16,7 @@ class Search extends Component {
     sortActivity: false,
     sortName: false,
     numberOfResults: '',
-    sort: 'activity',
+    sort: '',
     search: '',
     results: [],
     actualResults: [],
@@ -41,11 +41,11 @@ class Search extends Component {
     })
     this.displayUsers()
   }
-  sortByActivity = () => {
-    return this.state.actualResults.sort(
-      (a, b) => a.dogActivityLevel - b.dogActivityLevel
-    )
-  }
+  // sortByActivity = () => {
+  //   return this.state.actualResults.sort(
+  //     (a, b) => a.dogActivityLevel - b.dogActivityLevel
+  //   )
+  // }
   sortByName = () => {
     return this.state.actualResults.sort(
       (a,b) => {
@@ -57,7 +57,7 @@ class Search extends Component {
     }
     )
   }
-  reverseSortByActivity = () => {
+  sortByActivity = () => {
     return this.state.actualResults.sort(
       (a, b) => b.dogActivityLevel - a.dogActivityLevel
     )
@@ -180,63 +180,63 @@ class Search extends Component {
     }
 
     //If nothing is checked
-    // else {
-    //   displayedResults = this.state.actualResults.map((eachUser, i) => {
-    //     console.log('FALSE SO NOTTTTT SORTING BY ACTIVITY')
+    else {
+      displayedResults = this.state.actualResults.map((eachUser, i) => {
+        console.log('FALSE SO NOTTTTT SORTING BY ACTIVITY')
 
-    //     if (eachUser.dogActivityLevel === 1) {
-    //       eachUser.tennis = tennis
-    //     } else if (eachUser.dogActivityLevel === 2) {
-    //       eachUser.tennis = tennis2
-    //     } else if (eachUser.dogActivityLevel === 3) {
-    //       eachUser.tennis = tennis3
-    //     }
-    //     if (eachUser.dogSize === 'Small') {
-    //       eachUser.dogSize = size1
-    //     } else if (eachUser.dogSize === 'Medium') {
-    //       eachUser.dogSize = size2
-    //     } else if (eachUser.dogSize === 'Large') {
-    //       eachUser.dogSize = size3
-    //     }
-    //     return (
-    //       <React.Fragment key={i}>
-    //         <Link to={`/user/${eachUser._id}`}>
-    //           <div className="row search-result">
-    //             <div className="col no-padding">
-    //               <img
-    //                 className="search-result-image"
-    //                 src={eachUser.dogImage}
-    //                 alt="each dog"
-    //               />
-    //             </div>
-    //             <div className="col testcol">
-    //               <h4 className="search-name">{eachUser.dogName}</h4>
-    //               <p className="search-bio">{eachUser.dogBio}</p>
-    //               <div className="row tennis-balls-row">
-    //                 <div className="col">
-    //                   {/* <p>Activity: </p> */}
-    //                   <img
-    //                     className="tennis-balls"
-    //                     src={eachUser.tennis}
-    //                     alt="tennis"
-    //                   ></img>
-    //                 </div>
-    //                 {/* <p>Size: </p> */}
-    //                 <div className="col size-div">
-    //                   <img
-    //                     className="dog-size"
-    //                     src={eachUser.dogSize}
-    //                     alt="size"
-    //                   ></img>
-    //                 </div>
-    //               </div>
-    //             </div>
-    //           </div>
-    //         </Link>
-    //       </React.Fragment>
-    //     )
-    //   })
-    // }
+        if (eachUser.dogActivityLevel === 1) {
+          eachUser.tennis = tennis
+        } else if (eachUser.dogActivityLevel === 2) {
+          eachUser.tennis = tennis2
+        } else if (eachUser.dogActivityLevel === 3) {
+          eachUser.tennis = tennis3
+        }
+        if (eachUser.dogSize === 'Small') {
+          eachUser.dogSize = size1
+        } else if (eachUser.dogSize === 'Medium') {
+          eachUser.dogSize = size2
+        } else if (eachUser.dogSize === 'Large') {
+          eachUser.dogSize = size3
+        }
+        return (
+          <React.Fragment key={i}>
+            <Link to={`/user/${eachUser._id}`}>
+              <div className="row search-result">
+                <div className="col no-padding">
+                  <img
+                    className="search-result-image"
+                    src={eachUser.dogImage}
+                    alt="each dog"
+                  />
+                </div>
+                <div className="col testcol">
+                  <h4 className="search-name">{eachUser.dogName}</h4>
+                  <p className="search-bio">{eachUser.dogBio}</p>
+                  <div className="row tennis-balls-row">
+                    <div className="col">
+                      {/* <p>Activity: </p> */}
+                      <img
+                        className="tennis-balls"
+                        src={eachUser.tennis}
+                        alt="tennis"
+                      ></img>
+                    </div>
+                    {/* <p>Size: </p> */}
+                    <div className="col size-div">
+                      <img
+                        className="dog-size"
+                        src={eachUser.dogSize}
+                        alt="size"
+                      ></img>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </React.Fragment>
+        )
+      })
+    }
 
     return displayedResults
   }
