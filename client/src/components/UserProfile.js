@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
 // import { NavLink } from 'react-router-dom'
 import api from '../api'
-import GoogleMaps from './GoogleMaps'
 import Feed from './Feed'
 import axios from 'axios'
-// import AddPet from './AddPet'
-// import Home from './Home'
-// import Axios from 'axios'
 
 const url = 'http://localhost:5000'
 // const url = 'https://pawnderapp.herokuapp.com'
@@ -120,6 +116,7 @@ class UserProfile extends Component {
           </div>
           {/* FEED SECTION */}
           <div className="col-9 feed">
+            <div className='post-div'>
             <input
               className="feed-input"
               placeholder="Make a post"
@@ -129,9 +126,13 @@ class UserProfile extends Component {
             <button className="post-button" onClick={this.handleSubmit}>
               Post!
             </button>
-            <h2>Posts by you</h2>
+            <h2 id="post-header">Posts by you</h2>
+            <div className='feed-comp-div'>
             <Feed userID={this.state.userID} posts={this.state.posts} />
+            </div>
           </div>
+          </div>
+
         </div>
       </div>
     )

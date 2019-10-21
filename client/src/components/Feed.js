@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import api from '../api'
 
 const url = 'http://localhost:5000'
 // const url = 'https://pawnderapp.herokuapp.com'
@@ -14,28 +13,32 @@ class Feed extends Component {
     posts: this.props.posts
   }
 
-
     // Getting info from API
      componentDidMount() {
       setInterval(() => {
         axios.get(`${url}/api/users/${this.props.userID}`)
         .then(response=>{
-          
-          // console.log('feed axios response-----', response)
           this.setState({
             posts: response.data.user[0].posts
           })
         })
       }, 1000);
+    }
 
-      // console.log('new propssssssss', this.props)
+    sortByActivity = () => {
+      return this.state.posts.sort(
+        (a, b) => a - b
+      )
     }
 
     displayPosts = () =>{
-      let allPosts = this.state.posts.map((eachPost, i)=>{
-        // console.log(eachPost)
+      let reverse = this.state.posts.map((_, idx, arr) => arr[arr.length - 1 - idx ]);
+
+      let allPosts = reverse.map((eachPost, i)=>{
         return(
-          <p key={i}>{eachPost}</p>
+          <div key={i} className='feed-post'>
+          <p className='feed-paragraph'>{eachPost}</p>
+          </div>
         )
       })
       return allPosts
