@@ -13,11 +13,12 @@ const url = 'http://localhost:5000'
 
 class Search extends Component {
   state = {
+    sortActivity: false,
+    sortName: false,
     numberOfResults: '',
     search: '',
     results: [],
     actualResults: [],
-    sort: true,
   }
   search = async () => {
     // Axios.get(`${url}/api/city/${this.state.search}`).then(
@@ -44,6 +45,17 @@ class Search extends Component {
       (a, b) => a.dogActivityLevel - b.dogActivityLevel
     )
   }
+  sortByName = () => {
+    return this.state.actualResults.sort(
+      (a,b) => {
+        if(a.dogName > b.dogName){
+        return 1
+      }else{
+        return -1
+      }
+    }
+    )
+  }
   reverseSortByActivity = () => {
     return this.state.actualResults.sort(
       (a, b) => b.dogActivityLevel - a.dogActivityLevel
@@ -51,7 +63,7 @@ class Search extends Component {
   }
   displayUsers = () => {
     let displayedResults
-    if (this.state.sort === true) {
+    if (this.state.sortActivity === true) {
       console.log('TRUE SO SORTING BY ACTIVITY')
       displayedResults = this.sortByActivity().map((eachUser, i) => {
         if (eachUser.dogActivityLevel === 1) {
@@ -80,9 +92,7 @@ class Search extends Component {
                   />
                 </div>
                 <div className="col testcol">
-                  <h4 className="search-name">
-                    {eachUser.dogName}
-                  </h4>
+                  <h4 className="search-name">{eachUser.dogName}</h4>
                   <p className="search-bio">{eachUser.dogBio}</p>
                   <div className="row tennis-balls-row">
                     <div className="col">
@@ -108,8 +118,69 @@ class Search extends Component {
           </React.Fragment>
         )
       })
-    } else {
-      displayedResults = this.reverseSortByActivity().map((eachUser, i) => {
+    }
+
+    // Filter by name
+   else if (this.state.sortName === true) {
+      console.log('TRUE SO SORTING BY NAME')
+      displayedResults = this.sortByName().map((eachUser, i) => {
+        if (eachUser.dogActivityLevel === 1) {
+          eachUser.tennis = tennis
+        } else if (eachUser.dogActivityLevel === 2) {
+          eachUser.tennis = tennis2
+        } else if (eachUser.dogActivityLevel === 3) {
+          eachUser.tennis = tennis3
+        }
+        if (eachUser.dogSize === 'Small') {
+          eachUser.dogSize = size1
+        } else if (eachUser.dogSize === 'Medium') {
+          eachUser.dogSize = size2
+        } else if (eachUser.dogSize === 'Large') {
+          eachUser.dogSize = size3
+        }
+        return (
+          <React.Fragment key={i}>
+            <Link to={`/user/${eachUser._id}`}>
+              <div className="row search-result">
+                <div className="col no-padding">
+                  <img
+                    className="search-result-image"
+                    src={eachUser.dogImage}
+                    alt="each dog"
+                  />
+                </div>
+                <div className="col testcol">
+                  <h4 className="search-name">{eachUser.dogName}</h4>
+                  <p className="search-bio">{eachUser.dogBio}</p>
+                  <div className="row tennis-balls-row">
+                    <div className="col">
+                      {/* <p>Activity: </p> */}
+                      <img
+                        className="tennis-balls"
+                        src={eachUser.tennis}
+                        alt="tennis"
+                      ></img>
+                    </div>
+                    {/* <p>Size: </p> */}
+                    <div className="col size-div">
+                      <img
+                        className="dog-size"
+                        src={eachUser.dogSize}
+                        alt="size"
+                      ></img>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </React.Fragment>
+        )
+      })
+    }
+
+    //If nothing is checked
+    else {
+      displayedResults = this.state.actualResults.map((eachUser, i) => {
         console.log('FALSE SO NOTTTTT SORTING BY ACTIVITY')
 
         if (eachUser.dogActivityLevel === 1) {
@@ -138,9 +209,7 @@ class Search extends Component {
                   />
                 </div>
                 <div className="col testcol">
-                  <h4 className="search-name">
-                    {eachUser.dogName}
-                  </h4>
+                  <h4 className="search-name">{eachUser.dogName}</h4>
                   <p className="search-bio">{eachUser.dogBio}</p>
                   <div className="row tennis-balls-row">
                     <div className="col">
@@ -183,7 +252,7 @@ class Search extends Component {
     this.setState({
       [e.target.name]: !e.target.checked,
     })
-    console.log(this.state)
+    console.log('changing button', this.state)
     this.search()
   }
 
@@ -206,13 +275,23 @@ class Search extends Component {
             >
               <i className="fa fa-search"></i>
             </button>
+            {/* Filter by activity */}
             <input
-            className='sort-activity'
+              className="sort-activity"
               type="checkbox"
-              name="sort"
+              name="sortActivity"
               onChange={this.changeButton}
             ></input>
-            <label id='sort-activity-label'>Sort by activity</label>
+            <label id="sort-activity-label">Sort by activity</label>
+            {/* Filter by name */}
+            <input
+              className="sort-activity"
+              type="checkbox"
+              name="sortName"
+              onChange={this.changeButton}
+            ></input>
+            <label id="sort-activity-label">Sort by name</label>
+
             {/* {this.search} */}
           </span>
         </div>
