@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import api from '../api'
 import Progress from './Progress'
-import tennis from '../components/images/tennisballs1.png'
+// import tennis from '../components/images/tennisballs1.png'
+import breeds from '../breeds.json'
 
 class NewSignup extends Component {
   constructor(props) {
@@ -22,10 +23,26 @@ class NewSignup extends Component {
       dogSize: '',
       dogActivityLevel: '',
       level: '',
+      breeds: breeds,
+      dogBreed: '',
 
       currentStage: 0,
     }
     this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleDogBreed = this.handleDogBreed.bind(this)
+
+  }
+  
+  componentDidMount(){
+    this.popualteBreeds()
+  }
+  // Populate Breed Select Tag
+  popualteBreeds = () =>{
+    console.log('func')
+    var breedSelectTag = document.getElementById('breed-select')
+    for(let i=0; i<breeds.length; i++){
+      breedSelectTag.options[breedSelectTag.options.length] = new Option(breeds[i], i);
+    }
   }
   //Uploading images
   uploadOwnerImage = async e => {
@@ -70,6 +87,16 @@ class NewSignup extends Component {
       [event.target.name]: event.target.value,
     })
     this.convertActivityToNumbers()
+    console.log('current state->', this.state)
+  }
+  // Sets dog breed
+  handleDogBreed(event) {
+    let breed = breeds[event.target.value]
+    console.log('breed:', breed)
+    this.setState({
+      [event.target.name]:breed
+    })
+    // this.convertActivityToNumbers()
     console.log('current state->', this.state)
   }
 
@@ -289,6 +316,11 @@ class NewSignup extends Component {
             placeholder="Name"
             onChange={this.handleInputChange}
           />
+          {/* Breed selector */}
+          <select id='breed-select' name='dogBreed' onChange={this.handleDogBreed}></select>
+
+
+
           <input
             className="form-input"
             type="text"
@@ -399,11 +431,13 @@ class NewSignup extends Component {
   render() {
     console.log('currentstate======', this.state)
     if (this.state.currentStage === 0) {
-      return this.usernameAndPassword()
+      return this.dogInfo()
+
     } else if (this.state.currentStage === 1) {
       return this.ownerInfo()
     } else if (this.state.currentStage === 2) {
-      return this.dogInfo()
+      return this.usernameAndPassword()
+
     }
   }
 }

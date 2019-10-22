@@ -120,7 +120,6 @@ class Search extends Component {
         )
       })
     }
-
     // Filter by name
    else if (this.state.sort === 'name') {
       console.log('TRUE SO SORTING BY NAME')
@@ -178,12 +177,9 @@ class Search extends Component {
         )
       })
     }
-
     //If nothing is checked
     else {
       displayedResults = this.state.actualResults.map((eachUser, i) => {
-        console.log('FALSE SO NOTTTTT SORTING BY ACTIVITY')
-
         if (eachUser.dogActivityLevel === 1) {
           eachUser.tennis = tennis
         } else if (eachUser.dogActivityLevel === 2) {
