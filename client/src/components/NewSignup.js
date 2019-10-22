@@ -319,8 +319,6 @@ class NewSignup extends Component {
           {/* Breed selector */}
           <select id='breed-select' name='dogBreed' onChange={this.handleDogBreed}></select>
 
-
-
           <input
             className="form-input"
             type="text"
@@ -412,7 +410,6 @@ class NewSignup extends Component {
           </div>
 
           
-
           <div className="button-div">
             <button
               className="form-button-2"
@@ -431,13 +428,11 @@ class NewSignup extends Component {
   render() {
     console.log('currentstate======', this.state)
     if (this.state.currentStage === 0) {
-      return this.dogInfo()
-
+      return this.usernameAndPassword()
     } else if (this.state.currentStage === 1) {
       return this.ownerInfo()
     } else if (this.state.currentStage === 2) {
-      return this.usernameAndPassword()
-
+      return this.dogInfo()
     }
   }
 }

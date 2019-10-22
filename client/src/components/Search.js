@@ -46,10 +46,10 @@ class Search extends Component {
   //     (a, b) => a.dogActivityLevel - b.dogActivityLevel
   //   )
   // }
-  sortByName = () => {
+  sortByBreed = () => {
     return this.state.actualResults.sort(
       (a,b) => {
-        if(a.dogName > b.dogName){
+        if(a.dogBreed > b.dogBreed){
         return 1
       }else{
         return -1
@@ -93,7 +93,7 @@ class Search extends Component {
                   />
                 </div>
                 <div className="col testcol">
-                  <h4 className="search-name">{eachUser.dogName}</h4>
+           <h5 className="search-name">{eachUser.dogName}({eachUser.dogBreed})</h5>
                   <p className="search-bio">{eachUser.dogBio}</p>
                   <div className="row tennis-balls-row">
                     <div className="col">
@@ -122,8 +122,8 @@ class Search extends Component {
     }
     // Filter by name
    else if (this.state.sort === 'name') {
-      console.log('TRUE SO SORTING BY NAME')
-      displayedResults = this.sortByName().map((eachUser, i) => {
+      console.log('TRUE SO SORTING BY BREED')
+      displayedResults = this.sortByBreed().map((eachUser, i) => {
         if (eachUser.dogActivityLevel === 1) {
           eachUser.tennis = tennis
         } else if (eachUser.dogActivityLevel === 2) {
@@ -150,7 +150,7 @@ class Search extends Component {
                   />
                 </div>
                 <div className="col testcol">
-                  <h4 className="search-name">{eachUser.dogName}</h4>
+                <h5 className="search-name">{eachUser.dogName}({eachUser.dogBreed})</h5>
                   <p className="search-bio">{eachUser.dogBio}</p>
                   <div className="row tennis-balls-row">
                     <div className="col">
@@ -206,7 +206,7 @@ class Search extends Component {
                   />
                 </div>
                 <div className="col testcol">
-                  <h4 className="search-name">{eachUser.dogName}</h4>
+           <h5 className="search-name">{eachUser.dogName} ({eachUser.dogBreed})</h5>
                   <p className="search-bio">{eachUser.dogBio}</p>
                   <div className="row tennis-balls-row">
                     <div className="col">
@@ -308,7 +308,7 @@ class Search extends Component {
               value="name"
               onChange={this.changeButton}
             ></input>
-            <label id="sort-activity-label">Sort by name</label>
+            <label id="sort-activity-label">Sort by breed</label>
 
             {/* {this.search} */}
           </span>
