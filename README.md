@@ -7,3 +7,7 @@
 - create an account
 - search for your city
 - connect with people who you think might be good matches
+
+
+##### Created by
+[Alejandro Gomez](linkedin.com/alegomez1996)
