@@ -32,14 +32,13 @@ class NewSignup extends Component {
     this.handleDogBreed = this.handleDogBreed.bind(this)
 
   }
-  
-  componentDidMount(){
-    this.popualteBreeds()
-  }
+  // componentDidMount(){
+  //   this.populateBreeds()
+  // }
   // Populate Breed Select Tag
-  popualteBreeds = () =>{
+  populateBreeds = () =>{
     console.log('func')
-    var breedSelectTag = document.getElementById('breed-select')
+    let breedSelectTag = document.getElementById('breed-select')
     for(let i=0; i<breeds.length; i++){
       breedSelectTag.options[breedSelectTag.options.length] = new Option(breeds[i], i);
     }
@@ -185,6 +184,15 @@ class NewSignup extends Component {
     console.log('New stage:', this.state.currentStage)
   }
 
+  incrementCurrentStage2 = async () => {
+   await this.setState(state => ({
+      currentStage: state.currentStage + 1,
+    }))
+    console.log('Current state', this.state)
+    console.log('New stage:', this.state.currentStage)
+    this.populateBreeds()
+  }
+
   decrementCurrentStage = () => {
     this.setState(state => ({
       currentStage: state.currentStage - 1,
@@ -292,7 +300,7 @@ class NewSignup extends Component {
             </button>
             <button
               className="form-button"
-              onClick={this.incrementCurrentStage}
+              onClick={this.incrementCurrentStage2}
             >
               Next
             </button>
@@ -409,7 +417,6 @@ class NewSignup extends Component {
             />
           </div>
 
-          
           <div className="button-div">
             <button
               className="form-button-2"
