@@ -17,7 +17,8 @@ const userSchema = new Schema(
     dogSize: String,
     dogActivityLevel: Number,
     level: String,
-    posts: Array
+    posts: Array,
+    dogBreed: String,
   },
   {
     timestamps: {

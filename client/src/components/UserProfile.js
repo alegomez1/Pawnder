@@ -13,6 +13,7 @@ class UserProfile extends Component {
     dogName: '',
     dogBio: '',
     dogAge: '',
+    dogBreed:'',
     dogActivities: '',
     ownerImage: '',
     ownerName: '',
@@ -44,6 +45,7 @@ class UserProfile extends Component {
           dogName: response.data.user[0].dogName,
           dogAge: response.data.user[0].dogAge,
           dogBio: response.data.user[0].dogBio,
+          dogBreed: response.data.user[0].dogBreed,
         })
       })
       .catch(err => console.log(err))
@@ -102,6 +104,7 @@ class UserProfile extends Component {
               <h4 className="profile-header">{this.state.dogName}</h4>
               <p className="profile-text">About: {this.state.dogBio}</p>
               <p className="profile-text">Age: {this.state.dogAge}</p>
+              <p className="profile-text">Breed: {this.state.dogBreed}</p>
 
               <img
                 className="profile-dog-image"

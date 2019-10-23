@@ -19,6 +19,7 @@ class UniqueUser extends Component {
     dogImage: '',
     dogAge: '',
     dogBio: '',
+    dogBreed:'',
     posts: [],
     userID: '',
   }
@@ -38,6 +39,7 @@ class UniqueUser extends Component {
           dogName: response.data.user[0].dogName,
           dogAge: response.data.user[0].dogAge,
           dogBio: response.data.user[0].dogBio,
+          dogBreed: response.data.user[0].dogBreed,
           userID: response.data.user[0]._id,
         })
       })
@@ -57,6 +59,7 @@ class UniqueUser extends Component {
               <h4 className="profile-header">{this.state.dogName}</h4>
               <p className="profile-text">About: {this.state.dogBio}</p>
               <p className="profile-text">Age: {this.state.dogAge}</p>
+              <p className="profile-text">Breed: {this.state.dogBreed}</p>
 
               <img
                 className="profile-dog-image"
