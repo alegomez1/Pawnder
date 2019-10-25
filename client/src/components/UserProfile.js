@@ -33,7 +33,7 @@ class UserProfile extends Component {
     axios
       .get(`${url}/api/users/${id}`)
       .then(response => {
-        // console.log('axios response------', response)
+        console.log('axios response------', response)
         this.setState({
           ownerImage: response.data.user[0].ownerImage,
           ownerName: response.data.user[0].ownerName,
@@ -49,6 +49,8 @@ class UserProfile extends Component {
         })
       })
       .catch(err => console.log(err))
+
+
   }
 
   handleSubmit = e => {
