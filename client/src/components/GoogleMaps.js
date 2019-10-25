@@ -32,7 +32,7 @@ export class GoogleMaps extends Component {
     console.log('in map')
     return (
       <div>
-      <h1 className='align-center'>Places to hang out in Miami</h1>
+      <h1 className='align-center'>Dog friendly places in Miami</h1>
       <Map
         google={this.props.google}
         zoom={14}
