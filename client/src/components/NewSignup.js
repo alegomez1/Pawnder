@@ -163,6 +163,7 @@ class NewSignup extends Component {
       dogBio: this.state.dogBio,
       dogAge: this.state.dogAge,
       dogSize: this.state.dogSize,
+      dogBreed: this.state.dogBreed,
       dogActivityLevel: this.state.dogActivityLevel,
       level: this.state.level
     }
