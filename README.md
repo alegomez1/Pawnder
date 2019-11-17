@@ -31,6 +31,9 @@ Pawnder was created so dog owners can each other and set up playdates. Dog parks
 ## 💻 Demo <a name="demos"/>
 Live demo - http://pawnderapp.herokuapp.com/
 
+
+![](SearchDemo.gif)<br/>
+
 ## 🛠 Setup <a name="setup"/>
 
 ### Installation
